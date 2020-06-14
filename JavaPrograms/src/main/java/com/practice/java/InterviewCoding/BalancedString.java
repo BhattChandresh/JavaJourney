@@ -14,10 +14,10 @@
 package com.practice.java.InterviewCoding;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 public class BalancedString {
-    static Map<Character,Character> map = new HashMap<Character,Character>();
-
+    static Map<Character,Character>  map = new HashMap<Character, Character>();
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
@@ -28,35 +28,111 @@ public class BalancedString {
 
     static void balanceOrUnbalanced(String input) {
         boolean isBalanced = false;
-        char [] c = input.toCharArray();
-        for(int index=0;index<c.length;index++) {
-            Character symbol = map.get(c[index]);
-            if((index > 0) && (isBalanced == false)){
-                System.out.println("Unbalanced");
+        input = input.trim();
+        Predicate<String> p = (s-> s.length() % 2 == 0);
+        if(!(p.test(input))) {
+            System.out.println("String is unbalanced because no of characters are not even , " + input.trim().length() );
+            return;
+        }
+
+        Character[] original = new Character[input.length()];
+        Character[] result = new Character[input.length()];
+
+        for(int i=0;i < original.length;i++) {
+            original[i] = input.charAt(i);
+        }
+
+        for(int i=0;i < original.length;i++) {
+            result[i] = map.get(original[i]);
+        }
+        Arrays.sort(original);
+        Arrays.sort(result);
+
+        for(int i=0;i<original.length;i++) {
+            if(original[i].equals(result[i]))
+                isBalanced = true;
+            else{
+                isBalanced = false;
                 break;
             }
-            for(int index1=0;index1<c.length;index1++) {
-//                System.out.println(symbol + " = " + c[index1]);
-                if(symbol.equals(c[index1])) {
-                    isBalanced = true;
-                    break;
-                }
-            }
         }
-        if(isBalanced == true)
-            System.out.println("Balanced");
+
+        if(isBalanced)
+            System.out.println("String is Balanced");
         else
-            System.out.println("Unbalanced");
+            System.out.println("String is Unbalanced");
+
     }
 
     static void prepareLookup() {
-        map.put('[',']');
-        map.put(']','[');
-        map.put('{','}');
-        map.put('}','{');
         map.put('(',')');
         map.put(')','(');
         map.put('<','>');
         map.put('>','<');
+        map.put('[',']');
+        map.put(']','[');
+        map.put('{','}');
+        map.put('}','{');
     }
 }
+
+
+
+
+
+
+
+/* BELOW SOLUTION WAS PARTIALLY CORRECT */
+
+//public class BalancedString {
+//    static Map<Character,Character> map = new HashMap<Character,Character>();
+//
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        String input = sc.nextLine();
+//        sc.close();
+//        prepareLookup();
+//        balanceOrUnbalanced(input);
+//    }
+//
+//    static void balanceOrUnbalanced(String input) {
+//
+//        input = input.trim();
+//        Predicate<String> p = (s-> s.length() % 2 == 0);
+//        if(!(p.test(input))) {
+//            System.out.println("String is unbalanced because no of characters are not even" + input.trim().length() );
+//        }
+//
+//        boolean isBalanced = false;
+//        char [] c = input.toCharArray();
+//        for(int index=0;index<c.length;index++) {
+//            Character symbol = map.get(c[index]);
+//            if((index > 0) && (isBalanced == false)){
+//                System.out.println("Unbalanced");
+//                break;
+//            }
+//            for(int index1=0;index1<c.length;index1++) {
+//                System.out.println(symbol + " = " + c[index1]);
+//                if(symbol.equals(c[index1])) {
+//                    isBalanced = true;
+//                    break;
+//                }
+//            }
+//        }
+//        if(isBalanced == true)
+//            System.out.println("Balanced");
+//        else
+//            System.out.println("Unbalanced");
+//    }
+//
+//    static void prepareLookup() {
+//        map.put('[',']');
+//        map.put(']','[');
+//        map.put('{','}');
+//        map.put('}','{');
+//        map.put('(',')');
+//        map.put(')','(');
+//        map.put('<','>');
+//        map.put('>','<');
+//    }
+//}

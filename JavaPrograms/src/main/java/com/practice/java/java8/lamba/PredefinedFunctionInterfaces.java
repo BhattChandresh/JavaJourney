@@ -9,6 +9,7 @@
  */
 package com.practice.java.java8.lamba;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -40,6 +41,10 @@ public class PredefinedFunctionInterfaces {
         Function<Integer,Integer> f2 = i -> i*i;
         System.out.println(f2.apply(50));
         System.out.println(f2.apply(100));
+
+        /* Consumer Demo */
+        Consumer<String> c1 = s  -> System.out.println(s);
+        c1.accept("Java-8");
 
     }
  }
