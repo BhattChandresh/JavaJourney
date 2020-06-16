@@ -3,14 +3,19 @@ package com.practice.java.mypractice;
 import java.util.HashMap;
 import java.util.Map;
 
+// TODO : NEED TO IMPROV E THE PROGRAM M. WILL DO IT LATER.
+
 public class ReverseStrWithOutSpecialChar {
     public static void main(String[] args) {
-        String str = "abc$dfh%";
-        String result = reverse(str);
-        System.out.println(str);
-        System.out.println(result);
+        String str1 = "abc$dfh%";
+        String result1 = reverse_Method1(str1);
+        String result2 = reverse_Method2(str1);
+        System.out.println(str1);
+        System.out.println(result1 + ", " + result2);
     }
-    static String reverse(String s) {
+
+    // Method-1
+    static String reverse_Method1(String s) {
         char[] c = s.toCharArray();
         char[] c1 = new char[c.length];
         Map<Integer,Character> m1 = new HashMap<Integer,Character>();
@@ -30,5 +35,25 @@ public class ReverseStrWithOutSpecialChar {
             sb1 = sb1.insert((int) entry.getKey(), (char) entry.getValue());
         }
         return sb1.toString();
+    }
+
+    // Method-2
+    static String reverse_Method2(String str){
+        char[] c = str.toCharArray();
+        int right = str.length()-1, left = 0;
+        while(left  < right) {
+            if(!Character.isAlphabetic(c[left]))
+                left++;
+            else if(!Character.isAlphabetic(c[right]))
+                right--;
+            else {
+                char tmp = c[left];
+                c[left] = c[right];
+                c[right] = tmp;
+                left++;
+                right--;
+            }
+        }
+        return null;
     }
 }
