@@ -17,13 +17,15 @@ package com.practice.java.CodingInterview.Technogise;
 public class ChessBoardSimulation {
     // isDebug flag is used for testing purpose, if isDebug = true all the test cases are executed else none are executed.
     static boolean isDebug = false;
+    static final int MAX_BOUND = 7;
+    static final  int MIN_BOUND =0;
     public static void main(String[] args) {
 
         System.out.println(" *** Welcome to Chess Board Simulation ***");
 
         ChessBoard cb = new ChessBoard();
         UserInput uinput = new UserInput();
-        PiecePositions move = new PiecePositions();
+        Piece p = null;
 
         if(isDebug)
             cb.testInitializationOfChessBoard();
@@ -39,7 +41,10 @@ public class ChessBoardSimulation {
         }
 
         try {
-            move.setPieceAndItsPosition(uinput.getPiece(), uinput.getPosition());
+            //move.setPieceAndItsPosition(uinput.getPiece(), uinput.getPosition());
+            if(uinput.getPiece().equals("KING"))
+                p = new King(uinput.getPiece(), uinput.getPosition());
+                p.getPossibleMoves();
         } catch(Exception e) {
             System.out.println(e.getStackTrace());
         }

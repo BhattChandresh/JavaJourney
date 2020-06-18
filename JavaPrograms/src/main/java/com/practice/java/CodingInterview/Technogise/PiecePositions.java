@@ -16,10 +16,10 @@ public class PiecePositions {
             Pawn pawn = new Pawn();
             pawn.getAllPossibleCellNumbers(getRow(position),getColumn(position));
         }
-        else if(piece.equals("KING")) {
-            King king = new King();
-            king.getAllPossibleCellNumbers(getRow(position),getColumn(position));
-        }
+//        else if(piece.equals("KING")) {
+//            King king = new King();
+//            king.getAllPossibleCellNumbers(getRow(position),getColumn(position));
+//        }
         else if(piece.equals("ROOK")) {
             Rook rook = new Rook();
             rook.getAllPossibleCellNumbers(getRow(position),getColumn(position));
@@ -114,17 +114,17 @@ public class PiecePositions {
     }
 
     // Method for King positions
-    public void getKingPositions(int x, int y, List newPositions) {
-        int newX, newY = 0;
-        int[] possiblePositions = {x,y-1,  x,y+1, x-1,y, x+1,y, x-1,y-1, x+1,y+1, x-1,y+1, x+1,y-1};
-        for (int index = 0; index < possiblePositions.length; index = index + 2) {
-            newX = possiblePositions[index];
-            newY = possiblePositions[index + 1];
-            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
-                newPositions.add(Integer.toString(newX) + Integer.toString(newY));
-            }
-        }
-    }
+//    public void getKingPositions(int x, int y, List newPositions) {
+//        int newX, newY = 0;
+//        int[] possiblePositions = {x,y-1,  x,y+1, x-1,y, x+1,y, x-1,y-1, x+1,y+1, x-1,y+1, x+1,y-1};
+//        for (int index = 0; index < possiblePositions.length; index = index + 2) {
+//            newX = possiblePositions[index];
+//            newY = possiblePositions[index + 1];
+//            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
+//                newPositions.add(Integer.toString(newX) + Integer.toString(newY));
+//            }
+//        }
+//    }
 
     // Methods for Bishop and Queen positions
     public void getDiagonalTopRightPositions(int x, int y, List newPositions) {
@@ -188,78 +188,3 @@ public class PiecePositions {
     }
 }
 
-//class Pawn extends PiecePositions {
-//    public void getAllPossibleCellNumbers(int row, int column) {
-//        int x = row;
-//        int y = column;
-//        if(x == 7){
-//            System.out.println("Can't place pawn from A1 to A8");
-//            return;
-//        }
-//        x = x-1;
-//        if(x < 0) {
-//            System.out.println("Can't move further, reach the end of board");
-//            return;
-//        }
-//        displayAllPositions(x,y);
-//    }
-//}
-
-//class King extends PiecePositions {
-//    public void getAllPossibleCellNumbers(int row, int column) {
-//        int x = row;
-//        int y = column;
-//        List<String> newPositions = new ArrayList<String>();
-//        getKingPositions(x,y,newPositions);
-//        displayAllPositions(newPositions);
-//    }
-//}
-
-//class Rook extends PiecePositions {
-//    public void getAllPossibleCellNumbers(int row, int column) {
-//        String position = Integer.toString(row) + Integer.toString(column);
-//        List<String> newPositions = new ArrayList<String>();
-//        int x = row;
-//        int y = column;
-//        getRookPositions(x,y,newPositions,position);
-//        displayAllPositions(newPositions);
-//    }
-//}
-
-//class Bishop extends PiecePositions {
-//    public void getAllPossibleCellNumbers(int row, int column) {
-//        List<String> newPositions = new ArrayList<String>();
-//        int x = row;
-//        int y = column;
-//        getDiagonalTopRightPositions(x,y,newPositions);
-//        getDiagonalBottomLeftPositions(x,y,newPositions);
-//        getDiagonalBottomRightPositions(x,y,newPositions);
-//        getDiagonalTopLeftPositions(x,y,newPositions);
-//        displayAllPositions(newPositions);
-//    }
-//}
-
-//class Horse extends PiecePositions {
-//    public void getAllPossibleCellNumbers(int row, int column) {
-//        List<String> newPositions = new ArrayList<String>();
-//        int x = row;
-//        int y = column;
-//        getHorsePositions(x,y, newPositions);
-//        displayAllPositions(newPositions);
-//    }
-//}
-
-//class Queen extends PiecePositions {
-//    public void getAllPossibleCellNumbers(int row, int column) {
-//        String position = Integer.toString(row) + Integer.toString(column);
-//        List<String> newPositions = new ArrayList<String>();
-//        int x = row;
-//        int y = column;
-//        getRookPositions(x,y,newPositions,position);
-//        getDiagonalTopRightPositions(x,y,newPositions);
-//        getDiagonalBottomLeftPositions(x,y,newPositions);
-//        getDiagonalBottomRightPositions(x,y,newPositions);
-//        getDiagonalTopLeftPositions(x,y,newPositions);
-//        displayAllPositions(newPositions);
-//    }
-//}
