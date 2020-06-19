@@ -42,10 +42,15 @@ public class ChessBoardSimulation {
 
         try {
             //move.setPieceAndItsPosition(uinput.getPiece(), uinput.getPosition());
-            if(uinput.getPiece().equals("KING"))
+            if(uinput.getPiece().equals("KING")) {
                 p = new King(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
-        } catch(Exception e) {
+            }
+            else if(uinput.getPiece().equals("PAWN")) {
+                p = new Pawn(uinput.getPiece(), uinput.getPosition());
+                p.getPossibleMoves();
+            }
+         } catch(Exception e) {
             System.out.println(e.getStackTrace());
         }
     }
