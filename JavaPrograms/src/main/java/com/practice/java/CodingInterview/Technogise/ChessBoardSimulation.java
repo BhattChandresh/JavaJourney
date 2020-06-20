@@ -17,8 +17,8 @@ package com.practice.java.CodingInterview.Technogise;
 public class ChessBoardSimulation {
     // isDebug flag is used for testing purpose, if isDebug = true all the test cases are executed else none are executed.
     static boolean isDebug = false;
-    static final int MAX_BOUND = 7;
-    static final  int MIN_BOUND =0;
+    static final int MAX_BOUND  = 7;
+    static final  int MIN_BOUND  = 0;
     public static void main(String[] args) {
 
         System.out.println(" *** Welcome to Chess Board Simulation ***");
@@ -41,13 +41,28 @@ public class ChessBoardSimulation {
         }
 
         try {
-            //move.setPieceAndItsPosition(uinput.getPiece(), uinput.getPosition());
             if(uinput.getPiece().equals("KING")) {
                 p = new King(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
             }
             else if(uinput.getPiece().equals("PAWN")) {
                 p = new Pawn(uinput.getPiece(), uinput.getPosition());
+                p.getPossibleMoves();
+            }
+            else if(uinput.getPiece().equals("BISHOP")) {
+                p = new Bishop(uinput.getPiece(), uinput.getPosition());
+                p.getPossibleMoves();
+            }
+            else if(uinput.getPiece().equals("HORSE")) {
+                p = new Horse(uinput.getPiece(), uinput.getPosition());
+                p.getPossibleMoves();
+            }
+            else if(uinput.getPiece().equals("QUEEN")) {
+                p = new Queen(uinput.getPiece(), uinput.getPosition());
+                p.getPossibleMoves();
+            }
+            else if(uinput.getPiece().equals("ROOK")) {
+                p = new Rook(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
             }
          } catch(Exception e) {

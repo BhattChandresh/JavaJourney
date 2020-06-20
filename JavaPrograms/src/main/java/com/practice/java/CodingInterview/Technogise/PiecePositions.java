@@ -12,30 +12,30 @@ import java.util.List;
 
 public class PiecePositions {
     public void setPieceAndItsPosition(String piece, String position) {
-        if(piece.equals("PAWN")) {
-            Pawn pawn = new Pawn();
-            pawn.getAllPossibleCellNumbers(getRow(position),getColumn(position));
-        }
+//        if(piece.equals("PAWN")) {
+//            Pawn pawn = new Pawn();
+//            pawn.getAllPossibleCellNumbers(getRow(position),getColumn(position));
+//        }
 //        else if(piece.equals("KING")) {
 //            King king = new King();
 //            king.getAllPossibleCellNumbers(getRow(position),getColumn(position));
 //        }
-        else if(piece.equals("ROOK")) {
-            Rook rook = new Rook();
-            rook.getAllPossibleCellNumbers(getRow(position),getColumn(position));
-        }
-        else if(piece.equals("BISHOP")) {
-            Bishop bishop = new Bishop();
-            bishop.getAllPossibleCellNumbers(getRow(position),getColumn(position));
-        }
-        else if(piece.equals("HORSE")) {
-            Horse horse = new Horse();
-            horse.getAllPossibleCellNumbers(getRow(position),getColumn(position));
-        }
-        else if(piece.equals("QUEEN")) {
-            Queen queen = new Queen();
-            queen.getAllPossibleCellNumbers(getRow(position),getColumn(position));
-        }
+//        if(piece.equals("ROOK")) {
+//            Rook rook = new Rook();
+//            rook.getAllPossibleCellNumbers(getRow(position),getColumn(position));
+//        }
+//        if(piece.equals("BISHOP")) {
+//            Bishop bishop = new Bishop();
+//            bishop.getAllPossibleCellNumbers(getRow(position),getColumn(position));
+//        }
+//        if(piece.equals("HORSE")) {
+//            Horse horse = new Horse();
+//            horse.getAllPossibleCellNumbers(getRow(position),getColumn(position));
+//        }
+//        if(piece.equals("QUEEN")) {
+//            Queen queen = new Queen();
+//            queen.getAllPossibleCellNumbers(getRow(position),getColumn(position));
+//        }
     }
 
     public int getRow(String position) {
@@ -66,52 +66,52 @@ public class PiecePositions {
     }
 
     // Method for Horse positions
-    public void getHorsePositions(int x, int y, List newPositions) {
-        int newX, newY = 0;
-        for(int index=0;index<4;index++) {
-            newX = x;
-            newY = y;
-            if(index == 0){
-                newX = newX-2;
-                newY = newY-1;
-                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
-                    newPositions.add(getNewPossiblePosition(newX,newY));
-                }
-            } else if(index == 1) {
-                newX = newX-2;
-                newY = newY+1;
-                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
-                    newPositions.add(getNewPossiblePosition(newX,newY));
-                }
-            } else if(index == 2) {
-                newX = newX+2;
-                newY = newY-1;
-                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
-                    newPositions.add(getNewPossiblePosition(newX,newY));
-                }
-            } else if(index== 3){
-                newX = newX+2;
-                newY = newY+1;
-                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
-                    newPositions.add(getNewPossiblePosition(newX,newY));
-                }
-            }
-        }
-    }
+//    public void getHorsePositions(int x, int y, List newPositions) {
+//        int newX, newY = 0;
+//        for(int index=0;index<4;index++) {
+//            newX = x;
+//            newY = y;
+//            if(index == 0) {
+//                newX = newX-2;
+//                newY = newY-1;
+//                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
+//                    newPositions.add(getNewPossiblePosition(newX,newY));
+//                }
+//            } else if(index == 1) {
+//                newX = newX-2;
+//                newY = newY+1;
+//                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
+//                    newPositions.add(getNewPossiblePosition(newX,newY));
+//                }
+//            } else if(index == 2) {
+//                newX = newX+2;
+//                newY = newY-1;
+//                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
+//                    newPositions.add(getNewPossiblePosition(newX,newY));
+//                }
+//            } else if(index== 3){
+//                newX = newX+2;
+//                newY = newY+1;
+//                if(!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))){
+//                    newPositions.add(getNewPossiblePosition(newX,newY));
+//                }
+//            }
+//        }
+//    }
 
     // Method for Rook positions
-    public void getRookPositions(int x, int y, List newPositions, String position) {
-        int newX, newY = 0;
-        int[] possiblePositions = {x,0, x,1, x,2, x,3, x,4, x,5, x,6, x,7, 0,y, 1,y, 2,y, 3,y, 4,y, 5,y, 6,y, 7,y};
-        for (int index = 0; index < possiblePositions.length; index = index + 2) {
-            newX = possiblePositions[index];
-            newY = possiblePositions[index + 1];
-            String element = Integer.toString(newX) + Integer.toString(newY);
-            if(element.equals(position))
-                continue;
-            newPositions.add(element);
-        }
-    }
+//    public void getRookPositions(int x, int y, List newPositions, String position) {
+//        int newX, newY = 0;
+//        int[] possiblePositions = {x,0, x,1, x,2, x,3, x,4, x,5, x,6, x,7, 0,y, 1,y, 2,y, 3,y, 4,y, 5,y, 6,y, 7,y};
+//        for (int index = 0; index < possiblePositions.length; index = index + 2) {
+//            newX = possiblePositions[index];
+//            newY = possiblePositions[index + 1];
+//            String element = Integer.toString(newX) + Integer.toString(newY);
+//            if(element.equals(position))
+//                continue;
+//            newPositions.add(element);
+//        }
+//    }
 
     // Method for King positions
 //    public void getKingPositions(int x, int y, List newPositions) {
@@ -127,64 +127,64 @@ public class PiecePositions {
 //    }
 
     // Methods for Bishop and Queen positions
-    public void getDiagonalTopRightPositions(int x, int y, List newPositions) {
-        int newX, newY = 0;
-        newX = x;
-        newY = y;
-        while(true) {
-            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
-                newX -= 1;
-                newY +=1;
-                if((newX < 0) || (newY > 7))
-                    break;
-                newPositions.add(getNewPossiblePosition(newX,newY));
-            }
-        }
-    }
-
-    public void getDiagonalBottomLeftPositions(int x, int y, List newPositions) {
-        int newX, newY = 0;
-        newX = x;
-        newY = y;
-        while(true) {
-            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
-                newX += 1;
-                newY -=1;
-                if((newX > 7) || (newY < 0))
-                    break;
-                newPositions.add(getNewPossiblePosition(newX,newY));
-            }
-        }
-    }
-
-    public void getDiagonalBottomRightPositions(int x, int y, List newPositions) {
-        int newX, newY = 0;
-        newX = x;
-        newY = y;
-        while(true) {
-            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
-                newX += 1;
-                newY +=1;
-                if((newX > 7) || (newY > 7))
-                    break;
-                newPositions.add(getNewPossiblePosition(newX,newY));
-            }
-        }
-    }
-
-    public void getDiagonalTopLeftPositions(int x, int y, List newPositions) {
-        int newX, newY = 0;
-        newX = x;
-        newY = y;
-        while(true) {
-            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
-                newX -= 1;
-                newY -=1;
-                if((newX < 0) || (newY < 0))
-                    break;
-                newPositions.add(getNewPossiblePosition(newX,newY));
-            }
-        }
-    }
+//    public void getDiagonalTopRightPositions(int x, int y, List newPositions) {
+//        int newX, newY = 0;
+//        newX = x;
+//        newY = y;
+//        while(true) {
+//            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
+//                newX -= 1;
+//                newY +=1;
+//                if((newX < 0) || (newY > 7))
+//                    break;
+//                newPositions.add(getNewPossiblePosition(newX,newY));
+//            }
+//        }
+//    }
+//
+//    public void getDiagonalBottomLeftPositions(int x, int y, List newPositions) {
+//        int newX, newY = 0;
+//        newX = x;
+//        newY = y;
+//        while(true) {
+//            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
+//                newX += 1;
+//                newY -=1;
+//                if((newX > 7) || (newY < 0))
+//                    break;
+//                newPositions.add(getNewPossiblePosition(newX,newY));
+//            }
+//        }
+//    }
+//
+//    public void getDiagonalBottomRightPositions(int x, int y, List newPositions) {
+//        int newX, newY = 0;
+//        newX = x;
+//        newY = y;
+//        while(true) {
+//            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
+//                newX += 1;
+//                newY +=1;
+//                if((newX > 7) || (newY > 7))
+//                    break;
+//                newPositions.add(getNewPossiblePosition(newX,newY));
+//            }
+//        }
+//    }
+//
+//    public void getDiagonalTopLeftPositions(int x, int y, List newPositions) {
+//        int newX, newY = 0;
+//        newX = x;
+//        newY = y;
+//        while(true) {
+//            if (!((newX < 0 || newX > 7) || (newY < 0 || newY > 7))) {
+//                newX -= 1;
+//                newY -=1;
+//                if((newX < 0) || (newY < 0))
+//                    break;
+//                newPositions.add(getNewPossiblePosition(newX,newY));
+//            }
+//        }
+//    }
 }
 
