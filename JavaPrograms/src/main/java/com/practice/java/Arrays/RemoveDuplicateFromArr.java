@@ -1,7 +1,7 @@
 /**
  * Remove the Duplicate element from an Array.
  */
-package com.practice.java.mypractice;
+package com.practice.java.Arrays;
 
 import java.util.*;
 

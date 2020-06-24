@@ -1,4 +1,4 @@
-package com.practice.java.mypractice;
+package com.practice.java.Arrays;
 
 public class ReverseIntArray {
     public static void main(String[] args) {
