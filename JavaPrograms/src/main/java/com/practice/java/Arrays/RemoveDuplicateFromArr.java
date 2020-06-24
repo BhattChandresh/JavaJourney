@@ -18,7 +18,8 @@ public class RemoveDuplicateFromArr {
     }
 
     static void removeDuplicatesFromArray(int[] arr) {
-        Set<Integer> s1 = new HashSet<Integer>();
+        // Here LinkedHashSet is being used because it maintains the insertion order.
+        Set<Integer> s1 = new LinkedHashSet<>();
         for(int i=0;i<arr.length;i++) {
             s1.add(arr[i]);
         }
