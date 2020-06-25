@@ -9,10 +9,12 @@
  */
 package com.practice.java.java8.lamba;
 
+import com.practice.java.Author;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+@Author("Chandresh Bhatt")
 public class PredefinedFunctionInterfaces {
     public static void main(String[] args) {
         /* Predicate Demo */

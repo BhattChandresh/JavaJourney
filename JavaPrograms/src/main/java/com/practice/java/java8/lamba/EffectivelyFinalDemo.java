@@ -1,5 +1,8 @@
 package com.practice.java.java8.lamba;
 
+import com.practice.java.Author;
+
+@Author("Chandresh Bhatt")
 public class EffectivelyFinalDemo {
     int x = 15;
     public void m2() {

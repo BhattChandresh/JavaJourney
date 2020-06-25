@@ -3,8 +3,10 @@
  */
 package com.practice.java.Arrays;
 
+import com.practice.java.Author;
 import java.util.*;
 
+@Author("Chandresh Bhatt")
 public class RemoveDuplicateFromArr {
     public static void main(String[] args) {
         int[] arr1 = {4,3,2,4,9,2};

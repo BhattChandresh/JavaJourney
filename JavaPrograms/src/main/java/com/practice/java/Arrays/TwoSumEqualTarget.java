@@ -7,6 +7,9 @@
  */
 package com.practice.java.Arrays;
 
+import com.practice.java.Author;
+
+@Author("Chandresh Bhatt")
 public class TwoSumEqualTarget {
     public static void main(String... args) {
 //        int[] arr1 = {1,2,4,5,6};

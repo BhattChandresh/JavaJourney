@@ -1,5 +1,8 @@
 package com.practice.java.Arrays;
 
+import com.practice.java.Author;
+
+@Author("Chandresh Bhatt")
 public class ReverseIntArray {
     public static void main(String[] args) {
         reverseArray(new int[]{4, 5, 8, 9, 10});

@@ -6,8 +6,10 @@
  */
 package com.practice.java.Arrays;
 
+import com.practice.java.Author;
 import java.util.Arrays;
 
+@Author("Chandresh Bhatt")
 public class MinMaxValue {
     public static void main(String... args) {
         int[][] arr1 = {
