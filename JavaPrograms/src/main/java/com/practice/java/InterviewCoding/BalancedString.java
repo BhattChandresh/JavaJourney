@@ -13,9 +13,11 @@
  */
 package com.practice.java.InterviewCoding;
 
+import com.practice.java.Author;
 import java.util.*;
 import java.util.function.Predicate;
 
+@Author("Chandresh Bhatt")
 public class BalancedString {
     static Map<Character,Character>  map = new HashMap<Character, Character>();
     public static void main(String[] args) {

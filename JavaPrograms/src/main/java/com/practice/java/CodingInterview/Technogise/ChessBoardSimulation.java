@@ -14,6 +14,9 @@
  */
 package com.practice.java.CodingInterview.Technogise;
 
+import com.practice.java.Author;
+
+@Author("Chandresh Bhatt")
 public class ChessBoardSimulation {
     // isDebug flag is used for testing purpose, if isDebug = true all the test cases are executed else none are executed.
     static boolean isDebug = false;

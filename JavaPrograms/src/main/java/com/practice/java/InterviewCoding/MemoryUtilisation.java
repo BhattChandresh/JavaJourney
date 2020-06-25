@@ -5,8 +5,10 @@
  */
 package com.practice.java.InterviewCoding;
 
+import com.practice.java.Author;
 import java.util.ArrayList;
 
+@Author("Chandresh Bhatt")
 public class MemoryUtilisation {
     private static final int MegaBytes = 1024*1024;
     public static void main(String[] args) {
