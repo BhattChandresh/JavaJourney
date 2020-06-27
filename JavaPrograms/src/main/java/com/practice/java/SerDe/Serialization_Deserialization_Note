@@ -1,0 +1,11 @@
+# ObjectOutStream converts the Java Object to BInary data.
+# FileOutStream convert the Binary data of Java object to File.
+# Same is true for ObjectInputStream and FileInputStream.
+# We need to implement 'Serializable' interface for the class which we want to serialization.
+# We can serialize and deserialize any number of object but the order in which we serialize then
+     in the same order we need to deserialize the objects.
+# transient is a modifier which is applied to variable only.
+# static variable is not taking part in serialization.
+# transient variable will take part in serialization but because it is constant direct value will be stored in file.
+# 'Serializable' interface present in java.io.* package.
+# When we serialize the object then set of all objects which are reachable from that object will be serialized automatically. This group of object is nothing but the Object Graph.
