@@ -42,11 +42,9 @@ public class BalancedString {
 
         for(int i=0;i < original.length;i++) {
             original[i] = input.charAt(i);
-        }
-
-        for(int i=0;i < original.length;i++) {
             result[i] = map.get(original[i]);
         }
+
         Arrays.sort(original);
         Arrays.sort(result);
 
@@ -58,12 +56,10 @@ public class BalancedString {
                 break;
             }
         }
-
         if(isBalanced)
             System.out.println("String is Balanced");
         else
             System.out.println("String is Unbalanced");
-
     }
 
     static void prepareLookup() {

@@ -19,11 +19,11 @@ public class BinarySearchDemo {
          */
         int[] arr = {3, 11, 21, 29, 41, 54, 61, 78, 110, 127};
         int value = 110;
-        int result = BinarySearch(arr, value);
+        int result = binarySearch(arr, value);
         System.out.println("Index of the element is :" + result);
     }
 
-    static int BinarySearch(int[] arr, int value) {
+    static int binarySearch(int[] arr, int value) {
         // 1. Find the range / length of the array.
         int head = 0;
         int tail = arr.length - 1;
