@@ -1,11 +1,10 @@
 package com.practice.java.InterviewCoding;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.practice.java.Author;
 
+@Author("Chandresh Bhatt")
 public class MatricsAllRowToZero {
-    static List<Integer> list = new ArrayList<Integer>();
-//    static int[][] matrics = {
+  //    static int[][] matrics = {
 //            {12, 0, 34, 45, 89, 8},
 //            {1, 23, 56, 78, 9, 1},
 //            {23, 1, 8, 0, 76, 3},

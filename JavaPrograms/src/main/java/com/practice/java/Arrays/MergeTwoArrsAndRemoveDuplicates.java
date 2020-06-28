@@ -5,9 +5,11 @@
  */
 package com.practice.java.Arrays;
 
+import com.practice.java.Author;
 import java.util.ArrayList;
 import java.util.List;
 
+@Author("Chandresh Bhatt")
 public class MergeTwoArrsAndRemoveDuplicates {
     public static void main(String[] args) {
         int[] source1 = {1, 4, 5, 9, 10, 3};
