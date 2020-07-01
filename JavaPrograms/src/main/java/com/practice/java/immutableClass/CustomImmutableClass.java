@@ -13,6 +13,5 @@ public class CustomImmutableClass {
         System.out.println();
         System.out.println("ic1 == ic2 : ");
         System.out.print(ic1 == ic2);
-
     }
 }
