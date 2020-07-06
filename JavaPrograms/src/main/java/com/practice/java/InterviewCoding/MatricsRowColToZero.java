@@ -8,7 +8,7 @@ import java.util.List;
 @Author("Chandresh Bhatt")
 public class MatricsRowColToZero {
 //      static int[][] matrics = {
-//            {12, 0, 34, 45, 89, 8},
+//            {12, 1, 34, 45, 0, 8},
 //            {1, 23, 56, 78, 9, 1},
 //            {23, 1, 8, 0, 76, 3},
 //            {45, 0, 78, 24, 56, 81},
@@ -33,7 +33,7 @@ public class MatricsRowColToZero {
     static void printTheMatrics(int[][] matrics) {
         for(int row=0; row < matrics.length;row++) {
             System.out.println();
-            for(int col=0;col < matrics.length;col++) {
+            for(int col=0;col < matrics[row].length;col++) {
                 System.out.print(matrics[row][col] + " ");
             }
         }
@@ -41,11 +41,11 @@ public class MatricsRowColToZero {
 
     static void makeAllRowValZero(int[][] matrics) {
         for (int row = 0; row < matrics.length; row++) {
-           for (int col = 0; col < matrics.length; col++) {
+           for (int col = 0; col < matrics[row].length; col++) {
                 if (matrics[row][col] == 0) {
                     if(!(list.contains(col)))
                         list.add(col);
-                    convertRowValueToZero(row, matrics.length);
+                    convertRowValueToZero(row, matrics[row].length);
                  break;
                 }
             }
@@ -78,7 +78,7 @@ public class MatricsRowColToZero {
         System.out.println("Result is : ");
         for(int row=0;row < matrics.length;row++) {
             System.out.println();
-            for(int col=0;col < matrics.length;col++) {
+            for(int col=0;col < matrics[row].length;col++) {
                 System.out.print(matrics[row][col] + " ");
             }
         }
