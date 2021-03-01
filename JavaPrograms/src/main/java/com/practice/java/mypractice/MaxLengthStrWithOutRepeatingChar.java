@@ -20,29 +20,29 @@ public class MaxLengthStrWithOutRepeatingChar {
         String result = "";
         boolean isDuplicate = false;
         char[] c = s.toCharArray();
-        for(int i=0; i < c.length;i++) {
+        for (int i = 0; i < c.length; i++) {
             isDuplicate = set.add(c[i]);
-            if(!isDuplicate) {
+            if (!isDuplicate) {
                 tail = i;
-                String internal = s.substring(head,tail);
-                if(internal.charAt(0) == internal.charAt(1))
-                    internal = internal.substring(1,internal.length());
+                String internal = s.substring(head, tail);
+                if (internal.charAt(0) == internal.charAt(1))
+                    internal = internal.substring(1, internal.length());
                 result = result + internal + ",";
                 head = tail - 1;
-                i = tail -1;
+                i = tail - 1;
                 set.clear();
             }
         }
-        if(!set.isEmpty()) {
-            String internal = s.substring(head,s.length());
-            if(internal.charAt(0) == internal.charAt(1))
-                internal = internal.substring(1,internal.length());
+        if (!set.isEmpty()) {
+            String internal = s.substring(head, s.length());
+            if (internal.charAt(0) == internal.charAt(1))
+                internal = internal.substring(1, internal.length());
             result = result + internal;
         }
         String[] str = result.split(",");
         int length = 0;
-        for(int i=0; i < str.length;i++) {
-           System.out.println("String = " + str[i] + ", Length =" + str[i].length() );
+        for (int i = 0; i < str.length; i++) {
+            System.out.println("String = " + str[i] + ", Length =" + str[i].length());
         }
     }
 }

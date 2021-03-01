@@ -1,5 +1,5 @@
 /**
- *  AUTHOR : Chandresh Bhatt
+ * AUTHOR : Chandresh Bhatt
  * Cracking the Coding Interview.
  * Check Permutation: Given two strings, write a method to decide if one is a permutation of the
  * other.
@@ -17,7 +17,7 @@ public class StringPermutation {
         System.out.println("Enter second string:");
         String str2 = sc.nextLine();
         sc.close();
-        permutationString(str1,str2);
+        permutationString(str1, str2);
     }
 
     static void permutationString(String testStr1, String testStr2) {
@@ -27,7 +27,7 @@ public class StringPermutation {
         // are not equal then Safely we can say that no permuation relation between the two
         int len1 = testStr1.length();
         int len2 = testStr2.length();
-        if(len1 != len2){
+        if (len1 != len2) {
             System.out.println("$ Given Strings have not permutation relationship");
             return;
         }
@@ -37,13 +37,13 @@ public class StringPermutation {
         Arrays.sort(c1);
         Arrays.sort(c2);
 
-        for(int index=0;index < c1.length;index++) {
-            if(c1[index] != c2[index]) {
+        for (int index = 0; index < c1.length; index++) {
+            if (c1[index] != c2[index]) {
                 isPermutation = false;
                 break;
             }
         }
-        if(isPermutation)
+        if (isPermutation)
             System.out.println("# Given Strings have permutation relationship");
         else
             System.out.println("$ Given Strings have not permutation relationship");

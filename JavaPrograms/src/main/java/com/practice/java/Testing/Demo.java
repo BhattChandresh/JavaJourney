@@ -1,27 +1,28 @@
 package com.practice.java.Testing;
 
 public class Demo {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         //String s = "ssssssssaaaauuuuuuuuugxxjjaaa";
-         String s = "ttttyyyyruzgnnnbb";
+        String s = "ttttyyyyruzgnnnbb";
         countChars(s);
     }
+
     static void countChars(String s) {
-         String result = "";
-         String subStr = "";
-         int head = 0;
-         int tail = 0;
-         for(int i=0; i < s.length()-1;i++) {
-             if(s.charAt(i) != s.charAt(i+1)) {
-                 tail = i ;
-                 subStr = s.substring(head,tail+1);
-                 head = tail+1;
-                 result = result + subStr.length() + subStr.charAt(0);
-                 subStr = "";
-             }
-         }
-         String last = s.substring(head,s.length());
-         result = result + last.length()+ last.charAt(0);
+        String result = "";
+        String subStr = "";
+        int head = 0;
+        int tail = 0;
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) != s.charAt(i + 1)) {
+                tail = i;
+                subStr = s.substring(head, tail + 1);
+                head = tail + 1;
+                result = result + subStr.length() + subStr.charAt(0);
+                subStr = "";
+            }
+        }
+        String last = s.substring(head, s.length());
+        result = result + last.length() + last.charAt(0);
         System.out.println(result);
     }
 }

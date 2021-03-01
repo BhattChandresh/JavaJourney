@@ -6,7 +6,7 @@ public class ReverseInteger {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         long input = scan.nextLong();
-        scan   .close();
+        scan.close();
         long result = reverse(input);
         System.out.println("Reversed Integer is : " + result);
     }
@@ -20,14 +20,14 @@ public class ReverseInteger {
             x = Math.abs(x);
         }
         String str = Long.toString(x);
-        int power = str.length()-1;
-        for(int index =0;index < str.length();index++ ) {
+        int power = str.length() - 1;
+        for (int index = 0; index < str.length(); index++) {
             m = x % 10;
             x = x / 10;
-            result = result + (m * (long) Math.pow(10,power));
+            result = result + (m * (long) Math.pow(10, power));
             power -= 1;
         }
-        if(isNegative) {
+        if (isNegative) {
             result = -result;
             isNegative = false;
         }

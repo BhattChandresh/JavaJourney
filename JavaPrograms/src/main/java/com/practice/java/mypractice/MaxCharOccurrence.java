@@ -1,5 +1,5 @@
 /**
- *  Problem Statement:
+ * Problem Statement:
  * How to Count Occurrences of a Character in String
  */
 package com.practice.java.mypractice;
@@ -15,14 +15,14 @@ public class MaxCharOccurrence {
 
     public static void maxCharOccurance(String str) {
         int value = 1;
-        HashMap<Character,Integer> m = new HashMap<Character,Integer>();
+        HashMap<Character, Integer> m = new HashMap<Character, Integer>();
         char[] c = str.toCharArray();
-        for(int i=0;i < c.length;i++){
-            if(m.containsKey(c[i])) {
+        for (int i = 0; i < c.length; i++) {
+            if (m.containsKey(c[i])) {
                 value = m.get(c[i]);
-                m.put(c[i], value+1);
+                m.put(c[i], value + 1);
             } else {
-                m.put(c[i],1);
+                m.put(c[i], 1);
             }
         }
         System.out.println(m);

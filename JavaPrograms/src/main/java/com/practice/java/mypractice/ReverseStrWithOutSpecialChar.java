@@ -18,8 +18,8 @@ public class ReverseStrWithOutSpecialChar {
     static String reverse_Method1(String s) {
         char[] c = s.toCharArray();
         char[] c1 = new char[c.length];
-        Map<Integer,Character> m1 = new HashMap<Integer,Character>();
-        for(int i=0;i< c.length;i++) {
+        Map<Integer, Character> m1 = new HashMap<Integer, Character>();
+        for (int i = 0; i < c.length; i++) {
             if (!((c[i] >= 65 && c[i] <= 90) || (c[i] >= 97 && c[i] <= 122)))
                 m1.put(i, c[i]);
         }
@@ -31,20 +31,20 @@ public class ReverseStrWithOutSpecialChar {
         String s2 = s1.replaceAll("[^a-zA-z]", "");
         StringBuilder sb1 = new StringBuilder(s2);
 
-        for(Map.Entry entry:m1.entrySet()){
+        for (Map.Entry entry : m1.entrySet()) {
             sb1 = sb1.insert((int) entry.getKey(), (char) entry.getValue());
         }
         return sb1.toString();
     }
 
     // Method-2
-    static String reverse_Method2(String str){
+    static String reverse_Method2(String str) {
         char[] c = str.toCharArray();
-        int right = str.length()-1, left = 0;
-        while(left  < right) {
-            if(!Character.isAlphabetic(c[left]))
+        int right = str.length() - 1, left = 0;
+        while (left < right) {
+            if (!Character.isAlphabetic(c[left]))
                 left++;
-            else if(!Character.isAlphabetic(c[right]))
+            else if (!Character.isAlphabetic(c[right]))
                 right--;
             else {
                 char tmp = c[left];

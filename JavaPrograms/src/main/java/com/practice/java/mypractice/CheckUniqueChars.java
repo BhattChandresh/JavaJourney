@@ -3,8 +3,7 @@
  * Source : Cracking the Coding Interview.
  * Is Unique: Implement an algorithm to determine if a string has all unique characters.
  * What if you cannot use additional data structures?
- *  Algorithm without any data structure to be developed.
- *
+ * Algorithm without any data structure to be developed.
  */
 package com.practice.java.mypractice;
 
@@ -27,11 +26,11 @@ public class CheckUniqueChars {
         int length = testStr.length();
         char[] c = testStr.toCharArray();
         Set<Character> set = new HashSet<Character>();
-        for(int index=0;index < c.length;index++) {
+        for (int index = 0; index < c.length; index++) {
             set.add(c[index]);
         }
 
-        if(set.size() == length)
+        if (set.size() == length)
             System.out.println("# All the characters in string are uniform");
         else
             System.out.println("$ All the characters in string are not uniform");
@@ -42,13 +41,13 @@ public class CheckUniqueChars {
     static void checkUniqueCharInString_2(String testStr) {
         boolean uniqueChar = true;
         boolean[] char_set = new boolean[128];
-        for(int i=0;i < testStr.length();i++) {
+        for (int i = 0; i < testStr.length(); i++) {
             int val = testStr.charAt(i);
-            if(char_set[val])
+            if (char_set[val])
                 uniqueChar = false;
             char_set[val] = true;
         }
-        if(uniqueChar == true)
+        if (uniqueChar == true)
             System.out.println("# All the characters in string are uniform");
         else
             System.out.println("$ All the characters in string are not uniform");

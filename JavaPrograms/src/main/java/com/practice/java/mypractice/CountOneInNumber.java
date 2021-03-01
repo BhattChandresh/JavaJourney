@@ -19,10 +19,10 @@ public class CountOneInNumber {
     static void countOnes(int number) {
         int count = 0;
         int iteration = 0;
-        while(number != 0) {
-            number =  number & (number -1);
+        while (number != 0) {
+            number = number & (number - 1);
             iteration++;
-             count++;
+            count++;
         }
         System.out.println("No of 1's in Number = " + count);
         System.out.println("No. of Iteration = " + iteration);

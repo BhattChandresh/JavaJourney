@@ -1,7 +1,6 @@
 package com.practice.java.Testing;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -17,13 +16,13 @@ public class App1 {
         String result = "";
         int index = 0;
         char[] c = parent.toCharArray();
-        for(int i=0; i < c.length;i++) {
-            if((set.add(c[i]))) {
+        for (int i = 0; i < c.length; i++) {
+            if ((set.add(c[i]))) {
                 result = result + c[i];
-             } else {
+            } else {
                 char[] r = result.toCharArray();
-                for(int j=0; j < r.length;j++) {
-                    if(r[j] == c[i])
+                for (int j = 0; j < r.length; j++) {
+                    if (r[j] == c[i])
                         i = j;
                     set.clear();
                     list.add(result);
@@ -33,5 +32,5 @@ public class App1 {
             }
         }
         System.out.println(list);
-     }
+    }
 }
