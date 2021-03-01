@@ -2,7 +2,7 @@ package com.practice.java.CodingInterview.Technogise;
 
 import java.util.List;
 
-public abstract   class Piece  {
+public abstract class Piece {
     private String piece;
     private String currentPosition;
     private int row;
@@ -20,7 +20,7 @@ public abstract   class Piece  {
     }
 
     int getX(String currentPosition) {
-        return (Integer.valueOf(currentPosition.substring(0,1)));
+        return (Integer.valueOf(currentPosition.substring(0, 1)));
     }
 
     int getY(String currentPosition) {

@@ -16,11 +16,11 @@ public class MatricsRowColToZero {
 //    };
 
     static int[][] matrics = {
-            {1,1,0,1,1},
-            {1,1,1,1,1},
-            {1,1,0,1,1},
-            {1,1,1,1,1},
-            {0,1,1,1,1}
+            {1, 1, 0, 1, 1},
+            {1, 1, 1, 1, 1},
+            {1, 1, 0, 1, 1},
+            {1, 1, 1, 1, 1},
+            {0, 1, 1, 1, 1}
     };
 
     static List<Integer> list = new ArrayList<Integer>();
@@ -31,9 +31,9 @@ public class MatricsRowColToZero {
     }
 
     static void printTheMatrics(int[][] matrics) {
-        for(int row=0; row < matrics.length;row++) {
+        for (int row = 0; row < matrics.length; row++) {
             System.out.println();
-            for(int col=0;col < matrics[row].length;col++) {
+            for (int col = 0; col < matrics[row].length; col++) {
                 System.out.print(matrics[row][col] + " ");
             }
         }
@@ -41,12 +41,12 @@ public class MatricsRowColToZero {
 
     static void makeAllRowValZero(int[][] matrics) {
         for (int row = 0; row < matrics.length; row++) {
-           for (int col = 0; col < matrics[row].length; col++) {
+            for (int col = 0; col < matrics[row].length; col++) {
                 if (matrics[row][col] == 0) {
-                    if(!(list.contains(col)))
+                    if (!(list.contains(col)))
                         list.add(col);
                     convertRowValueToZero(row, matrics[row].length);
-                 break;
+                    break;
                 }
             }
         }
@@ -67,8 +67,8 @@ public class MatricsRowColToZero {
     }
 
     static void convertColValueToZero(List list) {
-        for(int row=0;row < matrics.length;row++) {
-            for(int col=0; col < list.size();col++) {
+        for (int row = 0; row < matrics.length; row++) {
+            for (int col = 0; col < list.size(); col++) {
                 matrics[row][(int) list.get(col)] = 0;
             }
         }
@@ -76,9 +76,9 @@ public class MatricsRowColToZero {
 
     static void publishFinalResult() {
         System.out.println("Result is : ");
-        for(int row=0;row < matrics.length;row++) {
+        for (int row = 0; row < matrics.length; row++) {
             System.out.println();
-            for(int col=0;col < matrics[row].length;col++) {
+            for (int col = 0; col < matrics[row].length; col++) {
                 System.out.print(matrics[row][col] + " ");
             }
         }

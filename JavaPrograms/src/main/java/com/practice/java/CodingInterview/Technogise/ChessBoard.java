@@ -1,9 +1,9 @@
 /**
- *  Version : 1.0
- *  Author : Chandresh Bhatt
- *  Objective :
- *   Convert the Cell Number (H1) received from user to Co-ordinates (0,0) for  internal processing.
- *   After processing, convert the Co-ordinates(7,7) to Cell Number(A8) in order to display the possible cell numbers to user.
+ * Version : 1.0
+ * Author : Chandresh Bhatt
+ * Objective :
+ * Convert the Cell Number (H1) received from user to Co-ordinates (0,0) for  internal processing.
+ * After processing, convert the Co-ordinates(7,7) to Cell Number(A8) in order to display the possible cell numbers to user.
  */
 package com.practice.java.CodingInterview.Technogise;
 
@@ -14,11 +14,11 @@ public class ChessBoard {
     // Declaration for 8X8 Grid
     private static int[][] grid = new int[8][8];
     //Identify the cell number a name
-    static Map<String,String> cellPositionToCoordinate = new HashMap<String,String>();
-    static Map<String,String> CoordinateToCellPosition = new HashMap<String, String>();
+    static Map<String, String> cellPositionToCoordinate = new HashMap<String, String>();
+    static Map<String, String> CoordinateToCellPosition = new HashMap<String, String>();
 
     // Create and Initialize the 8x8 Grid
-    static  {
+    static {
         System.out.println("Initializing the Chess Board....");
         String cellRow = "";
         for (int row = 0; row < 8; row++) {
@@ -41,8 +41,8 @@ public class ChessBoard {
             for (int column = 0; column < 8; column++) {
                 grid[row][column] = 0;
                 String input = Integer.toString(row) + Integer.toString(column);
-                cellPositionToCoordinate.put((cellRow + (column + 1)),(Integer.toString(row) + Integer.toString(column)));
-                CoordinateToCellPosition.put(input,(cellRow + (column + 1)));
+                cellPositionToCoordinate.put((cellRow + (column + 1)), (Integer.toString(row) + Integer.toString(column)));
+                CoordinateToCellPosition.put(input, (cellRow + (column + 1)));
             }
         }
         System.out.println("Chess Board initialization completes ....");
@@ -52,7 +52,7 @@ public class ChessBoard {
     // This is for testing purpose only.
     public void testInitializationOfChessBoard() {
         String cellRow = "";
-        for(int row=0;row<8;row++) {
+        for (int row = 0; row < 8; row++) {
             System.out.println();
             if (row == 0)
                 cellRow = "H";
@@ -70,10 +70,10 @@ public class ChessBoard {
                 cellRow = "B";
             else if (row == 7)
                 cellRow = "A";
-            for(int column=0;column<8;column++){
+            for (int column = 0; column < 8; column++) {
                 //System.out.print("grid["+ row + "][" + column + "] : " + cellPositionToCoordinate.get(cellRow + (column+1)) + " | "  + (cellRow + (column+1)));
                 //System.out.print("[" + row + "][" + column + "] : " + cellPositionToCoordinate.get(cellRow + (column+1)) + " | "  + (cellRow + (column+1)) + " || ");
-                System.out.print("[" + row + "][" + column + "] : " + cellPositionToCoordinate.get(cellRow + (column+1)) + " | "  + (cellRow + (column+1)) + " || ");
+                System.out.print("[" + row + "][" + column + "] : " + cellPositionToCoordinate.get(cellRow + (column + 1)) + " | " + (cellRow + (column + 1)) + " || ");
             }
         }
         System.out.println();

@@ -19,14 +19,14 @@ public class Bishop extends Piece {
         int newX = 0;
         int newY = 0;
         int index = 0;
-        getDiagonalTopRightPositions(x,y);
-        getDiagonalBottomLeftPositions(x,y);
-        getDiagonalBottomRightPositions(x,y);
-        getDiagonalTopLeftPositions(x,y);
+        getDiagonalTopRightPositions(x, y);
+        getDiagonalBottomLeftPositions(x, y);
+        getDiagonalBottomRightPositions(x, y);
+        getDiagonalTopLeftPositions(x, y);
         displayPossiblePositions(list);
     }
 
-    public void getDiagonalTopRightPositions(int x, int y ) {
+    public void getDiagonalTopRightPositions(int x, int y) {
         int newX, newY = 0;
         newX = x;
         newY = y;

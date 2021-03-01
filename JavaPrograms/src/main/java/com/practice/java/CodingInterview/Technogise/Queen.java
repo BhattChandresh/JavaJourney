@@ -13,7 +13,7 @@ public class Queen extends Piece {
     Queen(String piece, String position) {
         super(piece, position);
         rook = new Rook(piece, position);
-        bishop = new Bishop(piece,position);
+        bishop = new Bishop(piece, position);
         x = getX(position);
         y = getY(position);
     }

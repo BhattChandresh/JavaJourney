@@ -1,13 +1,12 @@
 /**
- *  Version : 1.0
- *   Author : Chandresh Bhatt
- *   Objective :
- *      This class can be considered as processing layer for the program.
- *      From the correct piece and position, find all the possible cell numbers for said piece.
+ * Version : 1.0
+ * Author : Chandresh Bhatt
+ * Objective :
+ * This class can be considered as processing layer for the program.
+ * From the correct piece and position, find all the possible cell numbers for said piece.
  */
 package com.practice.java.CodingInterview.Technogise;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PiecePositions {
@@ -39,7 +38,7 @@ public class PiecePositions {
     }
 
     public int getRow(String position) {
-        return (Integer.valueOf(position.substring(0,1)));
+        return (Integer.valueOf(position.substring(0, 1)));
     }
 
     public int getColumn(String position) {
@@ -48,14 +47,14 @@ public class PiecePositions {
 
     public void displayAllPositions(int x, int y) {
         System.out.println("All possible positions (cell numbers) are : ");
-        System.out.println(ChessBoard.CoordinateToCellPosition.get(getNewPossiblePosition(x,y)));
+        System.out.println(ChessBoard.CoordinateToCellPosition.get(getNewPossiblePosition(x, y)));
     }
 
     public void displayAllPositions(List allPositions) {
         System.out.println("All possible positions (cell numbers) are : ");
         for (int index = 0; index < allPositions.size(); index++) {
-            if(ChessBoardSimulation.isDebug)
-                System.out.println((index+1)  + " -> " + allPositions.get(index) + " -> " + ChessBoard.CoordinateToCellPosition.get(allPositions.get(index)));
+            if (ChessBoardSimulation.isDebug)
+                System.out.println((index + 1) + " -> " + allPositions.get(index) + " -> " + ChessBoard.CoordinateToCellPosition.get(allPositions.get(index)));
             else
                 System.out.print(ChessBoard.CoordinateToCellPosition.get(allPositions.get(index)) + " ");
         }

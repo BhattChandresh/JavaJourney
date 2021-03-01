@@ -3,7 +3,6 @@
  */
 package com.practice.java.InterviewCoding;
 
-import javax.print.DocFlavor;
 import java.util.*;
 
 public class FindMinCurrencyNotes {
@@ -13,7 +12,7 @@ public class FindMinCurrencyNotes {
         Scanner sc = new Scanner(System.in);
         int amount = sc.nextInt();
         sc.close();
-        if(amount < 0) {
+        if (amount < 0) {
             System.out.println("Amount is negative");
             return;
         }
@@ -33,22 +32,22 @@ public class FindMinCurrencyNotes {
         int i = 0;
         int value = 0;
         HashMap<Integer, Integer> map = new LinkedHashMap<Integer, Integer>();
-        while(amount >= -1) {
-            if(amount >= (int) notes.get(i)) {
-                if(!(map.containsKey(notes.get(i))))
+        while (amount >= -1) {
+            if (amount >= (int) notes.get(i)) {
+                if (!(map.containsKey(notes.get(i))))
                     map.put((int) notes.get(i), 1);
                 else {
                     value = map.get(notes.get(i));
-                    map.put((int) notes.get(i), value +1);
+                    map.put((int) notes.get(i), value + 1);
                 }
                 amount = amount - (int) notes.get(i);
-                if(amount <= 0)
+                if (amount <= 0)
                     break;
-             } else {
+            } else {
                 i = i + 1;
-             }
+            }
         }
         System.out.println(map);
-     }
+    }
 }
 

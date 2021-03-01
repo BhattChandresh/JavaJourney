@@ -13,15 +13,15 @@ public class ReverseIntArray {
     static void reverseArray(int[] arr) {
         int index = 0;
         int[] result = new int[arr.length];
-        for(int i = arr.length-1; i > -1;i--) {
+        for (int i = arr.length - 1; i > -1; i--) {
             result[index] = arr[i];
-            index = index+1;
+            index = index + 1;
         }
-        for(int i=0;i < result.length;i++)
+        for (int i = 0; i < result.length; i++)
             System.out.print(arr[i] + " ");
         System.out.println();
-        for(int i=0;i < result.length;i++)
-             System.out.print(result[i] +" ");
+        for (int i = 0; i < result.length; i++)
+            System.out.print(result[i] + " ");
         System.out.println();
         System.out.println("--------------------------------------------");
     }

@@ -1,9 +1,9 @@
 /**
- *  Version : 1.0
- *  Author : Chandresh Bhatt
- *  Objective :
- *  You	are	required	to	create	a	program, which	simulates a chessboard and	the
- *  movements	of various types of pieces on the chessboard.
+ * Version : 1.0
+ * Author : Chandresh Bhatt
+ * Objective :
+ * You	are	required	to	create	a	program, which	simulates a chessboard and	the
+ * movements	of various types of pieces on the chessboard.
  * Available Pieces :
  * <1> King
  * <2> Queen
@@ -20,8 +20,9 @@ import com.practice.java.Author;
 public class ChessBoardSimulation {
     // isDebug flag is used for testing purpose, if isDebug = true all the test cases are executed else none are executed.
     static boolean isDebug = false;
-    static final int MAX_BOUND  = 7;
-    static final  int MIN_BOUND  = 0;
+    static final int MAX_BOUND = 7;
+    static final int MIN_BOUND = 0;
+
     public static void main(String[] args) {
 
         System.out.println(" *** Welcome to Chess Board Simulation ***");
@@ -30,12 +31,12 @@ public class ChessBoardSimulation {
         UserInput uinput = new UserInput();
         Piece p = null;
 
-        if(isDebug)
+        if (isDebug)
             cb.testInitializationOfChessBoard();
 
         try {
             uinput.getUserInput();
-        } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println("Program about to terminated. Possible causes are :");
             System.out.println("1. No Space between Piece and Position (Ex. HorseD5)");
             System.out.println("2. Piece may be wrong. Allowed pieces are <1> Pawn <2> Horse <3> Rook <4> Bishop <5> King <6> Queen");
@@ -44,31 +45,26 @@ public class ChessBoardSimulation {
         }
 
         try {
-            if(uinput.getPiece().equals("KING")) {
+            if (uinput.getPiece().equals("KING")) {
                 p = new King(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
-            }
-            else if(uinput.getPiece().equals("PAWN")) {
+            } else if (uinput.getPiece().equals("PAWN")) {
                 p = new Pawn(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
-            }
-            else if(uinput.getPiece().equals("BISHOP")) {
+            } else if (uinput.getPiece().equals("BISHOP")) {
                 p = new Bishop(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
-            }
-            else if(uinput.getPiece().equals("HORSE")) {
+            } else if (uinput.getPiece().equals("HORSE")) {
                 p = new Horse(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
-            }
-            else if(uinput.getPiece().equals("QUEEN")) {
+            } else if (uinput.getPiece().equals("QUEEN")) {
                 p = new Queen(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
-            }
-            else if(uinput.getPiece().equals("ROOK")) {
+            } else if (uinput.getPiece().equals("ROOK")) {
                 p = new Rook(uinput.getPiece(), uinput.getPosition());
                 p.getPossibleMoves();
             }
-         } catch(Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
     }
