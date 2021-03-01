@@ -9,7 +9,7 @@ public class CustomImmutableClass {
         ImmutableCls ic2 = ic1.modify(100);
         ImmutableCls ic3 = ic1.modify(10);
         System.out.println("ic1 == ic3 : ");
-        System.out.print( ic1 == ic3);
+        System.out.print(ic1 == ic3);
         System.out.println();
         System.out.println("ic1 == ic2 : ");
         System.out.print(ic1 == ic2);

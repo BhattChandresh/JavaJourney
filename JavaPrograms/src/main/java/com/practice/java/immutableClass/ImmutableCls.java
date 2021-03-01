@@ -11,11 +11,10 @@ public final class ImmutableCls {
     }
 
     public ImmutableCls modify(int i) {
-        if(this.i == i) {
+        if (this.i == i) {
             System.out.println("No change in object State hence returning the same object");
             return this;
-        }
-        else {
+        } else {
             System.out.println("Object state change hence new object will be returned");
             return new ImmutableCls(i);
         }

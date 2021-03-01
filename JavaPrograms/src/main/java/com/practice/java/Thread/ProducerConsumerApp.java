@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ProducerConsumerApp {
-        public static void main(String[] args) {
+    public static void main(String[] args) {
         final int SIZE = 10;
         ArrayList<Integer> buffer = new ArrayList<Integer>();
-       Thread producer = new Thread(new Producer(buffer, SIZE),"Producer");
-        Thread consumer = new Thread(new Consumer(buffer, SIZE),"Consumer");
+        Thread producer = new Thread(new Producer(buffer, SIZE), "Producer");
+        Thread consumer = new Thread(new Consumer(buffer, SIZE), "Consumer");
         producer.start();
         consumer.start();
     }
@@ -18,16 +18,18 @@ class Producer implements Runnable {
     int size;
     ArrayList buffer;
     Random r = new Random();
+
     Producer(ArrayList buffer, int size) {
         this.buffer = buffer;
         this.size = size;
     }
+
     @Override
-    public void run()  {
-        while(true) {
+    public void run() {
+        while (true) {
             try {
                 produce(r.nextInt(100));
-            }catch (InterruptedException e) {
+            } catch (InterruptedException e) {
 
             }
         }
@@ -35,7 +37,7 @@ class Producer implements Runnable {
 
     void produce(int element) throws InterruptedException {
         synchronized (buffer) {
-            while(buffer.size() >= size) {
+            while (buffer.size() >= size) {
                 buffer.wait();
             }
         }
@@ -52,13 +54,15 @@ class Producer implements Runnable {
 class Consumer implements Runnable {
     int size;
     ArrayList buffer;
+
     Consumer(ArrayList buffer, int size) {
         this.buffer = buffer;
         this.size = size;
     }
+
     @Override
     public void run() {
-        while(true) {
+        while (true) {
             try {
                 consume();
             } catch (InterruptedException ie) {
@@ -68,7 +72,7 @@ class Consumer implements Runnable {
     }
 
     void consume() throws InterruptedException {
-        while(buffer.isEmpty()) {
+        while (buffer.isEmpty()) {
             synchronized (buffer) {
                 buffer.wait();
             }
@@ -79,8 +83,6 @@ class Consumer implements Runnable {
         }
     }
 }
-
-
 
 
 //public class ProducerConsumerApp {

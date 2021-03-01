@@ -1,9 +1,8 @@
 /**
- *
- *   Worst Complexity : O (log n)
- *   Avg. Complexity : O (log n)
- *   Best Complexity : O (1)
- *   Space Complexity : O (1)
+ * Worst Complexity : O (log n)
+ * Avg. Complexity : O (log n)
+ * Best Complexity : O (1)
+ * Space Complexity : O (1)
  */
 
 package com.practice.java.algorithms;

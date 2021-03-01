@@ -6,12 +6,13 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
 @Author("Chandresh Bhatt")
 public class ConCurrentHashMap_CCMException {
     public static void main(String... args) {
-        Map<Integer,String> map = new ConcurrentHashMap<Integer,String>();
+        Map<Integer, String> map = new ConcurrentHashMap<Integer, String>();
 
-        for(int i=0; i< 10000;i++) {
+        for (int i = 0; i < 10000; i++) {
             map.put(i, ("AB" + i));
         }
 
@@ -22,7 +23,7 @@ public class ConCurrentHashMap_CCMException {
                 ie.printStackTrace();
             }
             System.out.println("ChildThread adding the elements");
-            map.put(11000,"HHH");
+            map.put(11000, "HHH");
         };
 
         Thread t = new Thread(r, "ChildThread");
@@ -30,10 +31,10 @@ public class ConCurrentHashMap_CCMException {
 
         Set set = map.keySet();
         Iterator itr = set.iterator();
-        while(itr.hasNext()) {
+        while (itr.hasNext()) {
             int element = (int) itr.next();
             System.out.println("Main Thread is iterating over the ArrayList and current element is = " + element + "," + map.get(element));
-            try{
+            try {
                 Thread.sleep(50);
             } catch (InterruptedException ie) {
 
