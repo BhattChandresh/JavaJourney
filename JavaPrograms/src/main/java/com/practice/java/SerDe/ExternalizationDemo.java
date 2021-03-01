@@ -4,7 +4,7 @@ import java.io.*;
 
 public class ExternalizationDemo {
     public static void main(String... args) {
-        ExternalSerDeser e = new ExternalSerDeser(100,200,"Serialization-Deserialization");
+        ExternalSerDeser e = new ExternalSerDeser(100, 200, "Serialization-Deserialization");
         ExternalizationDemo t = new ExternalizationDemo();
         t.serialization(e);
         t.deserialization();
@@ -61,7 +61,7 @@ public class ExternalizationDemo {
 
 class ExternalSerDeser implements Externalizable {
 
-    int m ;
+    int m;
     int n;
     String str;
 

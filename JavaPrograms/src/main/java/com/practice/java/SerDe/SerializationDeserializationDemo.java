@@ -20,15 +20,15 @@ public class SerializationDeserializationDemo {
             fos = new FileOutputStream("SerDe_1.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(serde);
-        } catch(FileNotFoundException fe) {
+        } catch (FileNotFoundException fe) {
             fe.printStackTrace();
-        } catch(IOException ie) {
+        } catch (IOException ie) {
             ie.printStackTrace();
         } finally {
             try {
                 oos.close();
                 fos.close();
-            } catch(IOException ie) {
+            } catch (IOException ie) {
                 ie.printStackTrace();
             }
         }
@@ -40,11 +40,11 @@ public class SerializationDeserializationDemo {
             SerDe_1 serde_deser = (SerDe_1) ois.readObject();
             System.out.println("After Deserialization i = " + serde_deser.i);
             System.out.println("After Deserialization j = " + serde_deser.j);
-        } catch(FileNotFoundException fe) {
+        } catch (FileNotFoundException fe) {
             fe.printStackTrace();
-        } catch(ClassNotFoundException ce){
+        } catch (ClassNotFoundException ce) {
             ce.printStackTrace();
-        }catch (IOException ie) {
+        } catch (IOException ie) {
             ie.printStackTrace();
         } finally {
             try {

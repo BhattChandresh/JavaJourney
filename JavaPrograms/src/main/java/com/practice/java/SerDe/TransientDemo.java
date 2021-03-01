@@ -22,15 +22,15 @@ public class TransientDemo {
             fos = new FileOutputStream("SerDe_2.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(serde);
-        } catch(FileNotFoundException fe) {
+        } catch (FileNotFoundException fe) {
             fe.printStackTrace();
-        } catch(IOException ie) {
+        } catch (IOException ie) {
             ie.printStackTrace();
         } finally {
             try {
                 oos.close();
                 fos.close();
-            } catch(IOException ie) {
+            } catch (IOException ie) {
                 ie.printStackTrace();
             }
         }
@@ -44,11 +44,11 @@ public class TransientDemo {
             System.out.println("After Deserialization j = " + serde_deser.j);
             System.out.println("After Deserialization j = " + serde_deser.k);
             System.out.println("After Deserialization j = " + serde_deser.u);
-        } catch(FileNotFoundException fe) {
+        } catch (FileNotFoundException fe) {
             fe.printStackTrace();
-        } catch(ClassNotFoundException ce){
+        } catch (ClassNotFoundException ce) {
             ce.printStackTrace();
-        }catch (IOException ie) {
+        } catch (IOException ie) {
             ie.printStackTrace();
         } finally {
             try {
@@ -63,7 +63,7 @@ public class TransientDemo {
 
 class SerDe_2 implements Serializable {
     int i = 100;
-    transient    int j = 200;
+    transient int j = 200;
     static transient int k = 300;
-    final transient int u =999;
+    final transient int u = 999;
 }

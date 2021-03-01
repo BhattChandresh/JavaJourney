@@ -21,10 +21,10 @@ public class TowerOfHanoi {
         sc.close();
 
         //Method-1 Iterative Approach
-        towerOfHanoi(disks,'A','B','C');
+        towerOfHanoi(disks, 'A', 'B', 'C');
     }
 
-    static void towerOfHanoi(int disks,char from_rod,char to_rod,char aux_rod) {
+    static void towerOfHanoi(int disks, char from_rod, char to_rod, char aux_rod) {
         int n = (int) Math.pow(2, disks);
         System.out.println(n);
         System.out.println("---------------------------------------------------");
@@ -36,7 +36,7 @@ public class TowerOfHanoi {
         diskAtFromRoad.add(2);
         diskAtFromRoad.add(1);
         System.out.println("Initial Position");
-        illustratePos(from_rod, diskAtFromRoad,to_rod,diskAtToRoad,aux_rod,diskAtAuxRoad);
+        illustratePos(from_rod, diskAtFromRoad, to_rod, diskAtToRoad, aux_rod, diskAtAuxRoad);
         System.out.println("---------------------------------------------------");
 //        for(int i=0; i < n-1;i++) {
 //            diskAtAuxRoad.add(diskAtFromRoad.get(i));
@@ -46,18 +46,18 @@ public class TowerOfHanoi {
 //        }
     }
 
-    static void illustratePos(char from_rod,List diskAtFromRod, char to_rod,List diskAtToRod,char aux_rod, List diskAtAuxRod) {
+    static void illustratePos(char from_rod, List diskAtFromRod, char to_rod, List diskAtToRod, char aux_rod, List diskAtAuxRod) {
         System.out.println("A" + "\t\t\t\t\t" + "B" + "\t\t\t\t\t" + "C");
         String fromRodPos = "";
         String toRodPos = "";
         String auxRodPos = "";
-        for(int i=0; i < diskAtFromRod.size();i++) {
+        for (int i = 0; i < diskAtFromRod.size(); i++) {
             fromRodPos = fromRodPos + "D-" + diskAtFromRod.get(i) + "\n";
         }
-        for(int i=0; i < diskAtToRod.size();i++) {
+        for (int i = 0; i < diskAtToRod.size(); i++) {
             toRodPos = toRodPos + "D-" + diskAtToRod.get(i) + "\n";
         }
-        for(int i=0; i < diskAtAuxRod.size();i++) {
+        for (int i = 0; i < diskAtAuxRod.size(); i++) {
             auxRodPos = auxRodPos + "D-" + diskAtAuxRod.get(i);
         }
         System.out.println(fromRodPos + "\t\t" + toRodPos + "\t\t" + auxRodPos);

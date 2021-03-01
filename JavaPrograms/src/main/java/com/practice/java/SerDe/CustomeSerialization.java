@@ -8,7 +8,7 @@ public class CustomeSerialization {
         CustomeSerialization custom = new CustomeSerialization();
         custom.serialization(accnt);
         custom.deserialization();
-     }
+    }
 
     void serialization(Object object) {
         FileOutputStream fos = null;
