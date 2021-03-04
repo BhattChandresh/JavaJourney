@@ -9,25 +9,34 @@ package com.practice.java.Arrays;
 
 import com.practice.java.Author;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Author("Chandresh Bhatt")
 public class TwoSumEqualTarget {
     public static void main(String... args) {
-//        int[] arr1 = {1,2,4,5,6};
-//        int target = 6;
-
-        int[] arr1 = {2, 7, 11, 15};
-        int target = 9;
-        findIndexEqualToSum(arr1, target);
+        TwoSumEqualTarget twoSumEqualTarget = new TwoSumEqualTarget();
+        twoSumEqualTarget.findIndexEqualToSum(new int[]{}, 0);
     }
 
-    static void findIndexEqualToSum(int[] arr, int target) {
+    int[] findIndexEqualToSum(int[] arr, int target) {
+        List<Integer> list = new ArrayList<>();
+        int count = 0;
         for (int index1 = 0; index1 < arr.length; index1++) {
             for (int index2 = index1 + 1; index2 < arr.length; index2++) {
                 if (arr[index1] + arr[index2] == target) {
                     System.out.println("Indexes who's sum is equal to target is : " + arr[index1] + "+" + arr[index2] + "=" + target);
                     System.out.println("Indexs are [ " + index1 + "," + index2 + "]");
+                    list.add(index1);
+                    list.add(index2);
                 }
             }
         }
+        int[] result = new int[list.size()];
+        for (Integer i : list) {
+            result[count] = i;
+            count++;
+        }
+        return result;
     }
 }
