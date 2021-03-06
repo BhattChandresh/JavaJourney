@@ -7,12 +7,13 @@ public class ReverseInteger {
         Scanner scan = new Scanner(System.in);
         long input = scan.nextLong();
         scan.close();
-        long result = reverse(input);
+        ReverseInteger reverseInteger = new ReverseInteger();
+        long result = reverseInteger.reverseMethod1(input);
         System.out.println("Reversed Integer is : " + result);
     }
 
-    public static long reverse(long x) {
-        long m = 0;
+    long reverseMethod1(long x) {
+        long m;
         long result = 0;
         boolean isNegative = false;
         if (x < 0) {
@@ -29,7 +30,6 @@ public class ReverseInteger {
         }
         if (isNegative) {
             result = -result;
-            isNegative = false;
         }
         return result;
     }

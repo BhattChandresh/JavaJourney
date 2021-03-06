@@ -9,21 +9,20 @@ package com.practice.java.mypractice;
 
 public class FindMissingNumber {
     public static void main(String[] args) {
-        int missingNo = 0;
-        //int[] arr = {1, 2, 4, 6, 3, 7, 8};
-        int[] arr = {1, 2, 3, 5};
-        missingNo = getMissingNumber(arr, arr.length);
-        System.out.println("Missing number is : " + missingNo);
+        FindMissingNumber findMissingNumber = new FindMissingNumber();
+        int missingNo = findMissingNumber.getMissingNumber(new int[]{});
+        System.out.println(missingNo);
     }
 
-    public static int getMissingNumber(int[] arr, int n) {
-        int total = 0;
+    int getMissingNumber(int[] arr) {
+        int total;
         int arrSum = 0;
-        total = ((n + 1) * (n + 1 + 1)) / 2;
-        for (int i = 0; i < arr.length; i++) {
-            arrSum = arrSum + arr[i];
+        total = ((arr.length + 1) * (arr.length + 1 + 1)) / 2;
+        for (int value : arr) {
+            arrSum = arrSum + value;
         }
         System.out.println("Sum : " + total + "-" + arrSum);
+        System.out.println("Missing number is : " + (total - arrSum));
         return total - arrSum;
     }
 }
