@@ -74,32 +74,3 @@ public class AdjacentDuplicates {
         return false;
     }
 }
-
-
-//        while(isRepeat) {
-//            int length = input.length();
-//            for (int index = 0; index < length - 1; index++) {
-//                if (input.charAt(index) != input.charAt(index + 1)) {
-//                    result = result + input.charAt(index);
-//                    if (index + 1 == length - 1) {
-//                        result = result + input.charAt(index + 1);
-//                    }
-//                } else {
-//                    for (int index1 = index; index1 < length; index1++) {
-//                        if (index1 == length - 1) {
-//                            index = index1;
-//                            break;
-//                        }
-//                        if (!(input.charAt(index1) == (input.charAt((index1) + 1)))) {
-//                            index = index1;
-//                            break;
-//                        }
-//                    }
-//                }
-//            }
-//            isRepeat = checkAdjacentDuplicates(result);
-//            if(isRepeat){
-//                input = result;
-//                result = "";
-//            }
-//        }
