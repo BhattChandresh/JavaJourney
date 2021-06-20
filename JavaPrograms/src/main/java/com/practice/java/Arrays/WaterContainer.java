@@ -40,8 +40,8 @@ public class WaterContainer {
 
         for (int index = 0; index < arr.length - 1; index++) {
             for (int innerIndex = index + 1; innerIndex < arr.length; innerIndex++) {
-                length = findLength(arr[index], arr[innerIndex]);
-                width = findWidth(index, innerIndex);
+                length = Math.min(arr[index], arr[innerIndex]);
+                width = innerIndex - index;
                 area = length * width;
                 if (area > maxArea) {
                     maxArea = area;
@@ -49,13 +49,5 @@ public class WaterContainer {
             }
         }
         return maxArea;
-    }
-
-    int findLength(int height1, int height2) {
-        return (height1 < height2) ? height1 : height2;
-    }
-
-    int findWidth(int index, int innerIndex) {
-        return Math.abs(index - innerIndex);
     }
 }

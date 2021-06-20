@@ -21,17 +21,6 @@ class WaterContainerTest {
         assertEquals(0, waterContainer.getMaxWaterContainerBruteForce(new int[]{34}));
         assertEquals(32, waterContainer.getMaxWaterContainerBruteForce(new int[]{6, 9, 2, 4, 5, 8}));
         assertEquals(10, waterContainer.getMaxWaterContainerBruteForce(new int[]{10, 20}));
-    }
-
-    @Test
-    void testFindLength() {
-        assertEquals(4, waterContainer.findLength(4, 5));
-        assertEquals(45, waterContainer.findLength(50, 45));
-    }
-
-    @Test
-    void testFindWidth() {
-        assertEquals(3, waterContainer.findWidth(7, 10));
-        assertEquals(5, waterContainer.findWidth(20, 15));
+        assertEquals(49, waterContainer.getMaxWaterContainerBruteForce(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7}));
     }
 }
