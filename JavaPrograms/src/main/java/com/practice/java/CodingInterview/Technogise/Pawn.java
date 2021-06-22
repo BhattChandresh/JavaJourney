@@ -7,8 +7,7 @@ public class Pawn extends Piece {
     int x;
     int y;
 
-    Pawn(String piece, String position) {
-        super(piece, position);
+    Pawn(String position) {
         x = getX(position);
         y = getY(position);
     }

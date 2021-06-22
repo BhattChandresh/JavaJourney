@@ -7,8 +7,7 @@ public class King extends Piece {
     int x;
     int y;
 
-    King(String piece, String position) {
-        super(piece, position);
+    King(String position) {
         x = getX(position);
         y = getY(position);
     }

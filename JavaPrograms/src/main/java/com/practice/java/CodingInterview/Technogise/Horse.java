@@ -7,8 +7,7 @@ public class Horse extends Piece {
     int x;
     int y;
 
-    Horse(String piece, String position) {
-        super(piece, position);
+    Horse(String position) {
         x = getX(position);
         y = getY(position);
     }

@@ -49,27 +49,27 @@ public class ChessBoardSimulation {
         try {
             switch (uinput.getPiece()) {
                 case "KING":
-                    p = new King(uinput.getPiece(), uinput.getPosition());
+                    p = new King(uinput.getPosition());
                     p.getPossibleMoves();
                     break;
                 case "PAWN":
-                    p = new Pawn(uinput.getPiece(), uinput.getPosition());
+                    p = new Pawn(uinput.getPosition());
                     p.getPossibleMoves();
                     break;
                 case "BISHOP":
-                    p = new Bishop(uinput.getPiece(), uinput.getPosition());
+                    p = new Bishop(uinput.getPosition());
                     p.getPossibleMoves();
                     break;
                 case "HORSE":
-                    p = new Horse(uinput.getPiece(), uinput.getPosition());
+                    p = new Horse(uinput.getPosition());
                     p.getPossibleMoves();
                     break;
                 case "QUEEN":
-                    p = new Queen(uinput.getPiece(), uinput.getPosition());
+                    p = new Queen(uinput.getPosition());
                     p.getPossibleMoves();
                     break;
                 case "ROOK":
-                    p = new Rook(uinput.getPiece(), uinput.getPosition());
+                    p = new Rook(uinput.getPosition());
                     p.getPossibleMoves();
                     break;
             }

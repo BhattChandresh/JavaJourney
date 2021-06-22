@@ -8,8 +8,7 @@ public class Bishop extends Piece {
     int y;
     List<String> list = new ArrayList<>();
 
-    Bishop(String piece, String position) {
-        super(piece, position);
+    Bishop(String position) {
         x = getX(position);
         y = getY(position);
     }

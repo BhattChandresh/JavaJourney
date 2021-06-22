@@ -8,8 +8,7 @@ public class Rook extends Piece {
     int y;
     String position;
 
-    Rook(String piece, String position) {
-        super(piece, position);
+    Rook(String position) {
         x = getX(position);
         y = getY(position);
         this.position = position;

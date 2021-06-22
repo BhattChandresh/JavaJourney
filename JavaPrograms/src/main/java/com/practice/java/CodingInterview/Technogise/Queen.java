@@ -6,10 +6,9 @@ public class Queen extends Piece {
     Rook rook;
     Bishop bishop;
 
-    Queen(String piece, String position) {
-        super(piece, position);
-        rook = new Rook(piece, position);
-        bishop = new Bishop(piece, position);
+    Queen(String position) {
+        rook = new Rook(position);
+        bishop = new Bishop(position);
         x = getX(position);
         y = getY(position);
     }
