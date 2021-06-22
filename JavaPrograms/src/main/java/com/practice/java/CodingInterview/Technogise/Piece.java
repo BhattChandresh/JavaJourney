@@ -20,19 +20,19 @@ public abstract class Piece {
     }
 
     int getX(String currentPosition) {
-        return (Integer.valueOf(currentPosition.substring(0, 1)));
+        return (Integer.parseInt(currentPosition.substring(0, 1)));
     }
 
     int getY(String currentPosition) {
-        return (Integer.valueOf(currentPosition.substring(1)));
+        return (Integer.parseInt(currentPosition.substring(1)));
     }
 
     abstract void getPossibleMoves();
 
     void displayPossiblePositions(List list) {
         System.out.println("All possible positions (cell numbers) are : ");
-        for (int index = 0; index < list.size(); index++) {
-            System.out.print(ChessBoard.CoordinateToCellPosition.get(list.get(index)) + " ");
+        for (Object o : list) {
+            System.out.print(ChessBoard.CoordinateToCellPosition.get(o) + " ");
         }
     }
 }
