@@ -1,11 +1,11 @@
-/**
- * Version : 1.0
- * Author : Chandresh Bhatt
- * Objective :
- * Takes the input from user (console) and extract the correct piece and position from it.
- * Internally converts the input from user to UPPER CASE to maintain uniformity so user is free to enter correct value in
- * any case (For Example : RooK F5 or  rOoK f5)
- * Check for the proper piece and position and if it is wrong then exception thrown and all possible error messages are displayed.
+/*
+  Version : 1.0
+  Author : Chandresh Bhatt
+  Objective :
+  Takes the input from user (console) and extract the correct piece and position from it.
+  Internally converts the input from user to UPPER CASE to maintain uniformity so user is free to enter correct value in
+  any case (For Example : RooK F5 or  rOoK f5)
+  Check for the proper piece and position and if it is wrong then exception thrown and all possible error messages are displayed.
  */
 package com.practice.java.CodingInterview.Technogise;
 
@@ -18,6 +18,7 @@ public class UserInput {
         System.out.println("Enter Piece and Position (For Example King D5) : ");
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
+        sc.close();
         // User should be free to enter into any case, internally we handle the input string.
         input = input.toUpperCase();
         if (!(input.contains(" "))) {

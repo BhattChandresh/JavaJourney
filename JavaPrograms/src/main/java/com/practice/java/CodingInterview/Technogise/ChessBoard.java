@@ -24,32 +24,25 @@ public class ChessBoard {
         for (int row = 0; row < 8; row++) {
             if (row == 0) {
                 cellRow = "H";
-            }
-            else if (row == 1) {
+            } else if (row == 1) {
                 cellRow = "G";
-            }
-            else if (row == 2) {
+            } else if (row == 2) {
                 cellRow = "F";
-            }
-            else if (row == 3) {
+            } else if (row == 3) {
                 cellRow = "E";
-            }
-            else if (row == 4) {
+            } else if (row == 4) {
                 cellRow = "D";
-            }
-            else if (row == 5) {
+            } else if (row == 5) {
                 cellRow = "C";
-            }
-            else if (row == 6) {
+            } else if (row == 6) {
                 cellRow = "B";
-            }
-            else {
+            } else {
                 cellRow = "A";
             }
             for (int column = 0; column < 8; column++) {
                 grid[row][column] = 0;
-                String input = String.valueOf(row) + String.valueOf(column);
-                cellPositionToCoordinate.put((cellRow + (column + 1)), String.valueOf(row + column));
+                String input = Integer.toString(row) + column;
+                cellPositionToCoordinate.put((cellRow + (column + 1)), (Integer.toString(row) + column));
                 CoordinateToCellPosition.put(input, (cellRow + (column + 1)));
             }
         }
@@ -64,26 +57,19 @@ public class ChessBoard {
             System.out.println();
             if (row == 0) {
                 cellRow = "H";
-            }
-            else if (row == 1) {
+            } else if (row == 1) {
                 cellRow = "G";
-            }
-            else if (row == 2) {
+            } else if (row == 2) {
                 cellRow = "F";
-            }
-            else if (row == 3) {
+            } else if (row == 3) {
                 cellRow = "E";
-            }
-            else if (row == 4) {
+            } else if (row == 4) {
                 cellRow = "D";
-            }
-            else if (row == 5) {
+            } else if (row == 5) {
                 cellRow = "C";
-            }
-            else if (row == 6) {
+            } else if (row == 6) {
                 cellRow = "B";
-            }
-            else {
+            } else {
                 cellRow = "A";
             }
             for (int column = 0; column < 8; column++) {
