@@ -7,7 +7,6 @@ public class Rook extends Piece {
     int x;
     int y;
     String position;
-    List<String> list = new ArrayList<String>();
 
     Rook(String piece, String position) {
         super(piece, position);
@@ -18,13 +17,14 @@ public class Rook extends Piece {
 
     @Override
     void getPossibleMoves() {
-        int newX = 0;
-        int newY = 0;
+        List<String> list = new ArrayList<>();
+        int newX;
+        int newY;
         int[] allMoves = {x, 0, x, 1, x, 2, x, 3, x, 4, x, 5, x, 6, x, 7, 0, y, 1, y, 2, y, 3, y, 4, y, 5, y, 6, y, 7, y};
         for (int index = 0; index < allMoves.length; index = index + 2) {
             newX = allMoves[index];
             newY = allMoves[index + 1];
-            String element = Integer.toString(newX) + Integer.toString(newY);
+            String element = newX + Integer.toString(newY);
             if (element.equals(position))
                 continue;
             list.add(element);
