@@ -1,22 +1,24 @@
-/**
- * Version : 1.0
- * Author : Chandresh Bhatt
- * Objective :
- * You	are	required	to	create	a	program, which	simulates a chessboard and	the
- * movements	of various types of pieces on the chessboard.
- * Available Pieces :
- * <1> King
- * <2> Queen
- * <3> Rook
- * <4> Bishop
- * <5> Horse
- * <6> Pawn
+/*
+  Version : 1.0
+  Author : Chandresh Bhatt
+  Objective :
+  You	are	required	to	create	a	program, which	simulates a chessboard and	the
+  movements	of various types of pieces on the chessboard.
+  Available Pieces :
+  <1> King
+  <2> Queen
+  <3> Rook
+  <4> Bishop
+  <5> Horse
+  <6> Pawn
  */
 package com.practice.java.CodingInterview.Technogise;
 
 import com.practice.java.Author;
 
-@Author("Chandresh Bhatt")
+import java.util.Arrays;
+
+@Author()
 public class ChessBoardSimulation {
     // isDebug flag is used for testing purpose, if isDebug = true all the test cases are executed else none are executed.
     static boolean isDebug = false;
@@ -29,7 +31,7 @@ public class ChessBoardSimulation {
 
         ChessBoard cb = new ChessBoard();
         UserInput uinput = new UserInput();
-        Piece p = null;
+        Piece p;
 
         if (isDebug)
             cb.testInitializationOfChessBoard();
@@ -45,27 +47,34 @@ public class ChessBoardSimulation {
         }
 
         try {
-            if (uinput.getPiece().equals("KING")) {
-                p = new King(uinput.getPiece(), uinput.getPosition());
-                p.getPossibleMoves();
-            } else if (uinput.getPiece().equals("PAWN")) {
-                p = new Pawn(uinput.getPiece(), uinput.getPosition());
-                p.getPossibleMoves();
-            } else if (uinput.getPiece().equals("BISHOP")) {
-                p = new Bishop(uinput.getPiece(), uinput.getPosition());
-                p.getPossibleMoves();
-            } else if (uinput.getPiece().equals("HORSE")) {
-                p = new Horse(uinput.getPiece(), uinput.getPosition());
-                p.getPossibleMoves();
-            } else if (uinput.getPiece().equals("QUEEN")) {
-                p = new Queen(uinput.getPiece(), uinput.getPosition());
-                p.getPossibleMoves();
-            } else if (uinput.getPiece().equals("ROOK")) {
-                p = new Rook(uinput.getPiece(), uinput.getPosition());
-                p.getPossibleMoves();
+            switch (uinput.getPiece()) {
+                case "KING":
+                    p = new King(uinput.getPiece(), uinput.getPosition());
+                    p.getPossibleMoves();
+                    break;
+                case "PAWN":
+                    p = new Pawn(uinput.getPiece(), uinput.getPosition());
+                    p.getPossibleMoves();
+                    break;
+                case "BISHOP":
+                    p = new Bishop(uinput.getPiece(), uinput.getPosition());
+                    p.getPossibleMoves();
+                    break;
+                case "HORSE":
+                    p = new Horse(uinput.getPiece(), uinput.getPosition());
+                    p.getPossibleMoves();
+                    break;
+                case "QUEEN":
+                    p = new Queen(uinput.getPiece(), uinput.getPosition());
+                    p.getPossibleMoves();
+                    break;
+                case "ROOK":
+                    p = new Rook(uinput.getPiece(), uinput.getPosition());
+                    p.getPossibleMoves();
+                    break;
             }
         } catch (Exception e) {
-            System.out.println(e.getStackTrace());
+            System.out.println(Arrays.toString(e.getStackTrace()));
         }
     }
 }
