@@ -11,5 +11,9 @@ public class App {
 
         System.out.println(bst.findMax().key);
         System.out.println(bst.findMin().key);
+        System.out.println(bst.remove(10));
+
+        bst.displayTree();
+
     }
 }
