@@ -17,7 +17,7 @@ Test Cases:
 [6,9,2,4,5,8] => 1) Area = 6 * 5-0 = 30
                                    2) Area = 8 * 5-1 = 32
  */
-package com.practice.java.Arrays;
+package com.practice.java.arrays;
 
 public class WaterContainer {
     public static void main(String[] args) {

@@ -3,7 +3,7 @@
  * Data from both the arrays have to be taken and put into the third array and this third array should have only unique elements.
  * Implement this without using set.
  */
-package com.practice.java.Arrays;
+package com.practice.java.arrays;
 
 import com.practice.java.Author;
 

@@ -21,7 +21,7 @@
   (5)  [1,6]  target = 7  [0,1]
  */
 
-package com.practice.java.Arrays;
+package com.practice.java.arrays;
 
 import java.util.ArrayList;
 import java.util.HashMap;

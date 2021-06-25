@@ -1,4 +1,4 @@
-package com.practice.java.Arrays;
+package com.practice.java.arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

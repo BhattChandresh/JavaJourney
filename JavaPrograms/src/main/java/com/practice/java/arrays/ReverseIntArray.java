@@ -1,4 +1,4 @@
-package com.practice.java.Arrays;
+package com.practice.java.arrays;
 
 import com.practice.java.Author;
 

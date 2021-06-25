@@ -4,7 +4,7 @@
  * Find the maximum and minimum value from an array
  * This coding question was asked at UnravelData.
  */
-package com.practice.java.Arrays;
+package com.practice.java.arrays;
 
 import com.practice.java.Author;
 
