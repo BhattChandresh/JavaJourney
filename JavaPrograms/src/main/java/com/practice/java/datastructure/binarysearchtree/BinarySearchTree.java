@@ -1,4 +1,4 @@
-package com.practice.java.dataStructure.binarySearchTree;
+package com.practice.java.datastructure.binarysearchtree;
 
 public class BinarySearchTree {
     private Node root;

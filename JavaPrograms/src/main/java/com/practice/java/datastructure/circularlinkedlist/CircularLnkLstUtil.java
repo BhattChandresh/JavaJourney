@@ -1,4 +1,4 @@
-package com.practice.java.dataStructure.circularLinkedList;
+package com.practice.java.datastructure.circularlinkedlist;
 
 import com.practice.java.Author;
 
