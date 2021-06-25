@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class AdjacentDuplicatesTest {
-    private AdjacentDuplicates adjacentDuplicates = new AdjacentDuplicates();
+    private AdjacentDuplicates adjacentDuplicates;
 
     @BeforeEach
     public void init() {
