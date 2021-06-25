@@ -1,4 +1,4 @@
-package com.practice.java.String;
+package com.practice.java.string;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

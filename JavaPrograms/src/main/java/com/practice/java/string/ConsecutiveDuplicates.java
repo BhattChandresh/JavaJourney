@@ -2,7 +2,7 @@
   Given a string S, remove all the consecutive duplicates.
   Here we keep one character and remove all subsequent same characters.
  */
-package com.practice.java.String;
+package com.practice.java.string;
 
 import java.util.Scanner;
 
