@@ -1,6 +1,4 @@
-package com.practice.java.datastructure.binarysearchtree;
-
-import java.util.Stack;
+package com.practice.java.datastructure.tree.basicbinarysearchtree;
 
 public class BinarySearchTree {
     private Node root;
@@ -101,11 +99,11 @@ public class BinarySearchTree {
                 parentNode.rightChild = nodeToDelete.rightChild;
             }
         } else { // if node has 2 children.
-            Node successor =  getSuccessor(nodeToDelete);
+            Node successor = getSuccessor(nodeToDelete);
             //connect the parent of NodeToDelete to instead.
-            if(nodeToDelete == root) {
+            if (nodeToDelete == root) {
                 root = successor;
-            } else if(isLeftChild) {
+            } else if (isLeftChild) {
                 parentNode.leftChild = successor;
             } else {
                 parentNode.rightChild = successor;
@@ -126,13 +124,13 @@ public class BinarySearchTree {
             current = current.leftChild;
         }
         // if successor not a right child.
-        if(successor != nodeToDelete.rightChild) {
+        if (successor != nodeToDelete.rightChild) {
             successorParent.leftChild = successor.rightChild;
             successor.rightChild = nodeToDelete.rightChild;
         }
         return successor;
     }
-
+/*
     void displayTree() {
         Stack globalStack = new Stack<>();
         globalStack.push(root);
@@ -174,4 +172,5 @@ public class BinarySearchTree {
         }
         System.out.println("**************************************************************************************");
     }
+ */
 }

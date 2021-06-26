@@ -1,4 +1,4 @@
-package com.practice.java.datastructure.binarysearchtree;
+package com.practice.java.datastructure.tree.basicbinarysearchtree;
 
 public class Node {
     int key;
