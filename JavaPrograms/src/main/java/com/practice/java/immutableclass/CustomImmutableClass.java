@@ -1,4 +1,4 @@
-package com.practice.java.immutableClass;
+package com.practice.java.immutableclass;
 
 import com.practice.java.Author;
 
