@@ -2,39 +2,50 @@ package com.practice.java.datastructure.circularlinkedlist;
 
 import com.practice.java.Author;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class CircularLnkLstApp {
     public static void main(String[] args) {
-        CircularLnkLstUtil list = new CircularLnkLstUtil();
-        // Insert the node at begining
-        System.out.println("Inserting the nodes at the begin");
-        list.insertAtBegining(100);
-        list.insertAtBegining(200);
-        list.insertAtBegining(300);
-        list.insertAtBegining(400);
-        list.insertAtBegining(500);
-        list.displayList();
-        //Insert the node at end
+        CircularLnkLstUtil lnkLstUtil = new CircularLnkLstUtil();
+        System.out.println("Inserting the nodes at the beginning");
+        lnkLstUtil.insertAtBeginning(100);
+        lnkLstUtil.insertAtBeginning(200);
+        lnkLstUtil.insertAtBeginning(300);
+        lnkLstUtil.insertAtBeginning(400);
+        lnkLstUtil.insertAtBeginning(500);
+        lnkLstUtil.displayList();
+        System.out.println();
         System.out.println("Inserting the nodes at the end");
-        list.insertAtEnd(600);
-        list.insertAtEnd(700);
-        list.insertAtEnd(800);
-        list.insertAtEnd(900);
-        list.insertAtEnd(1000);
-        list.displayList();
-        //Delete the first node
+        lnkLstUtil.insertAtEnd(600);
+        lnkLstUtil.insertAtEnd(700);
+        lnkLstUtil.insertAtEnd(800);
+        lnkLstUtil.insertAtEnd(900);
+        lnkLstUtil.insertAtEnd(1000);
+        lnkLstUtil.displayList();
+        System.out.println();
         System.out.println("Delete the first node");
-        list.deleteFirstNode();
-        list.deleteFirstNode();
-        list.displayList();
-        //Delete the last node
+        lnkLstUtil.deleteFirstNode();
+        lnkLstUtil.deleteFirstNode();
+        lnkLstUtil.displayList();
+        System.out.println();
         System.out.println("Delete the last node");
-        list.deleteLastNode();
-        list.deleteLastNode();
-        list.displayList();
-        //Reverse the list
+        lnkLstUtil.deleteLastNode();
+        lnkLstUtil.deleteLastNode();
+        lnkLstUtil.displayList();
+        System.out.println();
         System.out.println("Reverse the CircularLinkedList");
-        list.reverseList();
-        list.displayList();
+        lnkLstUtil.reverseList();
+        lnkLstUtil.displayList();
+        System.out.println();
+        System.out.println("Insert node at middle");
+        lnkLstUtil.insertAtMiddle(450);
+        lnkLstUtil.insertAtMiddle(550);
+        lnkLstUtil.displayList();
+        System.out.println();
+        System.out.println("Delete node at middle");
+        lnkLstUtil.deleteMiddle();
+        lnkLstUtil.deleteMiddle();
+        lnkLstUtil.deleteMiddle();
+        lnkLstUtil.deleteMiddle();
+        lnkLstUtil.displayList();
     }
 }
