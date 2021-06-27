@@ -9,7 +9,7 @@ public class CountingSort {
 
     void sortArray(int[] input) {
         int length = input.length;
-        int k = 9;
+        int k = 9; //max value or max range
         int[] count = new int[k+1];
         int[] output = new int[length];
 
