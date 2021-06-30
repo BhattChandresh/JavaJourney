@@ -10,7 +10,7 @@ import com.practice.java.Author;
 import java.util.ArrayList;
 import java.util.List;
 
-@Author("Chandresh Bhatt")
+@Author()
 public class MergeTwoArrsAndRemoveDuplicates {
     public static void main(String[] args) {
         MergeTwoArrsAndRemoveDuplicates mergeTwoArrsAndRemoveDuplicates =
