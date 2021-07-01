@@ -15,7 +15,7 @@ class ShortestDistanceToCharTest {
     }
 
     @Test
-    void getShortestDistanceFromTargetChar() {
+    void testGetShortestDistanceFromTargetChar() {
         int[] expectedResult1 = {4, 3, 2, 1, 0, 1, 0, 1, 2, 3};
         int[] actualResult1 = (int[]) shortestDistanceToChar.getShortestDistanceFromTargetChar("helloworld", 'o');
         assertArrayEquals(expectedResult1, actualResult1);
