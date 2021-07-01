@@ -14,8 +14,8 @@ public class FindOnlyDuplicateNumber {
     public static void main(String[] args) {
         int[] nums = {};
         FindOnlyDuplicateNumber duplicateNumber = new FindOnlyDuplicateNumber();
-        int duplicateNum = duplicateNumber.findOnlyDuplicateNumberBySet(nums);
-        System.out.println(duplicateNum);
+        duplicateNumber.findOnlyDuplicateNumberBySet(nums);
+        duplicateNumber.findOnlyDuplicateNumber(nums);
     }
 
     int findOnlyDuplicateNumberBySet(int[] nums) {
@@ -27,6 +27,19 @@ public class FindOnlyDuplicateNumber {
                 return num;
             } else {
                 set.add(num);
+            }
+        }
+        return -1;
+    }
+
+    int findOnlyDuplicateNumber(int[] nums) {
+        int size = nums.length;
+        int[] count = new int[size + 1];
+
+        for (int num : nums) {
+            count[num] += 1;
+            if (count[num] > 1) {
+                return num;
             }
         }
         return -1;
