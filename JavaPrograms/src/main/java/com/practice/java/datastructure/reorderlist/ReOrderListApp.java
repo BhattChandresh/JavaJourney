@@ -17,11 +17,7 @@ package com.practice.java.datastructure.reorderlist;
 public class ReOrderListApp {
     public static void main(String[] args) {
         ListUtils list = new ListUtils();
-        //int[] inputArr = {1, 2, 3, 4};
-        //int[] inputArr = {1, 2, 3, 4, 5};
-        //int[] inputArr = {35,44,56,12,99,201,5}; //[35, 5, 44, 201, 56, 99, 12]
-        int[] inputArr = {15, 30, 45, 60, 75, 90, 105, 120, 135, 150};   //[15, 150, 30, 135, 45, 120, 60, 105, 75, 90]
-        //int[] inputArr = {2, 4, 8, 16, 32, 64, 128, 512, 1024, 2048, 4096, 8192, 16384}; //[2, 16384, 4, 8192, 8, 4096, 16, 2048, 32, 1024, 64, 512, 128]
+        int[] inputArr = {};
         list.prepareList(inputArr);
         list.displayList();
         System.out.println();
