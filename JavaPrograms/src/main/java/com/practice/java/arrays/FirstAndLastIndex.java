@@ -11,17 +11,61 @@ nums = [5,7,7,8,8,10], target = 6 -> [-1,-1]
 package com.practice.java.arrays;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FirstAndLastIndex {
     public static void main(String[] args) {
         FirstAndLastIndex index = new FirstAndLastIndex();
-        //int[] inputArr = {5,7,7,8,8,8,8,8,8,8,8,8,8,10,11,12,13,15};
         int[] inputArr = {};
-        int target = 7;
-        int[] position = index.findFirstAndLastElementPositionLinearSearch(inputArr, target);
-        System.out.println(Arrays.toString(position));
+        int target = 8;
+        int[] position1 = index.findFirstAndLastElementPositionLinearSearch(inputArr, target);
+        int[] position2 = index.findFirstAndLastElementPositionBinarySearch(inputArr, target);
+    }
+
+    protected int[] findFirstAndLastElementPositionBinarySearch(int[] inputArr, int target) {
+        int[] position = new int[2];
+        int start = 0;
+        int end = inputArr.length - 1;
+        int targetIndex = 0;
+
+        if (inputArr.length == 0) {
+            position[0] = -1;
+            position[1] = -1;
+            return position;
+        }
+
+        while (start < end) {
+            int mid = (start + end) / 2;
+            if (inputArr[mid] == target) {
+                targetIndex = mid;
+                break;
+            }
+            if (inputArr[mid] < target) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+
+        if(targetIndex == 0) {
+            position[0] = -1;
+            position[1] = -1;
+        }
+
+        for (int index = targetIndex; index >= 0; index--) {
+            if (inputArr[index] != target) {
+                position[0] = index + 1;
+                break;
+            }
+        }
+
+        for (int index = targetIndex; index < inputArr.length; index++) {
+            if (inputArr[index] != target) {
+                position[1] = index - 1;
+                break;
+            }
+        }
+        return position;
     }
 
     protected int[] findFirstAndLastElementPositionLinearSearch(int[] inputArr, int target) {
