@@ -18,7 +18,7 @@ public class ListUtils {
         last = node;
     }
 
-    public Node getHead() {
+    protected Node getHead() {
         return first;
     }
 
@@ -26,13 +26,13 @@ public class ListUtils {
         return (first == null);
     }
 
-    public void prepareList(int[] inputArr) {
+    protected void prepareList(int[] inputArr) {
         for (int i : inputArr) {
             insertItemAtEnd(i);
         }
     }
 
-    public void displayList() {
+    protected void displayList() {
         Node current = first;
         while (current != null) {
             current.displayNode();
@@ -41,7 +41,7 @@ public class ListUtils {
         System.out.println();
     }
 
-    public void reorderListWorkingSolution(Node head) {
+    protected void reorderListWorkingSolution(Node head) {
         List<Integer> tempList = getNodeValues(head);
         reOrderNodeValue(tempList);
         deleteAllNodes();
@@ -50,7 +50,8 @@ public class ListUtils {
         }
     }
 
-    public List<Integer> getNodeValuesForTesting() {
+    //Used only for JUnit.
+    protected List<Integer> getNodeValuesForTesting() {
         List<Integer> testList = new ArrayList<>();
         Node current = first;
         while(current != null) {
@@ -58,6 +59,11 @@ public class ListUtils {
             current = current.next;
         }
         return testList;
+    }
+
+    //Used only for JUnit.
+    protected void clearDesiredList() {
+        desiredList.clear();
     }
 
     protected void deleteAllNodes() {
