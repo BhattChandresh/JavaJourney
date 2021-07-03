@@ -17,11 +17,19 @@ package com.practice.java.datastructure.reorderlist;
 public class ReOrderListApp {
     public static void main(String[] args) {
         ListUtils list = new ListUtils();
-        int[] inputArr = {};
+        int[] inputArr = {1, 2, 3, 4, 5, 6};
         list.prepareList(inputArr);
         list.displayList();
         System.out.println();
         list.reorderListWorkingSolution(list.getHead());
+        list.displayList();
+        System.out.println();
+        list.deleteAllNodes();
+
+        list.prepareList(inputArr);
+        list.displayList();
+        System.out.println();
+        list.reorderListBySwapNodes(list.getHead());
         list.displayList();
     }
 }
