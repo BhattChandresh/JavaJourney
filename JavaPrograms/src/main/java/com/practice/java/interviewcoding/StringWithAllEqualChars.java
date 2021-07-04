@@ -14,7 +14,7 @@
  * # abab -> true
  * # bbbcacaac -> true
  */
-package com.practice.java.InterviewCoding;
+package com.practice.java.interviewcoding;
 
 import com.practice.java.Author;
 

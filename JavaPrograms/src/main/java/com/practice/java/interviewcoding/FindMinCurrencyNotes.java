@@ -1,7 +1,7 @@
 /**
  * Find minimum number of currency notes and values that sum to given amount
  */
-package com.practice.java.InterviewCoding;
+package com.practice.java.interviewcoding;
 
 import java.util.*;
 

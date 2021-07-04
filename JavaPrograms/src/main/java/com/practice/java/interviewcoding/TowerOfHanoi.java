@@ -5,7 +5,7 @@
  * 3) No disk may be placed on top of a smaller disk.
  */
 
-package com.practice.java.InterviewCoding;
+package com.practice.java.interviewcoding;
 
 import com.practice.java.Author;
 

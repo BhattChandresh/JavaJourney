@@ -1,4 +1,4 @@
-package com.practice.java.InterviewCoding;
+package com.practice.java.interviewcoding;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

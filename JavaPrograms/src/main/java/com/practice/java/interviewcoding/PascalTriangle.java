@@ -1,4 +1,4 @@
-package com.practice.java.InterviewCoding;
+package com.practice.java.interviewcoding;
 
 import java.util.ArrayList;
 import java.util.List;

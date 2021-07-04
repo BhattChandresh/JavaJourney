@@ -3,7 +3,7 @@
  * Organisation : Uptycs
  * Write a program that display the total heap memory, free heap memory and max heap memory.
  */
-package com.practice.java.InterviewCoding;
+package com.practice.java.interviewcoding;
 
 import com.practice.java.Author;
 
