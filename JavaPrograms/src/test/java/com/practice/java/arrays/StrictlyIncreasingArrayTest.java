@@ -17,7 +17,7 @@ class StrictlyIncreasingArrayTest {
     }
 
     @Test
-    void isStrictlyIncreasingArr() {
+    void testIsStrictlyIncreasingArr() {
         assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{1, 2, 10, 5, 7}));
         assertFalse(increasingArray.IsStrictlyIncreasingArr(new int[]{1, 1, 1}));
         assertFalse(increasingArray.IsStrictlyIncreasingArr(new int[]{2, 3, 1, 2}));
