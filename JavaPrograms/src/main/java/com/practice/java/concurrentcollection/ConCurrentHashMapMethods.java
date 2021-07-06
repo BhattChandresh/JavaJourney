@@ -1,13 +1,13 @@
-package com.practice.java.conCurrentCollection;
+package com.practice.java.concurrentcollection;
 
 import com.practice.java.Author;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class ConCurrentHashMapMethods {
     public static void main(String[] args) {
-        ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<Integer, String>();
+        ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<>();
         map.put(101, "ABC");
         map.put(102, "AAA");
         map.put(103, "XYZ");

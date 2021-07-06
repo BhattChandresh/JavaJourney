@@ -1,4 +1,4 @@
-package com.practice.java.conCurrentCollection;
+package com.practice.java.concurrentcollection;
 
 import com.practice.java.Author;
 
@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class ConCurrentModificationExceptionDemo {
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
 
         for (int i = 0; i < 10000; i++) {
             list.add(i);

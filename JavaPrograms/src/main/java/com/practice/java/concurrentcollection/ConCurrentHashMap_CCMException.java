@@ -1,4 +1,4 @@
-package com.practice.java.conCurrentCollection;
+package com.practice.java.concurrentcollection;
 
 import com.practice.java.Author;
 
@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class ConCurrentHashMap_CCMException {
     public static void main(String... args) {
-        Map<Integer, String> map = new ConcurrentHashMap<Integer, String>();
+        Map<Integer, String> map = new ConcurrentHashMap<>();
 
         for (int i = 0; i < 10000; i++) {
             map.put(i, ("AB" + i));
