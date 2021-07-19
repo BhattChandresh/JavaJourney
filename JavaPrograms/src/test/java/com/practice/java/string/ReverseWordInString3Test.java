@@ -14,7 +14,7 @@ class ReverseWordInString3Test {
     }
 
     @Test
-    void reverseCharactersInEachWordBruteForce() {
+    void testReverseCharactersInEachWordBruteForce() {
         assertEquals("doG gniD", reverseWordInString3.reverseCharactersInEachWordBruteForce("God Ding"));
         assertEquals("s'teL ekat edoCteeL tsetnoc", reverseWordInString3.reverseCharactersInEachWordBruteForce("Let's take LeetCode contest"));
         assertEquals("", reverseWordInString3.reverseCharactersInEachWordBruteForce(""));
