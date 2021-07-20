@@ -1,12 +1,12 @@
-/**
- * Find minimum number of currency notes and values that sum to given amount
+/*
+  Find minimum number of currency notes and values that sum to given amount
  */
 package com.practice.java.interviewcoding;
 
 import java.util.*;
 
 public class FindMinCurrencyNotes {
-    static ArrayList<Integer> notes = new ArrayList<Integer>();
+    static ArrayList<Integer> notes = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -28,19 +28,19 @@ public class FindMinCurrencyNotes {
         getMinCurrencyNotes(notes, amount);
     }
 
-    static void getMinCurrencyNotes(List notes, int amount) {
+    static void getMinCurrencyNotes(List<Integer> notes, int amount) {
         int i = 0;
-        int value = 0;
-        HashMap<Integer, Integer> map = new LinkedHashMap<Integer, Integer>();
+        int value;
+        HashMap<Integer, Integer> map = new LinkedHashMap<>();
         while (amount >= -1) {
-            if (amount >= (int) notes.get(i)) {
+            if (amount >= notes.get(i)) {
                 if (!(map.containsKey(notes.get(i))))
-                    map.put((int) notes.get(i), 1);
+                    map.put(notes.get(i), 1);
                 else {
                     value = map.get(notes.get(i));
-                    map.put((int) notes.get(i), value + 1);
+                    map.put(notes.get(i), value + 1);
                 }
-                amount = amount - (int) notes.get(i);
+                amount = amount - notes.get(i);
                 if (amount <= 0)
                     break;
             } else {
