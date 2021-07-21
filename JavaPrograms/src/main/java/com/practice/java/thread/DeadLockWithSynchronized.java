@@ -1,4 +1,4 @@
-package com.practice.java.Thread;
+package com.practice.java.thread;
 
 import java.util.ArrayList;
 import java.util.List;

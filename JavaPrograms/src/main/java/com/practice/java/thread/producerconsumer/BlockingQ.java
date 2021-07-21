@@ -1,4 +1,4 @@
-package com.practice.java.Thread.producerconsumer;
+package com.practice.java.thread.producerconsumer;
 
 import java.util.ArrayList;
 import java.util.List;

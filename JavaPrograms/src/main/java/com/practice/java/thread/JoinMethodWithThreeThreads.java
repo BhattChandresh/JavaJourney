@@ -1,4 +1,4 @@
-package com.practice.java.Thread;
+package com.practice.java.thread;
 
 public class JoinMethodWithThreeThreads {
     static Thread t1;

@@ -1,4 +1,4 @@
-package com.practice.java.Thread;
+package com.practice.java.thread;
 
 public class SumOfFirst100Nos {
     public static void main(String[] args) {
