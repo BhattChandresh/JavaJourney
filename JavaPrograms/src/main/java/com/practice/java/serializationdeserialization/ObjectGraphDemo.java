@@ -1,4 +1,4 @@
-/**
+/*
  * # When we serialize the object then set of all objects which are reachable from that object will be serialized automatically.
  * This group of object is nothing but the Object Graph.
  */
@@ -6,9 +6,14 @@ package com.practice.java.serializationdeserialization;
 
 import com.practice.java.Author;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class ObjectGraphDemo {
     public static void main(String[] args) {
         Lion lion = new Lion();
@@ -28,14 +33,16 @@ public class ObjectGraphDemo {
             fos = new FileOutputStream("objectgraph.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(object);
-        } catch (FileNotFoundException fe) {
+        } catch (IOException fe) {
             fe.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
         } finally {
             try {
-                fos.close();
-                oos.close();
+                if (fos != null) {
+                    fos.close();
+                }
+                if (oos != null) {
+                    oos.close();
+                }
             } catch (IOException ie) {
                 ie.printStackTrace();
             }
@@ -51,16 +58,16 @@ public class ObjectGraphDemo {
             Lion lion = (Lion) ois.readObject();
             System.out.println("After Serialization : " + lion.tiger.leopard.t);
             System.out.println("After Serialization : " + lion.tiger.leopard.s);
-        } catch (FileNotFoundException fe) {
+        } catch (ClassNotFoundException | IOException fe) {
             fe.printStackTrace();
-        } catch (ClassNotFoundException ce) {
-            ce.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
         } finally {
             try {
-                fis.close();
-                ois.close();
+                if (fis != null) {
+                    fis.close();
+                }
+                if (ois != null) {
+                    ois.close();
+                }
             } catch (IOException io) {
                 io.printStackTrace();
             }
