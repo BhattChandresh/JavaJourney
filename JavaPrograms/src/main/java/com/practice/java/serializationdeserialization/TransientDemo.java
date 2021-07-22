@@ -1,13 +1,13 @@
-package com.practice.java.SerDe;
+package com.practice.java.serializationdeserialization;
 
 import com.practice.java.Author;
 
 import java.io.*;
 
 @Author("Chandresh Bhatt")
-public class SerializationDeserializationDemo {
+public class TransientDemo {
     public static void main(String[] args) {
-        SerDe_1 serde = new SerDe_1();
+        SerDe_2 serde = new SerDe_2();
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         FileInputStream fis = null;
@@ -17,7 +17,9 @@ public class SerializationDeserializationDemo {
         try {
             System.out.println("Before Serialization i = " + serde.i);
             System.out.println("Before Serialization j = " + serde.j);
-            fos = new FileOutputStream("SerDe_1.ser");
+            System.out.println("Before Serialization j = " + SerDe_2.k);
+            System.out.println("Before Serialization j = " + serde.u);
+            fos = new FileOutputStream("SerDe_2.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(serde);
         } catch (FileNotFoundException fe) {
@@ -35,11 +37,13 @@ public class SerializationDeserializationDemo {
 
         //DESERIALIZATION
         try {
-            fis = new FileInputStream("SerDe_1.ser");
+            fis = new FileInputStream("SerDe_2.ser");
             ois = new ObjectInputStream(fis);
-            SerDe_1 serde_deser = (SerDe_1) ois.readObject();
+            SerDe_2 serde_deser = (SerDe_2) ois.readObject();
             System.out.println("After Deserialization i = " + serde_deser.i);
             System.out.println("After Deserialization j = " + serde_deser.j);
+            System.out.println("After Deserialization j = " + serde_deser.k);
+            System.out.println("After Deserialization j = " + serde_deser.u);
         } catch (FileNotFoundException fe) {
             fe.printStackTrace();
         } catch (ClassNotFoundException ce) {
@@ -57,7 +61,9 @@ public class SerializationDeserializationDemo {
     }
 }
 
-class SerDe_1 implements Serializable {
+class SerDe_2 implements Serializable {
     int i = 100;
-    int j = 200;
+    transient int j = 200;
+    static transient int k = 300;
+    final transient int u = 999;
 }

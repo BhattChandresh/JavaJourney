@@ -2,7 +2,7 @@
  * # When we serialize the object then set of all objects which are reachable from that object will be serialized automatically.
  * This group of object is nothing but the Object Graph.
  */
-package com.practice.java.SerDe;
+package com.practice.java.serializationdeserialization;
 
 import com.practice.java.Author;
 

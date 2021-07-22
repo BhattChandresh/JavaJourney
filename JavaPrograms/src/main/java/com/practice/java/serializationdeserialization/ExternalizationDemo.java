@@ -1,4 +1,4 @@
-package com.practice.java.SerDe;
+package com.practice.java.serializationdeserialization;
 
 import java.io.*;
 
