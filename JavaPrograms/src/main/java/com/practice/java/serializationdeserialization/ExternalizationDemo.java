@@ -1,6 +1,13 @@
 package com.practice.java.serializationdeserialization;
 
-import java.io.*;
+import java.io.Externalizable;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 
 public class ExternalizationDemo {
     public static void main(String... args) {
@@ -17,14 +24,16 @@ public class ExternalizationDemo {
             fos = new FileOutputStream("external.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(object);
-        } catch (FileNotFoundException fe) {
+        } catch (IOException fe) {
             fe.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
         } finally {
             try {
-                fos.close();
-                oos.close();
+                if (fos != null) {
+                    fos.close();
+                }
+                if (oos != null) {
+                    oos.close();
+                }
             } catch (IOException ie) {
                 ie.printStackTrace();
             }
@@ -41,16 +50,16 @@ public class ExternalizationDemo {
             System.out.println("After Deserialization m =" + e.m);
             System.out.println("After Deserialization n =" + e.n);
             System.out.println("After Deserialization str =" + e.str);
-        } catch (FileNotFoundException fe) {
+        } catch (ClassNotFoundException | IOException fe) {
             fe.printStackTrace();
-        } catch (ClassNotFoundException ce) {
-            ce.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
         } finally {
             try {
-                fis.close();
-                ois.close();
+                if (fis != null) {
+                    fis.close();
+                }
+                if (ois != null) {
+                    ois.close();
+                }
             } catch (IOException io) {
                 io.printStackTrace();
             }
