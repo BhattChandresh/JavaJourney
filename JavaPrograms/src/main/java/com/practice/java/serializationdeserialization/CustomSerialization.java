@@ -1,11 +1,16 @@
 package com.practice.java.serializationdeserialization;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-public class CustomeSerialization {
+public class CustomSerialization {
     public static void main(String[] args) {
         Account accnt = new Account();
-        CustomeSerialization custom = new CustomeSerialization();
+        CustomSerialization custom = new CustomSerialization();
         custom.serialization(accnt);
         custom.deserialization();
     }
@@ -17,14 +22,16 @@ public class CustomeSerialization {
             fos = new FileOutputStream("account.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(object);
-        } catch (FileNotFoundException fe) {
+        } catch (IOException fe) {
             fe.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
         } finally {
             try {
-                fos.close();
-                oos.close();
+                if (fos != null) {
+                    fos.close();
+                }
+                if (oos != null) {
+                    oos.close();
+                }
             } catch (IOException ie) {
                 ie.printStackTrace();
             }
@@ -40,16 +47,16 @@ public class CustomeSerialization {
             Account accnt = (Account) ois.readObject();
             System.out.println("After Deserialization : " + accnt.userName);
             System.out.println("After Deserialization : " + accnt.pwd);
-        } catch (FileNotFoundException fe) {
+        } catch (ClassNotFoundException | IOException fe) {
             fe.printStackTrace();
-        } catch (ClassNotFoundException ce) {
-            ce.printStackTrace();
-        } catch (IOException io) {
-            io.printStackTrace();
         } finally {
             try {
-                fis.close();
-                ois.close();
+                if (fis != null) {
+                    fis.close();
+                }
+                if (ois != null) {
+                    ois.close();
+                }
             } catch (IOException io) {
                 io.printStackTrace();
             }
