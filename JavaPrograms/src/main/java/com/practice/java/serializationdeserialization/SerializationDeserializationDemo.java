@@ -2,9 +2,14 @@ package com.practice.java.serializationdeserialization;
 
 import com.practice.java.Author;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class SerializationDeserializationDemo {
     public static void main(String[] args) {
         SerDe_1 serde = new SerDe_1();
@@ -20,14 +25,16 @@ public class SerializationDeserializationDemo {
             fos = new FileOutputStream("SerDe_1.ser");
             oos = new ObjectOutputStream(fos);
             oos.writeObject(serde);
-        } catch (FileNotFoundException fe) {
+        } catch (IOException fe) {
             fe.printStackTrace();
-        } catch (IOException ie) {
-            ie.printStackTrace();
         } finally {
             try {
-                oos.close();
-                fos.close();
+                if (oos != null) {
+                    oos.close();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
             } catch (IOException ie) {
                 ie.printStackTrace();
             }
@@ -40,16 +47,16 @@ public class SerializationDeserializationDemo {
             SerDe_1 serde_deser = (SerDe_1) ois.readObject();
             System.out.println("After Deserialization i = " + serde_deser.i);
             System.out.println("After Deserialization j = " + serde_deser.j);
-        } catch (FileNotFoundException fe) {
+        } catch (IOException | ClassNotFoundException fe) {
             fe.printStackTrace();
-        } catch (ClassNotFoundException ce) {
-            ce.printStackTrace();
-        } catch (IOException ie) {
-            ie.printStackTrace();
         } finally {
             try {
-                fis.close();
-                ois.close();
+                if (fis != null) {
+                    fis.close();
+                }
+                if (ois != null) {
+                    ois.close();
+                }
             } catch (IOException ie) {
                 ie.printStackTrace();
             }
