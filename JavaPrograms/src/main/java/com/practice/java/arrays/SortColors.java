@@ -14,12 +14,53 @@ import java.util.Map;
 
 public class SortColors {
     public static void main(String[] args) {
-        int[] colorArr = {0};
+        int[] colorArr = {2, 0, 2, 1, 1, 0};
         SortColors sortColors = new SortColors();
-        sortColors.sortRGBWithMap(colorArr);
+        //sortColors.sortRGBWithMap(colorArr);
+        sortColors.sortColorLinearTime(colorArr);
     }
 
-    protected int[] sortRGBWithMap(int[] colorArr) {
+    protected int[] sortColorLinearTime(int[] colorArr) {
+        if (colorArr.length == 0) {
+            return null;
+        }
+        if (colorArr.length == 1) {
+            return colorArr;
+        }
+        int red = 0;  // 0 = Red
+        int white = 0; // 1 = White
+        int blue = 0; // 2 = Blue
+
+        for (int i : colorArr) {
+            if (i == 0) {
+                red += 1;
+            } else if (i == 1) {
+                white += 1;
+            } else {
+                blue += 1;
+            }
+        }
+
+        for (int index = 0; index < colorArr.length; index++) {
+            if (index < red) {
+                colorArr[index] = 0;
+            } else if (index < white + red) {
+                colorArr[index] = 1;
+            } else if (index >= white && index < blue + white + red) {
+                colorArr[index] = 2;
+            }
+        }
+        return colorArr;
+    }
+
+
+    protected int[] sortColorWithMap(int[] colorArr) {
+        if (colorArr.length == 0) {
+            return null;
+        }
+        if (colorArr.length == 1) {
+            return colorArr;
+        }
         Map<Integer, Integer> sortColorsMap = new HashMap<>();
         for (int i : colorArr) {
             if (sortColorsMap.containsKey(i)) {
