@@ -1,11 +1,11 @@
-/**
- * Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
- * Example 1:
- * Input: num1 = "2", num2 = "3"
- * Output: "6"
- * Example 2:
- * Input: num1 = "123", num2 = "456"
- * Output: "56088"
+/*
+  Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2, also represented as a string.
+  Example 1:
+  Input: num1 = "2", num2 = "3"
+  Output: "6"
+  Example 2:
+  Input: num1 = "123", num2 = "456"
+  Output: "56088"
  */
 package com.practice.java.mypractice;
 
@@ -13,7 +13,7 @@ import com.practice.java.Author;
 
 import java.util.Scanner;
 
-@Author("Bhatt Chandresh")
+@Author("")
 public class multiplyStringNumbers {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -27,7 +27,7 @@ public class multiplyStringNumbers {
         int length1 = num1.length();
         int length2 = num2.length();
         int number1 = 0;
-        int temp = 0;
+        int temp;
         int number2 = 0;
         int i = 0;
 
