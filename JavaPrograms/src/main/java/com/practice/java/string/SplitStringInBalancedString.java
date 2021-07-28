@@ -11,35 +11,36 @@ package com.practice.java.string;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Stack;
 
 public class SplitStringInBalancedString {
+    private boolean isRecursiveCall = false;
+    protected List<String> output = new ArrayList<>();
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
         sc.close();
         SplitStringInBalancedString splitStringInBalancedString = new SplitStringInBalancedString();
-        splitStringInBalancedString.makeBalanceString(input);
+        List<String> result = splitStringInBalancedString.makeBalanceString(input);
+        System.out.println(result);
     }
 
     protected List<String> makeBalanceString(String input) {
         if (input.isEmpty()) {
             return null;
         }
-        Stack<String> stack = new Stack<>();
-        pushOperation(stack, input);
-        return popOperation(stack);
+        return splitStringInBalance(input);
     }
 
-    private List<String> popOperation(Stack<String> stack) {
-        String myChar;
-        int rCount = 0;
+    private List<String> splitStringInBalance(String input) {
         int lCount = 0;
+        int rCount = 0;
         StringBuilder balancedStr = new StringBuilder();
-        List<String> output = new ArrayList<>();
 
-        while (!(stack.isEmpty())) {
-            myChar = stack.pop();
+        String myChar;
+
+        for (int index = 0; index < input.length(); index++) {
+            myChar = String.valueOf(input.charAt(index));
             if (myChar.equals("R")) {
                 rCount += 1;
             } else {
@@ -50,17 +51,23 @@ public class SplitStringInBalancedString {
             if (lCount == rCount) {
                 rCount = 0;
                 lCount = 0;
-                balancedStr.reverse();
-                output.add(balancedStr.toString());
+                if (isRecursiveCall) {
+                    balancedStr.reverse();
+                    isRecursiveCall = false;
+                }
+
+                if (!balancedStr.toString().isEmpty()) {
+                    output.add(balancedStr.toString());
+                }
                 balancedStr = new StringBuilder();
             }
         }
-        return output;
-    }
 
-    private void pushOperation(Stack<String> stack, String input) {
-        for (int index = 0; index < input.length(); index++) {
-            stack.push(String.valueOf(input.charAt(index)));
+        if ((balancedStr.toString().length() > 1) && (lCount > 0) && (rCount > 0)) {
+            balancedStr.reverse();
+            isRecursiveCall = true;
+            return splitStringInBalance(balancedStr.toString());
         }
+        return output;
     }
 }
