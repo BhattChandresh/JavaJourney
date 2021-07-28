@@ -1,5 +1,5 @@
-/**
- * Count number of 1’s in binary representation of a number.
+/*
+  Count number of 1’s in binary representation of a number.
  */
 
 package com.practice.java.mypractice;
@@ -8,7 +8,7 @@ import com.practice.java.Author;
 
 import java.util.Scanner;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class CountOneInNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
