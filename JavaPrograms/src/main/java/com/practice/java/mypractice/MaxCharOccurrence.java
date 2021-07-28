@@ -1,6 +1,6 @@
-/**
- * Problem Statement:
- * How to Count Occurrences of a Character in String
+/*
+  Problem Statement:
+  How to Count Occurrences of a Character in String
  */
 package com.practice.java.mypractice;
 
@@ -9,20 +9,19 @@ import java.util.HashMap;
 public class MaxCharOccurrence {
     public static void main(String[] args) {
         String str = "ABABCABAACBDA";
-//        String str = "Today is Monday";
         maxCharOccurance(str);
     }
 
     public static void maxCharOccurance(String str) {
-        int value = 1;
-        HashMap<Character, Integer> m = new HashMap<Character, Integer>();
+        int value;
+        HashMap<Character, Integer> m = new HashMap<>();
         char[] c = str.toCharArray();
-        for (int i = 0; i < c.length; i++) {
-            if (m.containsKey(c[i])) {
-                value = m.get(c[i]);
-                m.put(c[i], value + 1);
+        for (char item : c) {
+            if (m.containsKey(item)) {
+                value = m.get(item);
+                m.put(item, value + 1);
             } else {
-                m.put(c[i], 1);
+                m.put(item, 1);
             }
         }
         System.out.println(m);
