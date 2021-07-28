@@ -1,8 +1,8 @@
-/**
- * Author : Bhatt Chandresh
- * Java Array Exercises:
- * Find the maximum and minimum value from an array
- * This coding question was asked at UnravelData.
+/*
+  Author : Bhatt Chandresh
+  Java Array Exercises:
+  Find the maximum and minimum value from an array
+  This coding question was asked at UnravelData.
  */
 package com.practice.java.arrays;
 
@@ -11,7 +11,7 @@ import com.practice.java.Author;
 import java.util.Arrays;
 import java.util.Scanner;
 
-@Author("Chandresh Bhatt")
+@Author("")
 public class FindMinMaxValueFromArray {
     public static void main(String... args) {
         Scanner sc = new Scanner(System.in);
@@ -56,9 +56,7 @@ public class FindMinMaxValueFromArray {
     }
 
     void getResult(int[] result) {
-        int minVal;
-        int maxVal;
-        minVal = result[0];
-        maxVal = result[1];
+        System.out.println("Min Value in Array  = " + result[0]);
+        System.out.println("Max Value in Array = " + result[1]);
     }
 }
