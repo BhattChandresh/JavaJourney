@@ -14,11 +14,11 @@ public class MaxLengthStrWithOutRepeatingChar {
     }
 
     static void findMaxLength(String s) {
-        HashSet set = new HashSet();
+        HashSet<Character> set = new HashSet<>();
         int head = 0;
-        int tail = 0;
-        String result = "";
-        boolean isDuplicate = false;
+        int tail;
+        StringBuilder result = new StringBuilder();
+        boolean isDuplicate;
         char[] c = s.toCharArray();
         for (int i = 0; i < c.length; i++) {
             isDuplicate = set.add(c[i]);
@@ -26,23 +26,22 @@ public class MaxLengthStrWithOutRepeatingChar {
                 tail = i;
                 String internal = s.substring(head, tail);
                 if (internal.charAt(0) == internal.charAt(1))
-                    internal = internal.substring(1, internal.length());
-                result = result + internal + ",";
+                    internal = internal.substring(1);
+                result.append(internal).append(",");
                 head = tail - 1;
                 i = tail - 1;
                 set.clear();
             }
         }
         if (!set.isEmpty()) {
-            String internal = s.substring(head, s.length());
+            String internal = s.substring(head);
             if (internal.charAt(0) == internal.charAt(1))
-                internal = internal.substring(1, internal.length());
-            result = result + internal;
+                internal = internal.substring(1);
+            result.append(internal);
         }
-        String[] str = result.split(",");
-        int length = 0;
-        for (int i = 0; i < str.length; i++) {
-            System.out.println("String = " + str[i] + ", Length =" + str[i].length());
+        String[] str = result.toString().split(",");
+        for (String value : str) {
+            System.out.println("String = " + value + ", Length =" + value.length());
         }
     }
 }
