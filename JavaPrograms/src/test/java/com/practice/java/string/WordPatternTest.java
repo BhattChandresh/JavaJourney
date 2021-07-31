@@ -15,7 +15,7 @@ class WordPatternTest {
     }
 
     @Test
-    void validateWordPattern() {
+    void testValidateWordPattern() {
         assertTrue(wordPattern.validateWordPattern("abba", "dog cat cat dog"));
         assertTrue(wordPattern.validateWordPattern("aaaa", "cat cat cat cat"));
         assertTrue(wordPattern.validateWordPattern("abcd", "one two three four"));
