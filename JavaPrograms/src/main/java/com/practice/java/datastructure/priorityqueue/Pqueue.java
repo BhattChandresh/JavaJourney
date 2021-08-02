@@ -1,6 +1,7 @@
 package com.practice.java.datastructure.priorityqueue;
 
 import java.util.Arrays;
+
 //TODO : This code needs optimization.
 public class Pqueue {
     private final int[] arr;
@@ -20,7 +21,7 @@ public class Pqueue {
         }
         currentPosition++;
         arr[currentPosition] = element;
-        Arrays.sort(arr);
+        Arrays.sort(arr, 0, currentPosition + 1);
     }
 
     //This function is used to remove the element with the highest priority from queue.
