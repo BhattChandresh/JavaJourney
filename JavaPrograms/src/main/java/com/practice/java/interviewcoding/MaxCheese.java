@@ -11,19 +11,33 @@ public class MaxCheese {
     public static void main(String[] args) {
         MaxCheese maxCheese = new MaxCheese();
         int[] cheeseBlocks;
+        List<int[]> testCaseList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the no. of Cheese Blocks :");
-        int noOfCheeseBlocks = sc.nextInt();
-        cheeseBlocks = new int[noOfCheeseBlocks];
-        System.out.println("Enter Cheese Blocks weight :");
-        for (int index = 0; index < noOfCheeseBlocks; index++) {
-            int cheeseBlock = sc.nextInt();
-            cheeseBlocks[index] = cheeseBlock;
+
+        System.out.println("Enter the no. of test cases : ");
+        int noOfTestCases = sc.nextInt();
+        if (noOfTestCases < 1 || noOfTestCases > 200) {
+            return;
+        }
+
+        for (int testCase = 0; testCase < noOfTestCases; testCase++) {
+            System.out.println("Enter the no. of Cheese Blocks :");
+            int noOfCheeseBlocks = sc.nextInt();
+            cheeseBlocks = new int[noOfCheeseBlocks];
+            System.out.println("Enter Cheese Blocks weight :");
+            for (int index = 0; index < noOfCheeseBlocks; index++) {
+                int cheeseBlock = sc.nextInt();
+                cheeseBlocks[index] = cheeseBlock;
+            }
+            testCaseList.add(cheeseBlocks);
         }
         sc.close();
-        System.out.println("Given Cheese Blocks are :" + Arrays.toString(cheeseBlocks));
-        int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouse(cheeseBlocks);
-        System.out.println("Maximum cheese Eat By Mouse = " + maxCheeseGetByMouse + " Kg");
+
+        for (int[] ints : testCaseList) {
+            System.out.println("Given Cheese Blocks are :" + Arrays.toString(ints));
+            int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouse(ints);
+            System.out.println("Maximum cheese Eat By Mouse = " + maxCheeseGetByMouse + " Kg");
+        }
     }
 
     protected int getMaxCheeseByMouse(int[] cheeseBlocks) {
