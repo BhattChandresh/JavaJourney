@@ -1,6 +1,7 @@
 package com.practice.java.interviewcoding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -14,11 +15,13 @@ public class MaxCheese {
         System.out.println("Enter the no. of Cheese Blocks :");
         int noOfCheeseBlocks = sc.nextInt();
         cheeseBlocks = new int[noOfCheeseBlocks];
-        for(int index=0; index < noOfCheeseBlocks;index++) {
+        System.out.println("Enter Cheese Blocks weight :");
+        for (int index = 0; index < noOfCheeseBlocks; index++) {
             int cheeseBlock = sc.nextInt();
             cheeseBlocks[index] = cheeseBlock;
         }
         sc.close();
+        System.out.println("Given Cheese Blocks are :" + Arrays.toString(cheeseBlocks));
         int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouse(cheeseBlocks);
         System.out.println("Maximum cheese Eat By Mouse = " + maxCheeseGetByMouse + " Kg");
     }

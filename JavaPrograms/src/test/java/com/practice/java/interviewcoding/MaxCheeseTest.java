@@ -21,5 +21,6 @@ class MaxCheeseTest {
         assertEquals(22, maxCheese.getMaxCheeseByMouse(new int[]{1, 2, 8, 10, 5, 7, 10}));
         assertEquals(120, maxCheese.getMaxCheeseByMouse(new int[]{10, 20, 30, 40, 10, 20, 30, 40}));
         assertEquals(0, maxCheese.getMaxCheeseByMouse(new int[]{}));
+        assertEquals(24, maxCheese.getMaxCheeseByMouse(new int[]{2, 4, 6, 8, 10, 12}));
     }
 }
