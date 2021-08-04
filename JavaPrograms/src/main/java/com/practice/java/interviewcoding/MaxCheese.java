@@ -1,5 +1,8 @@
 package com.practice.java.interviewcoding;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -23,11 +26,33 @@ public class MaxCheese {
         for (int testCase = 0; testCase < noOfTestCases; testCase++) {
             System.out.println("Enter the no. of Cheese Blocks :");
             int noOfCheeseBlocks = sc.nextInt();
+            if (noOfCheeseBlocks <= 0) {
+                System.out.println("No of Cheese Blocks should be > 0");
+                System.exit(0);
+            }
             cheeseBlocks = new int[noOfCheeseBlocks];
             System.out.println("Enter Cheese Blocks weight :");
-            for (int index = 0; index < noOfCheeseBlocks; index++) {
-                int cheeseBlock = sc.nextInt();
-                cheeseBlocks[index] = cheeseBlock;
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            String lines = null;
+            try {
+                lines = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (lines == null) {
+                System.out.println("Provide correct input");
+                System.exit(0);
+            }
+            String[] chesseQueue = lines.trim().split("\\s+");
+            int length = chesseQueue.length;
+            if (length != noOfCheeseBlocks) {
+                System.out.println("Provide correct input");
+                System.exit(0);
+            }
+            for (int index = 0; index < chesseQueue.length; index++) {
+                cheeseBlocks[index] = Integer.parseInt(chesseQueue[index]);
             }
             testCaseList.add(cheeseBlocks);
         }
