@@ -86,8 +86,7 @@ public class MaxCheese {
             return maxCheeseGetByMouse;
         }
 
-        for (int index = 0; index < cheeseBlocks.length; index++) {
-            int item = cheeseBlocks[index];
+        for (int item : cheeseBlocks) {
             weightIndex.add(item);
         }
 
@@ -100,12 +99,12 @@ public class MaxCheese {
             sortedCheeseBlocks.clear();
             sortedCheeseBlocks.addAll(weightIndex);
 
-            Integer breakCondition = weightIndex.stream().reduce(0, (a, b) -> a + b);
+            Integer breakCondition = weightIndex.stream().reduce(0, Integer::sum);
             if (breakCondition == (weightIndex.size() * -5)) {
                 break;
             }
 
-            Collections.sort(sortedCheeseBlocks, Collections.reverseOrder());
+            sortedCheeseBlocks.sort(Collections.reverseOrder());
             int maxBlock = sortedCheeseBlocks.get(0);
             int maxBlockIndex = weightIndex.lastIndexOf(maxBlock);
             if (maxBlockIndex == weightIndex.size() - 1) {
@@ -149,7 +148,7 @@ public class MaxCheese {
                             }
                         }
                     }
-                    if (leftFlag == true && rightFlag == false) {
+                    if (leftFlag && !(rightFlag)) {
                         resultList.add(maxBlock);
                         resultList.add(weightIndex.get(maxBlockIndex - 2));
                         removalList.add(maxBlockIndex - 2);
@@ -157,22 +156,22 @@ public class MaxCheese {
                         removalList.add(maxBlockIndex);
                         removalList.add(maxBlockIndex - 1);
                         removalList.add(maxBlockIndex - 2);
-                    } else if (leftFlag == false && rightFlag == true) {
+                    } else if (!(leftFlag) && rightFlag) {
                         resultList.add(maxBlock);
                         resultList.add(maxBlockIndex + 2);
                         removalList.add(maxBlockIndex + 2);
                         removalList.add(maxBlockIndex + 1);
                         removalList.add(maxBlockIndex);
                         removalList.add(maxBlockIndex - 1);
-                    } else if (leftFlag == true && rightFlag == true) {
+                    } else if (leftFlag && rightFlag) {
                         if (leftSum > rightSum) {
                             resultList.add(maxBlock);
                             resultList.add(weightIndex.get(maxBlockIndex - 2));
-                            removalList.add(maxBlockIndex + 2);
                             removalList.add(maxBlockIndex + 1);
                             removalList.add(maxBlockIndex);
                             removalList.add(maxBlockIndex - 1);
                             removalList.add(maxBlockIndex - 2);
+                            removalList.add(maxBlockIndex - 3);
                         } else {
                             resultList.add(maxBlock);
                             resultList.add(maxBlockIndex + 2);
@@ -203,8 +202,8 @@ public class MaxCheese {
             }
         }  //while true ends here
 
-        for (int index = 0; index < resultList.size(); index++) {
-            maxCheeseGetByMouse = maxCheeseGetByMouse + resultList.get(index);
+        for (Integer integer : resultList) {
+            maxCheeseGetByMouse = maxCheeseGetByMouse + integer;
         }
         return maxCheeseGetByMouse;
     }
