@@ -1,20 +1,16 @@
 package com.practice.java.interviewcoding;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
-import java.util.Scanner;
 
 public class MaxCheese {
     public static void main(String[] args) {
         MaxCheese maxCheese = new MaxCheese();
         int[] cheeseBlocks;
         List<int[]> testCaseList = new ArrayList<>();
+        /*
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the no. of test cases : ");
@@ -60,10 +56,159 @@ public class MaxCheese {
 
         for (int[] ints : testCaseList) {
             System.out.println("Given Cheese Blocks are :" + Arrays.toString(ints));
-            int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouse(ints);
+            int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(ints);
             System.out.println("Maximum cheese Eat By Mouse = " + maxCheeseGetByMouse + " Kg");
         }
+        */
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{1, 2, 8, 10, 5, 7, 10}); //24  - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{8, 5, 10, 100, 10, 5});  //113 - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{1, 2, 3}); //4  - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{10, 10, 10, 10, 10}); //30  - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{10, 20, 30, 40, 10, 20, 30, 40}); //120  - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{}); //120  - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{2, 4, 6, 8, 10, 12}); //120  - Tested
+        //int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{4, 5, 10, 8, 36, 75, 34, 45, 25, 10, 12, 5, 33, 65, 11, 22}); //120  - Tested
+        int maxCheeseGetByMouse = maxCheese.getMaxCheeseByMouseNewLogic(new int[]{1, 5, 7, 10, 12, 15, 18, 6, 9, 4}); //47  - Tested
+        System.out.println("MaxCheeseGetByMouse = " + maxCheeseGetByMouse);
     }
+
+
+    protected int getMaxCheeseByMouseNewLogic(int[] cheeseBlocks) {
+        List<Integer> weightIndex = new ArrayList<>();
+        List<Integer> sortedCheeseBlocks = new ArrayList<>();
+        List<Integer> resultList = new ArrayList<>();
+        List<Integer> removalList = new ArrayList<>();
+        int maxCheeseGetByMouse = 0;
+        boolean leftFlag = false;
+        boolean rightFlag = false;
+
+        if (cheeseBlocks.length == 0) {
+            return maxCheeseGetByMouse;
+        }
+
+        for (int index = 0; index < cheeseBlocks.length; index++) {
+            int item = cheeseBlocks[index];
+            weightIndex.add(item);
+        }
+
+        while (true) {
+            for (int index = removalList.size() - 1; index > -1; index--) {
+                int i = removalList.get(index);
+                weightIndex.set(i, -5);
+            }
+            removalList.clear();
+            sortedCheeseBlocks.clear();
+            sortedCheeseBlocks.addAll(weightIndex);
+
+            Integer breakCondition = weightIndex.stream().reduce(0, (a, b) -> a + b);
+            if (breakCondition == (weightIndex.size() * -5)) {
+                break;
+            }
+
+            Collections.sort(sortedCheeseBlocks, Collections.reverseOrder());
+            int maxBlock = sortedCheeseBlocks.get(0);
+            int maxBlockIndex = weightIndex.lastIndexOf(maxBlock);
+            if (maxBlockIndex == weightIndex.size() - 1) {
+                resultList.add(maxBlock);
+                if (weightIndex.get(maxBlockIndex - 1) != -5) {
+                    removalList.add(maxBlockIndex - 1);
+                }
+                removalList.add(maxBlockIndex);
+            } else if (maxBlockIndex == 0) {
+                resultList.add(maxBlock);
+                removalList.add(maxBlockIndex);
+                if (weightIndex.get(maxBlockIndex + 1) != -5) {
+                    removalList.add(maxBlockIndex + 1);
+                }
+            } else {
+                int prevItem = weightIndex.get(maxBlockIndex - 1);
+                int nextItem = weightIndex.get(maxBlockIndex + 1);
+                int sum = prevItem + nextItem;
+                int leftSum = 0;
+                int rightSum = 0;
+                int prevPrevItem;
+                int nextNextItem;
+
+                if (sum > maxBlock) {
+                    if ((maxBlockIndex - 2) >= 0) {
+                        prevPrevItem = weightIndex.get(maxBlockIndex - 2);
+                        if (prevPrevItem != -5) {
+                            leftSum = maxBlock + prevPrevItem;
+                            if (leftSum > sum) {
+                                leftFlag = true;
+                            }
+                        }
+                    }
+
+                    if ((maxBlockIndex + 2) < weightIndex.size() - 1) {
+                        nextNextItem = weightIndex.get(maxBlockIndex + 2);
+                        if (nextNextItem != -5) {
+                            rightSum = maxBlock + nextNextItem;
+                            if (rightSum > sum) {
+                                rightFlag = true;
+                            }
+                        }
+                    }
+                    if (leftFlag == true && rightFlag == false) {
+                        resultList.add(maxBlock);
+                        resultList.add(weightIndex.get(maxBlockIndex - 2));
+                        removalList.add(maxBlockIndex - 2);
+                        removalList.add(maxBlockIndex + 1);
+                        removalList.add(maxBlockIndex);
+                        removalList.add(maxBlockIndex - 1);
+                        removalList.add(maxBlockIndex - 2);
+                    } else if (leftFlag == false && rightFlag == true) {
+                        resultList.add(maxBlock);
+                        resultList.add(maxBlockIndex + 2);
+                        removalList.add(maxBlockIndex + 2);
+                        removalList.add(maxBlockIndex + 1);
+                        removalList.add(maxBlockIndex);
+                        removalList.add(maxBlockIndex - 1);
+                    } else if (leftFlag == true && rightFlag == true) {
+                        if (leftSum > rightSum) {
+                            resultList.add(maxBlock);
+                            resultList.add(weightIndex.get(maxBlockIndex - 2));
+                            removalList.add(maxBlockIndex + 2);
+                            removalList.add(maxBlockIndex + 1);
+                            removalList.add(maxBlockIndex);
+                            removalList.add(maxBlockIndex - 1);
+                            removalList.add(maxBlockIndex - 2);
+                        } else {
+                            resultList.add(maxBlock);
+                            resultList.add(maxBlockIndex + 2);
+                            removalList.add(maxBlockIndex + 2);
+                            removalList.add(maxBlockIndex + 1);
+                            removalList.add(maxBlockIndex);
+                            removalList.add(maxBlockIndex - 1);
+                        }
+                    } else {
+                        resultList.add(weightIndex.get(maxBlockIndex + 1));
+                        resultList.add(weightIndex.get(maxBlockIndex - 1));
+                        removalList.add(maxBlockIndex + 2);
+                        removalList.add(maxBlockIndex + 1);
+                        removalList.add(maxBlockIndex);
+                        removalList.add(maxBlockIndex - 1);
+                        removalList.add(maxBlockIndex - 2);
+                    }
+                } else {
+                    resultList.add(maxBlock);
+                    if (weightIndex.get(maxBlockIndex + 1) != -5) {
+                        removalList.add(maxBlockIndex + 1);
+                    }
+                    removalList.add(maxBlockIndex);
+                    if (weightIndex.get(maxBlockIndex - 1) != -5) {
+                        removalList.add(maxBlockIndex - 1);
+                    }
+                }
+            }
+        }  //while true ends here
+
+        for (int index = 0; index < resultList.size(); index++) {
+            maxCheeseGetByMouse = maxCheeseGetByMouse + resultList.get(index);
+        }
+        return maxCheeseGetByMouse;
+    }
+
 
     protected int getMaxCheeseByMouse(int[] cheeseBlocks) {
         List<Integer> weightIndex = new ArrayList<>();
@@ -97,3 +242,5 @@ public class MaxCheese {
         return maxCheeseGetByMouse;
     }
 }
+
+
