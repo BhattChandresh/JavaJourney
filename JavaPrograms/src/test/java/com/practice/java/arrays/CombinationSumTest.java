@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +37,7 @@ class CombinationSumTest {
         combination = combinationSum.getCombinationSum(new int[]{2, 3, 6, 7}, 7, 0, list, result);
         assertEquals(2, combination.size());
         assertEquals(Arrays.asList(2, 2, 3), combination.get(0));
-        assertEquals(Arrays.asList(7), combination.get(1));
+        assertEquals(Collections.singletonList(7), combination.get(1));
 
         clearAllList();
         combination = combinationSum.getCombinationSum(new int[]{2}, 1, 0, list, result);
@@ -54,7 +55,7 @@ class CombinationSumTest {
         assertEquals(Arrays.asList(2, 2, 4), combination.get(1));
         assertEquals(Arrays.asList(2, 6), combination.get(2));
         assertEquals(Arrays.asList(4, 4), combination.get(3));
-        assertEquals(Arrays.asList(8), combination.get(4));
+        assertEquals(Collections.singletonList(8), combination.get(4));
     }
 
 
