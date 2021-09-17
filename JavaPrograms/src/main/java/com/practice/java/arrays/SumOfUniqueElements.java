@@ -13,8 +13,11 @@ Output: 0 (No unique elements)
  */
 package com.practice.java.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class SumOfUniqueElements {
     public static void main(String[] args) {
@@ -25,21 +28,22 @@ public class SumOfUniqueElements {
 
     int getSumOfUniqueElementsByMap(int[] inputArr) {
         Map<Integer, Integer> map = new HashMap<>();
-        int sum = 0;
-        for (int i : inputArr) {
-            if (!(map.containsKey(i))) {
-                map.put(i, 1);
-            } else {
-                int value = map.get(i);
-                map.put(i, value + 1);
-            }
-        }
+        int sum;
 
-        for (Map.Entry<Integer, Integer> set : map.entrySet()) {
-            if (set.getValue() == 1) {
-                sum += set.getKey();
+        Arrays.stream(inputArr).forEach((number) -> {
+            if (!(map.containsKey(number))) {
+                map.put(number, 1);
+            } else {
+                map.put(number, map.get(number) + 1);
             }
-        }
+        });
+
+        List<Integer> list = map.entrySet().stream()
+                .filter(value -> value.getValue() == 1)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
+
+        sum = list.stream().reduce(0, Integer::sum);
         System.out.println(sum);
         return sum;
     }
