@@ -14,7 +14,9 @@ package com.practice.java.string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class KeyBoardRow {
     public static final String FIRST_ROW = "qwertyuiop";
@@ -29,36 +31,28 @@ public class KeyBoardRow {
     }
 
     protected List<String> matchInOneRow(String[] inputWords) {
-        boolean isFirstLine = false;
-        boolean isSecondLine = false;
-        boolean isThirdLine = false;
         List<String> result = new ArrayList<>();
+        StringBuilder myWord = new StringBuilder();
+        Set<Integer> traceLine = new HashSet<>();
 
         for (String word : inputWords) {
-            StringBuilder myWord = new StringBuilder();
+            myWord.replace(0, myWord.length(), "");
+            traceLine.clear();
             for (int index = 0; index < word.length(); index++) {
                 String myChar = String.valueOf(word.charAt(index));
                 if (FIRST_ROW.contains(myChar.toUpperCase()) || (FIRST_ROW.contains(myChar.toLowerCase()))) {
-                    if (isSecondLine || isThirdLine) {
-                        myWord = new StringBuilder();
-                        break;
-                    }
-                    isFirstLine = true;
                     myWord.append(myChar);
+                    traceLine.add(1);
                 } else if (SECOND_ROW.contains(myChar.toUpperCase()) || (SECOND_ROW.contains(myChar.toLowerCase()))) {
-                    if (isFirstLine || isThirdLine) {
-                        myWord = new StringBuilder();
-                        break;
-                    }
-                    isSecondLine = true;
                     myWord.append(myChar);
+                    traceLine.add(2);
                 } else if (THIRD_ROW.contains(myChar.toUpperCase()) || (THIRD_ROW.contains(myChar.toLowerCase()))) {
-                    if (isFirstLine || isSecondLine) {
-                        myWord = new StringBuilder();
-                        break;
-                    }
-                    isThirdLine = true;
                     myWord.append(myChar);
+                    traceLine.add(3);
+                }
+                if (traceLine.size() > 1) {
+                    myWord.replace(0, myWord.length(), "");
+                    break;
                 }
             }
             if (!myWord.toString().isEmpty()) {

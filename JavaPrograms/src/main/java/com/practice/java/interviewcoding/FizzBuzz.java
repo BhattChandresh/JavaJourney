@@ -10,6 +10,7 @@ package com.practice.java.interviewcoding;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class FizzBuzz {
     public static void main(String[] args) {
@@ -23,19 +24,21 @@ public class FizzBuzz {
 
     protected String[] fizzOrBuzzOrFizzBuzz(int number) {
         String[] result = new String[number];
-        String strResult;
-        for (int index = 1; index <= number; index++) {
-            if (index % 3 == 0 && index % 5 == 0) {
-                strResult = "FizzBuzz";
-            } else if (index % 3 == 0) {
-                strResult = "Fizz";
-            } else if (index % 5 == 0) {
-                strResult= "Buzz";
-            } else {
-                strResult = Integer.toString(index);
-            }
-            result[index-1] = strResult;
-        }
+        int start = 1;
+
+        IntStream.rangeClosed(start, number).forEach((index) -> {
+                    String strResult;
+                    if (index % 3 == 0 && index % 5 == 0) {
+                        strResult = "FizzBuzz";
+                    } else if (index % 3 == 0) {
+                        strResult = "Fizz";
+                    } else if (index % 5 == 0) {
+                        strResult = "Buzz";
+                    } else {
+                        strResult = Integer.toString(index);
+                    }
+                    result[index - 1] = strResult;
+                });
         return result;
     }
 }
