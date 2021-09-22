@@ -7,6 +7,7 @@ Output: "hello"
 package com.practice.java.string;
 
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class LowerCase {
     public static void main(String[] args) {
@@ -24,14 +25,14 @@ public class LowerCase {
         }
 
         StringBuilder result = new StringBuilder();
-        for (int index = 0; index < input.length(); index++) {
+
+        IntStream.range(0, input.length()).forEach((index) -> {
             if (input.charAt(index) >= 65 && input.charAt(index) <= 90) {
-                char toLowerCase = Character.toLowerCase(input.charAt(index));
-                result.append(toLowerCase);
-            } else {
-                result.append(input.charAt(index));
+                result.append(Character.toLowerCase(input.charAt(index)));
+                return;
             }
-        }
+            result.append(input.charAt(index));
+        });
         return result.toString();
     }
 }
