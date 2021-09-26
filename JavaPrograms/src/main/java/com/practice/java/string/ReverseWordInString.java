@@ -30,7 +30,6 @@ public class ReverseWordInString {
         for(int index = words.length-1;index >=0;index--) {
             input = input.concat(words[index]).concat(" ");
         }
-        input = input.trim();
-        return input;
+        return input.trim();
     }
 }
