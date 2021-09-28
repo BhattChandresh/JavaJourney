@@ -27,8 +27,7 @@ public class TopKFrequentWords {
         Scanner sc = new Scanner(System.in);
         int topKWords = sc.nextInt();
         sc.close();
-        //String[] words = {"i", "love", "leetcode", "i", "love", "coding"};
-        String[] words = {"the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"};
+        String[] words = {"i", "love", "leetcode", "i", "love", "coding"};
         TopKFrequentWords topKFrequentWords = new TopKFrequentWords();
         List<String> top_words = topKFrequentWords.topKFrequent(words, topKWords);
         System.out.println(top_words);
