@@ -9,6 +9,7 @@ Output: [0,0,1,1,2,2]
  */
 package com.practice.java.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,8 +17,12 @@ public class SortColors {
     public static void main(String[] args) {
         int[] colorArr = {2, 0, 2, 1, 1, 0};
         SortColors sortColors = new SortColors();
-        //sortColors.sortRGBWithMap(colorArr);
-        sortColors.sortColorLinearTime(colorArr);
+        int[] result = sortColors.sortColorWithMap(colorArr);
+        System.out.println("With Map = " + Arrays.toString(result));
+        result = sortColors.sortColorLinearTime(colorArr);
+        System.out.println("With Linear Time = " + Arrays.toString(result));
+        result = sortColors.sortColorWithFunctionalApproach(colorArr);
+        System.out.println("With Functional Approach = " + Arrays.toString(result));
     }
 
     protected int[] sortColorLinearTime(int[] colorArr) {
@@ -53,7 +58,6 @@ public class SortColors {
         return colorArr;
     }
 
-
     protected int[] sortColorWithMap(int[] colorArr) {
         if (colorArr.length == 0) {
             return null;
@@ -84,5 +88,18 @@ public class SortColors {
             }
         }
         return colorArr;
+    }
+
+    protected int[] sortColorWithFunctionalApproach(int[] colorArr) {
+        if (colorArr.length == 0) {
+            return null;
+        }
+        if (colorArr.length == 1) {
+            return colorArr;
+        }
+
+        return Arrays.stream(colorArr)
+                .sorted()
+                .toArray();
     }
 }
