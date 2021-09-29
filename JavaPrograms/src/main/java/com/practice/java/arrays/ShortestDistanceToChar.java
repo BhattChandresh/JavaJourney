@@ -8,6 +8,7 @@
 package com.practice.java.arrays;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,6 +29,7 @@ public class ShortestDistanceToChar {
         sc.close();
         char targetChar = targetString.charAt(0);
         distanceToChar.getShortestDistanceFromTargetChar(input, targetChar);
+        distanceToChar.getShortestDistanceFromTargetCharOptimize(input, targetChar);
     }
 
     Object getShortestDistanceFromTargetChar(String input, char targetChar) {
@@ -60,5 +62,33 @@ public class ShortestDistanceToChar {
             shortestDistances[index] = listOfShortestDistances.get(index);
         }
         return shortestDistances;
+    }
+
+    int[] getShortestDistanceFromTargetCharOptimize(String input, char targetChar) {
+        List<Integer> targetChars = new ArrayList<>();
+        List<Integer> shortestDistance = new ArrayList<>();
+        List<Integer> distances = new ArrayList<>();
+        int[] sDistance;
+
+        for(int index=0; index < input.length();index++) {
+            if(input.charAt(index) == targetChar) {
+                targetChars.add(index);
+            }
+        }
+
+        for(int index=0; index < input.length();index++) {
+            for (Integer aChar : targetChars) {
+                distances.add(Math.abs(index - aChar));
+            }
+            int min = Collections.min(distances);
+            distances.clear();
+            shortestDistance.add(min);
+        }
+
+        sDistance = new int[shortestDistance.size()];
+        for(int index=0; index < shortestDistance.size();index++) {
+            sDistance[index] = shortestDistance.get(index);
+        }
+        return sDistance;
     }
 }
