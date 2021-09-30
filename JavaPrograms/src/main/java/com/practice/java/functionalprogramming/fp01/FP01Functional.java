@@ -1,4 +1,4 @@
-package com.practice.java.functionalprogramming;
+package com.practice.java.functionalprogramming.fp01;
 
 import java.util.Arrays;
 import java.util.List;
