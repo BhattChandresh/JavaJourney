@@ -19,9 +19,11 @@ public class SortColors {
         SortColors sortColors = new SortColors();
         int[] result = sortColors.sortColorWithMap(colorArr);
         System.out.println("With Map = " + Arrays.toString(result));
-        result = sortColors.sortColorLinearTime(colorArr);
+        int[] colorArr1 = {2, 0, 2, 1, 1, 0};
+        result = sortColors.sortColorLinearTime(colorArr1);
         System.out.println("With Linear Time = " + Arrays.toString(result));
-        result = sortColors.sortColorWithFunctionalApproach(colorArr);
+        int[] colorArr3 = {2, 0, 2, 1, 1, 0};
+        result = sortColors.sortColorWithFunctionalApproach(colorArr3);
         System.out.println("With Functional Approach = " + Arrays.toString(result));
     }
 
