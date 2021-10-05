@@ -15,7 +15,7 @@ class StrictlyIncreasingArrayTest {
     public void init() {
         increasingArray = new StrictlyIncreasingArray();
     }
-
+    //[105,924,32,968]
     @Test
     void testIsStrictlyIncreasingArr() {
         assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{1, 2, 10, 5, 7}));
