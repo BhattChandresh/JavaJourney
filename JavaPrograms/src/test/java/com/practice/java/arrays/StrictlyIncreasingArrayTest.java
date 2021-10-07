@@ -15,7 +15,7 @@ class StrictlyIncreasingArrayTest {
     public void init() {
         increasingArray = new StrictlyIncreasingArray();
     }
-    //[105,924,32,968]
+
     @Test
     void testIsStrictlyIncreasingArr() {
         assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{1, 2, 10, 5, 7}));
@@ -26,5 +26,7 @@ class StrictlyIncreasingArrayTest {
         assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{1, 2, 3, 5, 7, 11}));
         assertFalse(increasingArray.IsStrictlyIncreasingArr(new int[]{12, 13, 14, 16, 18, 20, 14, 22, 26, 13}));
         assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{12, 13, 14, 16, 18, 20, 21, 22, 100, 26}));
+        assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{105, 924, 32, 968}));
+        assertTrue(increasingArray.IsStrictlyIncreasingArr(new int[]{16, 12, 13, 14, 15}));
     }
 }
