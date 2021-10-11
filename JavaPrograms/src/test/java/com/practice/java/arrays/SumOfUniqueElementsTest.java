@@ -21,4 +21,13 @@ class SumOfUniqueElementsTest {
         assertEquals(37, sumOfUniqueElements.getSumOfUniqueElementsByMap(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 8, 9}));
         assertEquals(17, sumOfUniqueElements.getSumOfUniqueElementsByMap(new int[]{1, 1, 1, 2, 2, 2, 3, 4, 5, 5, 8, 8, 10}));
     }
+
+    @Test
+    void testGetSumOfUniqueElementsBySet() {
+        assertEquals(15, sumOfUniqueElements.getSumOfUniqueElementsBySet(new int[]{1, 2, 3, 4, 5}));
+        assertEquals(4, sumOfUniqueElements.getSumOfUniqueElementsBySet(new int[]{1, 2, 3, 2}));
+        assertEquals(0, sumOfUniqueElements.getSumOfUniqueElementsBySet(new int[]{1, 1, 1, 1, 1}));
+        assertEquals(37, sumOfUniqueElements.getSumOfUniqueElementsBySet(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 8, 9}));
+        assertEquals(17, sumOfUniqueElements.getSumOfUniqueElementsBySet(new int[]{1, 1, 1, 2, 2, 2, 3, 4, 5, 5, 8, 8, 10}));
+    }
 }
