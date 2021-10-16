@@ -1,4 +1,40 @@
 package com.practice.java.interview.deserve.gameservice;
 
+import com.practice.java.interview.deserve.dice.NormalDiceService;
+import com.practice.java.interview.deserve.gameboard.SnakeAndLadderBoard;
+
 public class SnakeAndLadderService {
+    private static final int BOARD_SIZE = 100;
+    protected SnakeAndLadderBoard snakeAndLadderBoard;
+    protected NormalDiceService normalDiceService;
+
+    public SnakeAndLadderService() {
+        snakeAndLadderBoard = new SnakeAndLadderBoard(BOARD_SIZE);
+        normalDiceService = new NormalDiceService();
+    }
+
+    //TODO : System.out.println statement should be removed.
+    public void startGame(int totalTurns, String playerName) {
+        snakeAndLadderBoard.setPlayerInitialPosition(playerName);
+        while (totalTurns > 0) {
+            int diceRollNumber = normalDiceService.getDiceNumber();
+            System.out.println("New Roll out Number = " + diceRollNumber);
+            movePlayer(diceRollNumber, snakeAndLadderBoard.player.getName());
+            totalTurns -= 1;
+            System.out.println("Total Move = " + totalTurns);
+        }
+    }
+
+    //TODO : System.out.println statement should be removed.
+    public void movePlayer(int diceRollNumber, String playerName) {
+        int originalPosition = snakeAndLadderBoard.getPlayerPiece().get(playerName);
+        int newPosition = originalPosition + diceRollNumber;
+        if (newPosition > BOARD_SIZE) {
+            newPosition = originalPosition;
+        }
+        //Here the Snake and Ladder logic should be placed when developed in second story.
+        //Then only put the newPosition.
+        System.out.println("Player will be moved to = " + newPosition);
+        snakeAndLadderBoard.getPlayerPiece().put(snakeAndLadderBoard.player.getName(), newPosition);
+    }
 }
