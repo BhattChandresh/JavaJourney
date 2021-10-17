@@ -43,8 +43,8 @@ class SnakeAndLadderServiceTest {
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailPosition();
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
 
-        assertEquals(7, snakeAndLadderService.newPositionAfterGoingThroughSnakeAndLadder(14));
-        assertEquals(32, snakeAndLadderService.newPositionAfterGoingThroughSnakeAndLadder(69));
-        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughSnakeAndLadder(97));
+        assertEquals(7, snakeAndLadderService.newPositionAfterGoingThroughSnake(14));
+        assertEquals(32, snakeAndLadderService.newPositionAfterGoingThroughSnake(69));
+        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughSnake(97));
     }
 }

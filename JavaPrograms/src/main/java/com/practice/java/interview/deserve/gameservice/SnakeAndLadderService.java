@@ -29,11 +29,12 @@ public class SnakeAndLadderService {
     public void movePlayer(int diceRollNumber, String playerName) {
         int originalPosition = snakeAndLadderBoard.getPlayerPiece().get(playerName);
         int newPosition = originalPosition + diceRollNumber;
+
         if (newPosition > BOARD_SIZE) {
             newPosition = originalPosition;
         }
 
-        if (newPositionAfterGoingThroughSnakeAndLadder(newPosition) != 0) {
+        if (newPositionAfterGoingThroughSnake(newPosition) != 0) {
             newPosition = snakeAndLadderBoard.snake.getSnakeTail(newPosition);
         }
 
@@ -41,7 +42,7 @@ public class SnakeAndLadderService {
         snakeAndLadderBoard.getPlayerPiece().put(snakeAndLadderBoard.player.getName(), newPosition);
     }
 
-    public int newPositionAfterGoingThroughSnakeAndLadder(int newPosition) {
+    public int newPositionAfterGoingThroughSnake(int newPosition) {
         System.out.println("#####   Snake Head = " + snakeAndLadderBoard.snake.getSnakeTail(newPosition));
         return snakeAndLadderBoard.snake.getSnakeTail(newPosition);
     }
