@@ -15,7 +15,7 @@ public class Ladder {
         ladderMap.put(start, end);
     }
 
-    public void setLadderStartAndEndPosition() {
+    public void setDefaultLadderStartAndEndPosition() {
         ladderMap.put(4, 14);
         ladderMap.put(9, 30);
         ladderMap.put(20, 38);

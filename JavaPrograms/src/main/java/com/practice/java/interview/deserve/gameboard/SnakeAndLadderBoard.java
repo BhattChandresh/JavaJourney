@@ -8,12 +8,14 @@ public class SnakeAndLadderBoard {
     private final Map<String, Integer> playerPiece;
     public Player player;
     public Snake snake;
+    public Ladder ladder;
 
     public SnakeAndLadderBoard(int boardSize) {
         this.boardSize = boardSize;
         playerPiece = new HashMap<>();
         player = new Player();
         snake = new Snake();
+        ladder = new Ladder();
     }
 
     public int getBoardSize() {

@@ -12,7 +12,7 @@ class SnakeTest {
     @BeforeEach
     public void init() {
         snake = new Snake();
-        snake.setSnakeHeadAndTailPosition();
+        snake.setDefaultSnakeHeadAndTailPosition();
     }
 
     @Test

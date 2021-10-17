@@ -11,7 +11,7 @@ class LadderTest {
     @BeforeEach
     public void init() {
         ladder = new Ladder();
-        ladder.setLadderStartAndEndPosition();
+        ladder.setDefaultLadderStartAndEndPosition();
     }
 
     @Test

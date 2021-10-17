@@ -40,11 +40,24 @@ class SnakeAndLadderServiceTest {
 
     @Test
     void testNewPositionAfterGoingThroughSnakeAndLadder() {
-        snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailPosition();
+        snakeAndLadderService.snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
 
         assertEquals(7, snakeAndLadderService.newPositionAfterGoingThroughSnake(14));
         assertEquals(32, snakeAndLadderService.newPositionAfterGoingThroughSnake(69));
+        //No snake present at given position, new position = 0
         assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughSnake(97));
     }
+
+    @Test
+    void testNewPositionAfterGoingThroughSnake() {
+        snakeAndLadderService.snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
+        snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
+
+        assertEquals(57, snakeAndLadderService.newPositionAfterGoingThroughLadder(45));
+        assertEquals(84, snakeAndLadderService.newPositionAfterGoingThroughLadder(28));
+        //No ladder present at given position, new position = 0
+        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughLadder(86));
+    }
+
 }

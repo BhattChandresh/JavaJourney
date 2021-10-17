@@ -11,6 +11,8 @@ public class SnakeAndLadderService {
     public SnakeAndLadderService() {
         snakeAndLadderBoard = new SnakeAndLadderBoard(BOARD_SIZE);
         normalDiceService = new NormalDiceService();
+        snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
+        snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
     }
 
     //TODO : System.out.println statement should be removed.
@@ -21,7 +23,6 @@ public class SnakeAndLadderService {
             System.out.println("New Roll out Number = " + diceRollNumber);
             movePlayer(diceRollNumber, snakeAndLadderBoard.player.getName());
             totalTurns -= 1;
-            System.out.println("Total Move = " + totalTurns);
         }
     }
 
@@ -38,12 +39,21 @@ public class SnakeAndLadderService {
             newPosition = snakeAndLadderBoard.snake.getSnakeTail(newPosition);
         }
 
+        if (newPositionAfterGoingThroughLadder(newPosition) != 0) {
+            newPosition = snakeAndLadderBoard.ladder.getLadderHead(newPosition);
+        }
+
         System.out.println("Player will be moved to = " + newPosition);
         snakeAndLadderBoard.getPlayerPiece().put(snakeAndLadderBoard.player.getName(), newPosition);
     }
 
+    public int newPositionAfterGoingThroughLadder(int newPosition) {
+        System.out.println("#####   Ladder Head = " + snakeAndLadderBoard.ladder.getLadderHead(newPosition));
+        return snakeAndLadderBoard.ladder.getLadderHead(newPosition);
+    }
+
     public int newPositionAfterGoingThroughSnake(int newPosition) {
-        System.out.println("#####   Snake Head = " + snakeAndLadderBoard.snake.getSnakeTail(newPosition));
+        System.out.println("#####   Snake Tail = " + snakeAndLadderBoard.snake.getSnakeTail(newPosition));
         return snakeAndLadderBoard.snake.getSnakeTail(newPosition);
     }
 }

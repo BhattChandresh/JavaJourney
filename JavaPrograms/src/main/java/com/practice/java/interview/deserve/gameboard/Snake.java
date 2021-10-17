@@ -14,7 +14,7 @@ public class Snake {
         snakeMap.put(head, tail);
     }
 
-    public void setSnakeHeadAndTailPosition() {
+    public void setDefaultSnakeHeadAndTailPosition() {
         snakeMap.put(25, 3);
         snakeMap.put(56, 48);
         snakeMap.put(59, 1);
