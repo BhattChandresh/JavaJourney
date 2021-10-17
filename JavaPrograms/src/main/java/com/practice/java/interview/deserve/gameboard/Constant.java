@@ -1,6 +1,8 @@
 package com.practice.java.interview.deserve.gameboard;
 
 public class Constant {
+    public static final int TOTAL_TURNS = 10;
+
     public static final int LADDER_1_START = 4;
     public static final int LADDER_1_END = 14;
     public static final int LADDER_2_START = 9;

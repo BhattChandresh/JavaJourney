@@ -15,6 +15,8 @@ public class SnakeAndLadderService {
         snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
     }
 
+    //TODO: Remove all the System.out.println() statements.
+
     //TODO : System.out.println statement should be removed.
     public void startGame(int totalTurns, String playerName) {
         snakeAndLadderBoard.setPlayerInitialPosition(playerName);
