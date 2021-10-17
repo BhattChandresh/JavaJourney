@@ -6,7 +6,6 @@ import java.util.Map;
 public class Ladder {
     private final Map<Integer, Integer> ladderMap;
 
-
     public Ladder() {
         ladderMap = new HashMap<>();
     }
@@ -16,15 +15,15 @@ public class Ladder {
     }
 
     public void setDefaultLadderStartAndEndPosition() {
-        ladderMap.put(4, 14);
-        ladderMap.put(9, 30);
-        ladderMap.put(20, 38);
-        ladderMap.put(28, 84);
-        ladderMap.put(36, 44);
-        ladderMap.put(42, 63);
-        ladderMap.put(51, 67);
-        ladderMap.put(62, 81);
-        ladderMap.put(71, 90);
+        ladderMap.put(Constant.LADDER_1_START, Constant.LADDER_1_END);
+        ladderMap.put(Constant.LADDER_2_START, Constant.LADDER_2_END);
+        ladderMap.put(Constant.LADDER_3_START, Constant.LADDER_3_END);
+        ladderMap.put(Constant.LADDER_4_START, Constant.LADDER_4_END);
+        ladderMap.put(Constant.LADDER_5_START, Constant.LADDER_5_END);
+        ladderMap.put(Constant.LADDER_6_START, Constant.LADDER_6_END);
+        ladderMap.put(Constant.LADDER_7_START, Constant.LADDER_7_END);
+        ladderMap.put(Constant.LADDER_8_START, Constant.LADDER_8_END);
+        ladderMap.put(Constant.LADDER_9_START, Constant.LADDER_9_END);
     }
 
     public int getLadderHead(int ladderHead) {

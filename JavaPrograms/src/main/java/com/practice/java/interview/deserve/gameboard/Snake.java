@@ -15,14 +15,14 @@ public class Snake {
     }
 
     public void setDefaultSnakeHeadAndTailPosition() {
-        snakeMap.put(25, 3);
-        snakeMap.put(56, 48);
-        snakeMap.put(59, 1);
-        snakeMap.put(69, 32);
-        snakeMap.put(83, 57);
-        snakeMap.put(91, 73);
-        snakeMap.put(94, 26);
-        snakeMap.put(99, 80);
+        snakeMap.put(Constant.SNAKE_1_HEAD, Constant.SNAKE_1_TAIL);
+        snakeMap.put(Constant.SNAKE_2_HEAD, Constant.SNAKE_2_TAIL);
+        snakeMap.put(Constant.SNAKE_3_HEAD, Constant.SNAKE_3_TAIL);
+        snakeMap.put(Constant.SNAKE_4_HEAD, Constant.SNAKE_4_TAIL);
+        snakeMap.put(Constant.SNAKE_5_HEAD, Constant.SNAKE_5_TAIL);
+        snakeMap.put(Constant.SNAKE_6_HEAD, Constant.SNAKE_6_TAIL);
+        snakeMap.put(Constant.SNAKE_7_HEAD, Constant.SNAKE_7_TAIL);
+        snakeMap.put(Constant.SNAKE_8_HEAD, Constant.SNAKE_8_TAIL);
     }
 
     public int getSnakeTail(int snakeHead) {
