@@ -1,5 +1,6 @@
 package com.practice.java.interview.deserve.gameservice;
 
+import com.practice.java.interview.deserve.SnakeAndLadderApp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ class SnakeAndLadderServiceTest {
 
     @Test
     void startGame() {
-        snakeAndLadderService.startGame(10, "Player1");
+        snakeAndLadderService.startGame(SnakeAndLadderApp.TOTAL_TURNS, "Player1");
     }
 
     @Test
@@ -32,7 +33,7 @@ class SnakeAndLadderServiceTest {
         snakeAndLadderService.movePlayer(3, "RedPiece_Player1");
         assertEquals(Integer.valueOf("98"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
 
-        //Test that  upper bound should reach if, dice position is fine.
+        //Test that  upper bound should reach if, dice roll out number is fine.
         snakeAndLadderService.movePlayer(2, "RedPiece_Player1");
         assertEquals(Integer.valueOf("100"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
     }

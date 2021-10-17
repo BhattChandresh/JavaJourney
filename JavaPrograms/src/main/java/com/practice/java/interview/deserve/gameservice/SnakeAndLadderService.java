@@ -4,7 +4,7 @@ import com.practice.java.interview.deserve.dice.NormalDiceService;
 import com.practice.java.interview.deserve.gameboard.SnakeAndLadderBoard;
 
 public class SnakeAndLadderService {
-    private static final int BOARD_SIZE = 100;
+    public static final int BOARD_SIZE = 100;
     protected SnakeAndLadderBoard snakeAndLadderBoard;
     protected NormalDiceService normalDiceService;
 

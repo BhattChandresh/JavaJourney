@@ -1,5 +1,6 @@
 package com.practice.java.interview.deserve.gameboard;
 
+import com.practice.java.interview.deserve.gameservice.SnakeAndLadderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,11 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SnakeAndLadderBoardTest {
     private SnakeAndLadderBoard snakeAndLadderBoard;
-    private static final int BOARD_SIZE = 100;
 
     @BeforeEach
     public void init() {
-        snakeAndLadderBoard = new SnakeAndLadderBoard(BOARD_SIZE);
+        snakeAndLadderBoard = new SnakeAndLadderBoard(SnakeAndLadderService.BOARD_SIZE);
     }
 
     @Test

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SnakeAndLadderBoard {
-    private int boardSize = 0;
+    private int boardSize;
     private Map<String, Integer> playerPiece;
     public Player player;
 
