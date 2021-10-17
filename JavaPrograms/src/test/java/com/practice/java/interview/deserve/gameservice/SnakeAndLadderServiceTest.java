@@ -1,6 +1,5 @@
 package com.practice.java.interview.deserve.gameservice;
 
-import com.practice.java.interview.deserve.SnakeAndLadderApp;
 import com.practice.java.interview.deserve.gameboard.Constant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

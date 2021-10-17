@@ -1,16 +1,16 @@
 package com.practice.java.interview.deserve.gameservice;
 
-import com.practice.java.interview.deserve.dice.NormalDiceService;
+import com.practice.java.interview.deserve.dice.DiceService;
+import com.practice.java.interview.deserve.gameboard.Constant;
 import com.practice.java.interview.deserve.gameboard.SnakeAndLadderBoard;
 
 public class SnakeAndLadderService {
-    public static final int BOARD_SIZE = 100;
     protected SnakeAndLadderBoard snakeAndLadderBoard;
-    protected NormalDiceService normalDiceService;
+    protected DiceService diceService;
 
     public SnakeAndLadderService() {
-        snakeAndLadderBoard = new SnakeAndLadderBoard(BOARD_SIZE);
-        normalDiceService = new NormalDiceService();
+        snakeAndLadderBoard = new SnakeAndLadderBoard(Constant.BOARD_SIZE);
+        diceService = new DiceService();
         snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
         snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
     }
@@ -21,7 +21,7 @@ public class SnakeAndLadderService {
     public void startGame(int totalTurns, String playerName) {
         snakeAndLadderBoard.setPlayerInitialPosition(playerName);
         while (totalTurns > 0) {
-            int diceRollNumber = normalDiceService.getDiceNumber();
+            int diceRollNumber = diceService.getDiceNumber();
             System.out.println("New Roll out Number = " + diceRollNumber);
             movePlayer(diceRollNumber, snakeAndLadderBoard.player.getName());
             totalTurns -= 1;
@@ -33,7 +33,7 @@ public class SnakeAndLadderService {
         int originalPosition = snakeAndLadderBoard.getPlayerPiece().get(playerName);
         int newPosition = originalPosition + diceRollNumber;
 
-        if (newPosition > BOARD_SIZE) {
+        if (newPosition > Constant.BOARD_SIZE) {
             newPosition = originalPosition;
         }
 

@@ -1,6 +1,5 @@
 package com.practice.java.interview.deserve.gameboard;
 
-import com.practice.java.interview.deserve.gameservice.SnakeAndLadderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +12,7 @@ class SnakeAndLadderBoardTest {
 
     @BeforeEach
     public void init() {
-        snakeAndLadderBoard = new SnakeAndLadderBoard(SnakeAndLadderService.BOARD_SIZE);
+        snakeAndLadderBoard = new SnakeAndLadderBoard(Constant.BOARD_SIZE);
     }
 
     @Test
