@@ -32,9 +32,17 @@ public class SnakeAndLadderService {
         if (newPosition > BOARD_SIZE) {
             newPosition = originalPosition;
         }
-        //Here the Snake and Ladder logic should be placed when developed in second story.
-        //Then only put the newPosition.
+
+        if (newPositionAfterGoingThroughSnakeAndLadder(newPosition) != 0) {
+            newPosition = snakeAndLadderBoard.snake.getSnakeTail(newPosition);
+        }
+
         System.out.println("Player will be moved to = " + newPosition);
         snakeAndLadderBoard.getPlayerPiece().put(snakeAndLadderBoard.player.getName(), newPosition);
+    }
+
+    public int newPositionAfterGoingThroughSnakeAndLadder(int newPosition) {
+        System.out.println("#####   Snake Head = " + snakeAndLadderBoard.snake.getSnakeTail(newPosition));
+        return snakeAndLadderBoard.snake.getSnakeTail(newPosition);
     }
 }

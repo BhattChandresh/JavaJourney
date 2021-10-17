@@ -37,4 +37,14 @@ class SnakeAndLadderServiceTest {
         snakeAndLadderService.movePlayer(2, "RedPiece_Player1");
         assertEquals(Integer.valueOf("100"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
     }
+
+    @Test
+    void testNewPositionAfterGoingThroughSnakeAndLadder() {
+        snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailPosition();
+        snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
+
+        assertEquals(7, snakeAndLadderService.newPositionAfterGoingThroughSnakeAndLadder(14));
+        assertEquals(32, snakeAndLadderService.newPositionAfterGoingThroughSnakeAndLadder(69));
+        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughSnakeAndLadder(97));
+    }
 }
