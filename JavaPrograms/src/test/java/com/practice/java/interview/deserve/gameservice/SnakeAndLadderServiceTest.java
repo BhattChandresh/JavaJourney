@@ -14,6 +14,7 @@ class SnakeAndLadderServiceTest {
         snakeAndLadderService = new SnakeAndLadderService();
     }
 
+    //This is kind of Functional Test.
     @Test
     void startGame() {
         snakeAndLadderService.startGame(Constant.TOTAL_TURNS, "Player1");
