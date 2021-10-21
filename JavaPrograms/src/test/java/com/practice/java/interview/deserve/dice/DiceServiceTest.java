@@ -24,7 +24,7 @@ class DiceServiceTest {
     @Test
     void testGetCrookedDiceNumber() {
         int number = diceService.getCrookedDiceNumber();
-        System.out.println(number);
         assertTrue(number == 2 || number == 4 || number == 6 || number == 8 || number == 10 || number == 12);
+        assertFalse(number > 12);
     }
 }
