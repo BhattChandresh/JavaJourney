@@ -3,7 +3,7 @@ package com.practice.java.interview.deserve.gameboard;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Snake {
+public class Snake implements MovePiece {
     private final Map<Integer, Integer> snakeMap;
 
     public Snake() {
@@ -25,10 +25,11 @@ public class Snake {
         snakeMap.put(Constant.SNAKE_8_HEAD, Constant.SNAKE_8_TAIL);
     }
 
-    public int getSnakeTail(int snakeHead) {
+    @Override
+    public int getNewPosition(int snakeHead) {
         if (snakeMap.get(snakeHead) != null) {
             return snakeMap.get(snakeHead);
         }
-        return 0;
+        return snakeHead;
     }
 }

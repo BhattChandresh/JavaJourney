@@ -3,7 +3,7 @@ package com.practice.java.interview.deserve.gameboard;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Ladder {
+public class Ladder implements MovePiece {
     private final Map<Integer, Integer> ladderMap;
 
     public Ladder() {
@@ -26,10 +26,11 @@ public class Ladder {
         ladderMap.put(Constant.LADDER_9_START, Constant.LADDER_9_END);
     }
 
-    public int getLadderHead(int ladderHead) {
+    @Override
+    public int getNewPosition(int ladderHead) {
         if (ladderMap.get(ladderHead) != null) {
             return ladderMap.get(ladderHead);
         }
-        return 0;
+        return ladderHead;
     }
 }

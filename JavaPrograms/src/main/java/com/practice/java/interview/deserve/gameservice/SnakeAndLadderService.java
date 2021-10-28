@@ -32,23 +32,14 @@ public class SnakeAndLadderService {
             newPosition = originalPosition;
         }
 
-        if (newPositionAfterGoingThroughSnake(newPosition) != 0) {
-            newPosition = snakeAndLadderBoard.snake.getSnakeTail(newPosition);
+        if (snakeAndLadderBoard.snake.getNewPosition(newPosition) < newPosition) {
+            newPosition = snakeAndLadderBoard.snake.getNewPosition(newPosition);
         }
 
-        if (newPositionAfterGoingThroughLadder(newPosition) != 0) {
-            newPosition = snakeAndLadderBoard.ladder.getLadderHead(newPosition);
+        if (snakeAndLadderBoard.ladder.getNewPosition(newPosition) > newPosition) {
+            newPosition = snakeAndLadderBoard.ladder.getNewPosition(newPosition);
         }
-
         System.out.println(playerName + "  will be moved to = " + newPosition);
         snakeAndLadderBoard.getPlayerPiece().put(snakeAndLadderBoard.player.getName(), newPosition);
-    }
-
-    public int newPositionAfterGoingThroughLadder(int newPosition) {
-        return snakeAndLadderBoard.ladder.getLadderHead(newPosition);
-    }
-
-    public int newPositionAfterGoingThroughSnake(int newPosition) {
-        return snakeAndLadderBoard.snake.getSnakeTail(newPosition);
     }
 }
