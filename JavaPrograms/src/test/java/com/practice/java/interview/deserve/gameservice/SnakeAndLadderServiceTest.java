@@ -12,6 +12,8 @@ class SnakeAndLadderServiceTest {
     @BeforeEach
     public void init() {
         snakeAndLadderService = new SnakeAndLadderService();
+        snakeAndLadderService.snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
+        snakeAndLadderService.snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
     }
 
     //This is kind of Functional Test.
@@ -21,44 +23,57 @@ class SnakeAndLadderServiceTest {
     }
 
     @Test
-    void testMovePlayer() {
-        //Normal Test cases
+    void testMovePlayer_Moves_0_To_100() {
         snakeAndLadderService.snakeAndLadderBoard.setPlayerInitialPosition("RedPiece_Player1");
         snakeAndLadderService.movePlayer(5, "RedPiece_Player1");
         assertEquals(Integer.valueOf("5"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
         snakeAndLadderService.movePlayer(6, "RedPiece_Player1");
         assertEquals(Integer.valueOf("11"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
+    }
 
-        // Test that is dice position is above upper bound (100) then piece should not move and stationed at the original position.
+    // Test that is dice position is above upper bound (100) then piece should not move and stationed at the original position.
+    @Test
+    void testMovePlayer_Above_100() {
+        snakeAndLadderService.snakeAndLadderBoard.setPlayerInitialPosition("RedPiece_Player1");
         snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("RedPiece_Player1", 98);
         snakeAndLadderService.movePlayer(3, "RedPiece_Player1");
         assertEquals(Integer.valueOf("98"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
+    }
 
-        //Test that  upper bound should reach if, dice roll out number is fine.
+    //Test that upper bound should reach if, dice roll out number is fine.
+    @Test
+    void testMovePlayer_When_Player_Reach_Exactly_At_100() {
+        snakeAndLadderService.snakeAndLadderBoard.setPlayerInitialPosition("RedPiece_Player1");
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("RedPiece_Player1", 98);
         snakeAndLadderService.movePlayer(2, "RedPiece_Player1");
         assertEquals(Integer.valueOf("100"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("RedPiece_Player1"));
     }
 
     @Test
     void testNewPositionAfterGoingThroughSnakeAndLadder() {
-        snakeAndLadderService.snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
-
         assertEquals(7, snakeAndLadderService.newPositionAfterGoingThroughSnake(14));
         assertEquals(32, snakeAndLadderService.newPositionAfterGoingThroughSnake(69));
-        //No snake present at given position, new position = 0
+    }
+
+    //No snake present at given position, new position = 0
+    @Test
+    void testNewPosition_When_No_Snake() {
+        snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
         assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughSnake(97));
     }
 
     @Test
-    void testNewPositionAfterGoingThroughSnake() {
-        snakeAndLadderService.snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
+    void testNewPositionAfterGoingThroughLadder() {
         snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
-
         assertEquals(57, snakeAndLadderService.newPositionAfterGoingThroughLadder(45));
         assertEquals(84, snakeAndLadderService.newPositionAfterGoingThroughLadder(28));
-        //No ladder present at given position, new position = 0
-        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughLadder(86));
     }
 
+    //No ladder present at given position, new position = 0
+    @Test
+    void testNewPosition_When_No_Ladder() {
+        snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
+        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughLadder(86));
+    }
 }
