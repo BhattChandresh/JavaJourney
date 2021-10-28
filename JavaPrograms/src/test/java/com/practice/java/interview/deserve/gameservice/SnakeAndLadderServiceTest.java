@@ -52,28 +52,28 @@ class SnakeAndLadderServiceTest {
     @Test
     void testNewPositionAfterGoingThroughSnakeAndLadder() {
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
-        assertEquals(7, snakeAndLadderService.newPositionAfterGoingThroughSnake(14));
-        assertEquals(32, snakeAndLadderService.newPositionAfterGoingThroughSnake(69));
+        assertEquals(7, snakeAndLadderService.snakeAndLadderBoard.snake.getNewPosition(14));
+        assertEquals(32, snakeAndLadderService.snakeAndLadderBoard.snake.getNewPosition(69));
     }
 
     //No snake present at given position, new position = 0
     @Test
     void testNewPosition_When_No_Snake() {
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
-        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughSnake(97));
+        assertEquals(97, snakeAndLadderService.snakeAndLadderBoard.snake.getNewPosition(97));
     }
 
     @Test
     void testNewPositionAfterGoingThroughLadder() {
         snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
-        assertEquals(57, snakeAndLadderService.newPositionAfterGoingThroughLadder(45));
-        assertEquals(84, snakeAndLadderService.newPositionAfterGoingThroughLadder(28));
+        assertEquals(57, snakeAndLadderService.snakeAndLadderBoard.ladder.getNewPosition(45));
+        assertEquals(84, snakeAndLadderService.snakeAndLadderBoard.ladder.getNewPosition(28));
     }
 
     //No ladder present at given position, new position = 0
     @Test
     void testNewPosition_When_No_Ladder() {
         snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
-        assertEquals(0, snakeAndLadderService.newPositionAfterGoingThroughLadder(86));
+        assertEquals(86, snakeAndLadderService.snakeAndLadderBoard.ladder.getNewPosition(86));
     }
 }

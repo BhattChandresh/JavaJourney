@@ -17,15 +17,15 @@ class SnakeTest {
 
     @Test
     void testGetSnakeTail_Valid_Tail() {
-        assertEquals(3, snake.getSnakeTail(25));
+        assertEquals(3, snake.getNewPosition(25));
         snake.setSnakeHeadAndTailDynamically(14, 7);
-        assertEquals(7, snake.getSnakeTail(14));
-        assertEquals(73, snake.getSnakeTail(91));
+        assertEquals(7, snake.getNewPosition(14));
+        assertEquals(73, snake.getNewPosition(91));
     }
 
     @Test
     void testGetSnakeTail_When_NoSnake_Present() {
-        assertEquals(0, snake.getSnakeTail(51));
-        assertEquals(0, snake.getSnakeTail(97));
+        assertEquals(51, snake.getNewPosition(51));
+        assertEquals(97, snake.getNewPosition(97));
     }
 }
