@@ -16,15 +16,24 @@ class DiceServiceTest {
     }
 
     @Test
-    void testGetDiceNumber() {
+    void testGetDiceNumber_ValidNumber() {
         assertTrue(diceService.getDiceNumber() <= 6);
+    }
+
+    @Test
+    void testGetDiceNumber_InValidNumber() {
         assertFalse(diceService.getDiceNumber() > 6);
     }
 
     @Test
-    void testGetCrookedDiceNumber() {
+    void testGetCrookedDiceNumber_ValidNumber() {
         int number = diceService.getCrookedDiceNumber();
         assertTrue(number == 2 || number == 4 || number == 6 || number == 8 || number == 10 || number == 12);
+    }
+
+    @Test
+    void testGetCrookedDiceNumber_InvalidNumber() {
+        int number = diceService.getCrookedDiceNumber();
         assertFalse(number > 12);
     }
 }
