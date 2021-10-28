@@ -15,11 +15,16 @@ class LadderTest {
     }
 
     @Test
-    void testGetLadderHead() {
+    void testGetLadderHead_ValidHead() {
         assertEquals(14, ladder.getLadderHead(4));
         ladder.setLadderDynamically(19, 40);
         assertEquals(38, ladder.getLadderHead(20));
         assertEquals(81, ladder.getLadderHead(62));
+    }
+
+    @Test
+    void testGetLadderHead_Where_NoLadder_Present() {
         assertEquals(0, ladder.getLadderHead(43));
+        assertEquals(0, ladder.getLadderHead(56));
     }
 }
