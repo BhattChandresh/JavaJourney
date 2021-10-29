@@ -15,12 +15,12 @@ class GreenSnakeTest {
     }
 
     @Test
-    void testGetNewPosition_FirstByte() {
+    void testGetNewPosition_FirstBite() {
         assertEquals(41, greenSnake.getNewPosition(58));
     }
 
     @Test
-    void testGetNewPosition_SecondByte() {
+    void testGetNewPosition_SecondBite() {
         assertEquals(41, greenSnake.getNewPosition(58));
         assertEquals(58, greenSnake.getNewPosition(58));
     }
