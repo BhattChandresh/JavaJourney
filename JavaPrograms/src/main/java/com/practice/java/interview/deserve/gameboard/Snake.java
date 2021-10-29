@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Snake implements MovePiece {
-    private final Map<Integer, Integer> snakeMap;
+    protected final Map<Integer, Integer> snakeMap;
 
     public Snake() {
         snakeMap = new HashMap<>();

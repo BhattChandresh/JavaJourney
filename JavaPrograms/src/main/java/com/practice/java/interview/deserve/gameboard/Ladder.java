@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Ladder implements MovePiece {
-    private final Map<Integer, Integer> ladderMap;
+    protected final Map<Integer, Integer> ladderMap;
 
     public Ladder() {
         ladderMap = new HashMap<>();
@@ -27,10 +27,10 @@ public class Ladder implements MovePiece {
     }
 
     @Override
-    public int getNewPosition(int ladderHead) {
-        if (ladderMap.get(ladderHead) != null) {
-            return ladderMap.get(ladderHead);
+    public int getNewPosition(int ladderTail) {
+        if (ladderMap.get(ladderTail) != null) {
+            return ladderMap.get(ladderTail);
         }
-        return ladderHead;
+        return ladderTail;
     }
 }
