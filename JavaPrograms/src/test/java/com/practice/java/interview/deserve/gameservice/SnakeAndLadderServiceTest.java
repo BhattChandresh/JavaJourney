@@ -12,8 +12,6 @@ class SnakeAndLadderServiceTest {
     @BeforeEach
     public void init() {
         snakeAndLadderService = new SnakeAndLadderService();
-        snakeAndLadderService.snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
-        snakeAndLadderService.snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
     }
 
     //This is kind of Functional Test.
@@ -50,30 +48,41 @@ class SnakeAndLadderServiceTest {
     }
 
     @Test
-    void testNewPositionAfterGoingThroughSnakeAndLadder() {
+    void testFetchSnakeTail_When_There_Snake() {
         snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
-        assertEquals(7, snakeAndLadderService.snakeAndLadderBoard.snake.getNewPosition(14));
-        assertEquals(32, snakeAndLadderService.snakeAndLadderBoard.snake.getNewPosition(69));
-    }
-
-    //No snake present at given position, new position = 0
-    @Test
-    void testNewPosition_When_No_Snake() {
-        snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
-        assertEquals(97, snakeAndLadderService.snakeAndLadderBoard.snake.getNewPosition(97));
+        assertEquals(7, snakeAndLadderService.snakeAndLadderBoard.fetchSnakeTail(14));
+        assertEquals(32, snakeAndLadderService.snakeAndLadderBoard.fetchSnakeTail(69));
     }
 
     @Test
-    void testNewPositionAfterGoingThroughLadder() {
+    void testFetchSnakeTail_When_No_Snake() {
+        snakeAndLadderService.snakeAndLadderBoard.snake.setSnakeHeadAndTailDynamically(14, 7);
+        assertEquals(97, snakeAndLadderService.snakeAndLadderBoard.fetchSnakeTail(97));
+    }
+
+    @Test
+    void testFetchLadderHead_When_There_Ladder() {
         snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
-        assertEquals(57, snakeAndLadderService.snakeAndLadderBoard.ladder.getNewPosition(45));
-        assertEquals(84, snakeAndLadderService.snakeAndLadderBoard.ladder.getNewPosition(28));
+        assertEquals(57, snakeAndLadderService.snakeAndLadderBoard.fetchLadderHead(45));
+        assertEquals(84, snakeAndLadderService.snakeAndLadderBoard.fetchLadderHead(28));
     }
 
-    //No ladder present at given position, new position = 0
     @Test
     void testNewPosition_When_No_Ladder() {
         snakeAndLadderService.snakeAndLadderBoard.ladder.setLadderDynamically(45, 57);
-        assertEquals(86, snakeAndLadderService.snakeAndLadderBoard.ladder.getNewPosition(86));
+        assertEquals(86, snakeAndLadderService.snakeAndLadderBoard.fetchLadderHead(86));
+    }
+
+    @Test
+    void testGreenSnakeFunctionality() {
+        snakeAndLadderService.snakeAndLadderBoard.setPlayerInitialPosition("P1");
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P1", 55);
+        snakeAndLadderService.movePlayer(3, "P1");
+        assertEquals(Integer.valueOf("41"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P1", 55);
+        snakeAndLadderService.movePlayer(3, "P1");
+        assertEquals(Integer.valueOf("58"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
+        snakeAndLadderService.movePlayer(2, "P1");
+        assertEquals(Integer.valueOf("60"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
     }
 }
