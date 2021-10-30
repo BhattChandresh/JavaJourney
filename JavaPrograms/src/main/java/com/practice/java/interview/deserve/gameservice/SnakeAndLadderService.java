@@ -22,7 +22,6 @@ public class SnakeAndLadderService {
         snakeAndLadderBoard.setPlayerInitialPosition(playerName);
         while (totalTurns > 0) {
             int diceRollNumber = diceService.getDiceNumber();
-            System.out.println("--> Rolled Dice = " + diceRollNumber);
             movePlayer(diceRollNumber, snakeAndLadderBoard.player.getName());
             totalTurns -= 1;
             if (snakeAndLadderBoard.getPlayerPiece().get(playerName) == Constant.BOARD_SIZE) {
@@ -34,7 +33,6 @@ public class SnakeAndLadderService {
 
     public void movePlayer(int diceRollNumber, String playerName) {
         int originalPosition = snakeAndLadderBoard.getPlayerPiece().get(playerName);
-        System.out.println("--> Original Position = " + originalPosition);
         int newPosition = originalPosition + diceRollNumber;
 
         if (newPosition > Constant.BOARD_SIZE) {
