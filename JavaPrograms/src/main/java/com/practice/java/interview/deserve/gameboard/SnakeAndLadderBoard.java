@@ -11,6 +11,7 @@ public class SnakeAndLadderBoard {
     public Ladder ladder;
     public GreenSnake greenSnake;
     public PurpleSnake purpleSnake;
+    public MagicLadder magicLadder;
 
     public SnakeAndLadderBoard(int boardSize) {
         this.boardSize = boardSize;
@@ -20,6 +21,7 @@ public class SnakeAndLadderBoard {
         ladder = new Ladder();
         greenSnake = new GreenSnake();
         purpleSnake = new PurpleSnake();
+        magicLadder = new MagicLadder();
     }
 
     public int getBoardSize() {
@@ -49,6 +51,8 @@ public class SnakeAndLadderBoard {
     public int fetchLadderHead(int ladderTail) {
         if (ladder.ladderMap.containsKey(ladderTail)) {
             return ladder.getNewPosition(ladderTail);
+        } else if (magicLadder.magicLadderMap.containsKey(ladderTail)) {
+            return magicLadder.getNewPosition(ladderTail);
         }
         return ladderTail;
     }

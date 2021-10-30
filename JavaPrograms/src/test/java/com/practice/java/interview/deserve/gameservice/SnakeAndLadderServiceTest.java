@@ -101,4 +101,17 @@ class SnakeAndLadderServiceTest {
         snakeAndLadderService.movePlayer(4, "P1");
         assertEquals(Integer.valueOf("44"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
     }
+
+    @Test
+    void testMagicLadderFunctionality() {
+        snakeAndLadderService.snakeAndLadderBoard.setPlayerInitialPosition("P2");
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P2", 8);
+        snakeAndLadderService.movePlayer(2, "P2");
+        assertEquals(Integer.valueOf("100"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P2"));
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P2", 5);
+        snakeAndLadderService.movePlayer(5, "P2");
+        assertEquals(Integer.valueOf("10"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P2"));
+        snakeAndLadderService.movePlayer(5, "P2");
+        assertEquals(Integer.valueOf("15"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P2"));
+    }
 }
