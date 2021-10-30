@@ -14,6 +14,7 @@ public class SnakeAndLadderService {
         snakeAndLadderBoard.snake.setDefaultSnakeHeadAndTailPosition();
         snakeAndLadderBoard.ladder.setDefaultLadderStartAndEndPosition();
         snakeAndLadderBoard.greenSnake.positionGreenSnake(58, 41);
+        snakeAndLadderBoard.purpleSnake.positionPurpleSnake(40, 21);
     }
 
     public void startGame(int totalTurns, String playerName) {

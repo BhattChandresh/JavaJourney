@@ -10,6 +10,7 @@ public class SnakeAndLadderBoard {
     public Snake snake;
     public Ladder ladder;
     public GreenSnake greenSnake;
+    public PurpleSnake purpleSnake;
 
     public SnakeAndLadderBoard(int boardSize) {
         this.boardSize = boardSize;
@@ -18,6 +19,7 @@ public class SnakeAndLadderBoard {
         snake = new Snake();
         ladder = new Ladder();
         greenSnake = new GreenSnake();
+        purpleSnake = new PurpleSnake();
     }
 
     public int getBoardSize() {
@@ -34,16 +36,18 @@ public class SnakeAndLadderBoard {
     }
 
     public int fetchSnakeTail(int snakeHead) {
-        if(snake.snakeMap.containsKey(snakeHead)) {
+        if (snake.snakeMap.containsKey(snakeHead)) {
             return snake.getNewPosition(snakeHead);
-        } else if(greenSnake.greenSnakeMap.containsKey(snakeHead)) {
+        } else if (greenSnake.greenSnakeMap.containsKey(snakeHead)) {
             return greenSnake.getNewPosition(snakeHead);
+        } else if (purpleSnake.purpleSnakeMap.containsKey(snakeHead)) {
+            return purpleSnake.getNewPosition(snakeHead);
         }
         return snakeHead;
     }
 
     public int fetchLadderHead(int ladderTail) {
-        if(ladder.ladderMap.containsKey(ladderTail)) {
+        if (ladder.ladderMap.containsKey(ladderTail)) {
             return ladder.getNewPosition(ladderTail);
         }
         return ladderTail;

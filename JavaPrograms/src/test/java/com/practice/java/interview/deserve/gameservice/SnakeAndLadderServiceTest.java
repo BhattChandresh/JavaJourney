@@ -85,4 +85,20 @@ class SnakeAndLadderServiceTest {
         snakeAndLadderService.movePlayer(2, "P1");
         assertEquals(Integer.valueOf("60"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
     }
+
+    @Test
+    void testPurpleSnakeFunctionality() {
+        snakeAndLadderService.snakeAndLadderBoard.setPlayerInitialPosition("P1");
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P1", 39);
+        snakeAndLadderService.movePlayer(1, "P1");
+        assertEquals(Integer.valueOf("21"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P1", 35);
+        snakeAndLadderService.movePlayer(5, "P1");
+        assertEquals(Integer.valueOf("21"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
+        snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().put("P1", 37);
+        snakeAndLadderService.movePlayer(3, "P1");
+        assertEquals(Integer.valueOf("40"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
+        snakeAndLadderService.movePlayer(4, "P1");
+        assertEquals(Integer.valueOf("44"), snakeAndLadderService.snakeAndLadderBoard.getPlayerPiece().get("P1"));
+    }
 }
