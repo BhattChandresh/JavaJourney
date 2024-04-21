@@ -27,10 +27,28 @@ public class ProductOfArrayExceptItself {
         int[] result_bruteForce = product.productExceptSelf_BruteForce(nums);
         System.out.println("Brute-Force Method : ".concat(Arrays.toString(result_bruteForce)));
         int[] result_LinearTime = product.productExceptSelf_LinearTime(nums);
+        System.out.println("Linear Time Method : ".concat(Arrays.toString(result_LinearTime)));
     }
 
     private int[] productExceptSelf_LinearTime(int[] nums) {
-        int[] result = new int[nums.length];
+        int length = nums.length;
+        int[] result = new int[length];
+        int[] leftProducts = new int[length];
+        leftProducts[0] = 1;
+        int[] rightProducts = new int[length];
+        rightProducts[length - 1] = 1;
+
+        for(int i=1; i< length;i++) {
+            leftProducts[i] = leftProducts[i - 1] * nums[i - 1];
+        }
+
+        for(int i=length-2; i >=0; i--) {
+            rightProducts[i] = rightProducts[i+1] * nums[i+1];
+        }
+
+        for(int i=0; i< length;i++) {
+            result[i] = leftProducts[i] * rightProducts[i];
+        }
         return result;
     }
 

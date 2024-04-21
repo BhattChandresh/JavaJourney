@@ -1,8 +1,8 @@
 /**
  * NOTES
  * Overloaded methods  MUST  change the argument list.
- * Overloaded methods  CAN change their return type.
- * Overloaded methods CAN change return type.
+ * Overloaded methods  CAN change  return type.
+ * Overloaded methods CAN change access modifier.
  * Overloaded methods CAN declare new or broader exceptions.
  *
  * Can we overload static methods?
