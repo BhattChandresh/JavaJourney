@@ -11,7 +11,7 @@ Output: 0 (No unique elements)
 1 <= nums.length <= 100
 1 <= nums[i] <= 100
  */
-package com.practice.java.arrays;
+package main.java.com.practice.java.arrays;
 
 import java.util.ArrayList;
 import java.util.Arrays;

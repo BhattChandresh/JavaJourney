@@ -4,7 +4,7 @@
  * Overloaded methods  CAN change  return type.
  * Overloaded methods CAN change access modifier.
  * Overloaded methods CAN declare new or broader exceptions.
- *
+ * <p>
  * Can we overload static methods?
  * The answer is ‘Yes’. We can have two or more static methods with the same name, but differences in input parameters.
  */
@@ -21,7 +21,6 @@ public class Method_Overloading_Demo2 {
         // Reference Base can see only base class overloaded methods.
         Base base = new Derived();
         base.demoDisplay();
-
     }
 }
 
