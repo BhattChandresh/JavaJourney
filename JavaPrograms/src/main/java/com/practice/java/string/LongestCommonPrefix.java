@@ -19,24 +19,50 @@
  */
 package main.java.com.practice.java.string;
 
+import java.util.Arrays;
+
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         //String[] s = {"power", "po", "post", "postman","poster"};
         //String[] s = {""};
         //String[] s = {"", ""};
-        //String[] s = {"flower","flow","flight"};
-        String[] s = {"dog", "racecar", "car"};
+        String[] s = {"flower","flow","flight"};
+        //String[] s = {"dog", "racecar", "car"};
         //String[] s = {"a"};
         LongestCommonPrefix longestCommonPrefix = new LongestCommonPrefix();
-        String result = longestCommonPrefix.longestCommonPrefix(s);
+
+        String result = longestCommonPrefix.longestCommonPrefix_BruteForce(s);
         if (!result.isEmpty()) {
-            System.out.println("Longest Common Prefix is : " + result);
+            System.out.println("Brute-Force Longest Common Prefix is : " + result);
         } else {
-            System.out.println("Longest Common Prefix is empty");
+            System.out.println("Brute-Force Longest Common Prefix is empty");
+        }
+
+        result = longestCommonPrefix.longestCommonPrefix_Efficient_Approach(s);
+        if (!result.isEmpty()) {
+            System.out.println("Efficient Approach Longest Common Prefix is : " + result);
+        } else {
+            System.out.println("Efficient Approach Longest Common Prefix is empty");
         }
     }
 
-    public String longestCommonPrefix(String[] strs) {
+    public String longestCommonPrefix_Efficient_Approach(String[] strs) {
+        StringBuilder result = new StringBuilder();
+        Arrays.sort(strs);
+
+        char[] first_element = strs[0].toCharArray();
+        char[] last_element = strs[strs.length - 1].toCharArray();
+
+        for (int i = 0; i < first_element.length; i++) {
+            if (first_element[i] != last_element[i]) {
+                break;
+            }
+            result.append(first_element[i]);
+        }
+        return result.toString();
+    }
+
+    public String longestCommonPrefix_BruteForce(String[] strs) {
         int count = 0;
         int pointer = 0;
         String result = "";
