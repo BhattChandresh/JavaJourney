@@ -24,87 +24,41 @@ import java.util.Set;
 
 public class LongestSubStrWithoutRepeatingChar {
     public static void main(String[] args) {
-        //String input = "abcabcbb";
+        String input = "abcabcbb";
         //String input = "au";
-        String input = "aab";
+        //String input = "aab";
         int length = 0;
         LongestSubStrWithoutRepeatingChar subStrWithoutRepeatingChar = new LongestSubStrWithoutRepeatingChar();
-        //length = subStrWithoutRepeatingChar.lengthOfLongestSubstring(input);
         length = subStrWithoutRepeatingChar.lengthOfLongestSubstringWithSet(input);
         System.out.println("Length of the Sub String is : " + length);
     }
 
     private int lengthOfLongestSubstringWithSet(String s) {
-        Set<String> subStr = new HashSet<>();
+        Set<Character> subStr = new HashSet<>();
         int left_ptr = 0;
         int revert_left_ptr = 0;
-        StringBuilder str = new StringBuilder();
-        int subStrLength = Integer.MIN_VALUE;
+        int subStrLength = 0;
 
-        if (s.length() == 0) {
-            return 0;
+        if (s.length() == 0 || s.length() == 1) {
+            return s.length();
         }
 
-        if(s.length() == 1) {
-            return 1;
-        }
-
-        while(left_ptr < s.length()) {
-            String temp = String.valueOf(s.charAt(left_ptr));
-            if(subStr.add(temp)) {
-                str.append(temp);
+        while (left_ptr < s.length()) {
+            if (subStr.add(s.charAt(left_ptr))) {
             } else {
-                subStrLength = Math.max(str.length(), subStrLength);
-                str.setLength(0);
+                subStrLength = Math.max(subStr.size(), subStrLength);
                 subStr.clear();
                 revert_left_ptr += 1;
-                left_ptr =  revert_left_ptr;
+                left_ptr = revert_left_ptr;
                 continue;
             }
             left_ptr += 1;
         }
         return Math.max(subStrLength, subStr.size());
     }
-
-    public int lengthOfLongestSubstring(String s) {
-        Set<String> subStrList = new HashSet<>();
-        String subStr = "";
-        int left_ptr = 0;
-        int right_ptr = 1;
-        int window_size = 0;
-        while (left_ptr < s.length()) {
-            if (s.charAt(left_ptr) != s.charAt(right_ptr)) {
-                right_ptr += 1;
-                window_size += 1;
-                continue;
-            } else {
-                subStr = s.substring(left_ptr, right_ptr);
-                left_ptr += 1;
-                right_ptr = left_ptr + 1;
-            }
-            subStrList.add(subStr);
-            subStr = "";
-        }
-        return -1;
-    }
 }
 
 
-/*
-Set<String> subStrList = new HashSet<>();
-        String subStr = "";
-        int left_ptr = 0;
-        int right_ptr = 1;
-        while(left_ptr < s.length()) {
-            if(s.charAt(left_ptr) != s.charAt(right_ptr)) {
-                right_ptr += 1;
-                continue;
-            } else {
-                subStr = s.substring(left_ptr, right_ptr);
-                left_ptr += 1;
-                right_ptr = left_ptr + 1;
-            }
-            subStrList.add(subStr);
-            subStr = "";
-        }
- */
+
+
+
