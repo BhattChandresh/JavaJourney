@@ -5,7 +5,7 @@
   Space Complexity : O (1)
  */
 
-package com.practice.java.algorithms;
+package main.java.com.practice.java.algorithms;
 
 import com.practice.java.Author;
 
