@@ -1,23 +1,22 @@
 /**
  * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
  * A mapping of digits to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
-
-  * Example 1:
+ * <p>
+ * Example 1:
  * Input: digits = "23"
  * Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
-
+ * <p>
  * Example 2:
  * Input: digits = ""
  * Output: []
-
+ * <p>
  * Example 3:
  * Input: digits = "2"
  * Output: ["a","b","c"]
-
+ * <p>
  * Constraints:
-  * 0 <= digits.length <= 4
+ * 0 <= digits.length <= 4
  * digits[i] is a digit in the range ['2', '9'].
- *
  */
 
 package main.java.com.practice.java.string;
@@ -32,7 +31,7 @@ public class LetterCombinationPhoneNumber {
         //String input = "2";
         String input = "";
         LetterCombinationPhoneNumber combination = new LetterCombinationPhoneNumber();
-        List<String> letterCombination =  combination.letterCombinations(input);
+        List<String> letterCombination = combination.letterCombinations(input);
         System.out.println(Arrays.toString(letterCombination.toArray()));
     }
 
@@ -43,7 +42,7 @@ public class LetterCombinationPhoneNumber {
         mapWords.put("2", "abc");
         mapWords.put("3", "def");
         mapWords.put("4", "ghi");
-        mapWords.put("5","jkl");
+        mapWords.put("5", "jkl");
         mapWords.put("6", "mno");
         mapWords.put("7", "pqrs");
         mapWords.put("8", "tuv");
@@ -53,12 +52,12 @@ public class LetterCombinationPhoneNumber {
             return letterCombination;
         }
 
-        for(int i = digits.length()-1; i > -1 ; i--) {
+        for (int i = digits.length() - 1; i > -1; i--) {
             String temp = String.valueOf(digits.charAt(i));
             String out = mapWords.get(temp);
 
-            if(letterCombination.isEmpty()) {
-                for(int j=0 ; j < out.length();j++) {
+            if (letterCombination.isEmpty()) {
+                for (int j = 0; j < out.length(); j++) {
                     String str = String.valueOf(out.charAt(j));
                     letterCombination.add(str);
                 }
@@ -69,9 +68,7 @@ public class LetterCombinationPhoneNumber {
                 for (int k = 0; k < out.length(); k++) {
                     String str = String.valueOf(out.charAt(k));
                     for (int z = 0; z < itr; z++) {
-                        StringBuilder s = new StringBuilder();
-                        s.append(str).append(tempList.get(z));
-                        letterCombination.add(s.toString());
+                        letterCombination.add(str + tempList.get(z));
                     }
                 }
             }
