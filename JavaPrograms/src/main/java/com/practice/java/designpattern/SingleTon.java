@@ -123,7 +123,7 @@ class ThreadSafeSingleTon {
 }
 
 class DoubleLockSingleTon {
-    private static DoubleLockSingleTon uniqueInstance;
+    private static volatile DoubleLockSingleTon uniqueInstance;
 
     private DoubleLockSingleTon() {
 
@@ -151,7 +151,7 @@ we used a private constructor to create a singleton.
 
  If we happen to use ENUMs, we might be able to solve this problem.
  Enum field variable do not take participate in Serialization - Deserialization.
- Enums are thread safte by default.
+ Enums are thread safe by default.
 
 
  Internally Enums will be compiled as follows

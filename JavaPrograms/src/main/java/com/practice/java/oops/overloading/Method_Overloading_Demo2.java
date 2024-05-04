@@ -17,6 +17,7 @@ public class Method_Overloading_Demo2 {
         derived.demoDisplay();
         derived.demoDisplay(10);
         derived.demoDisplay("Demo");
+        //derived.demoDisplay(null); //This gives you the compliation error.
         System.out.println("------------------------------------------");
         // Reference Base can see only base class overloaded methods.
         Base base = new Derived();
@@ -41,4 +42,11 @@ class Derived extends Base {
         System.out.println("Derived class demoDisplay() method");
         return n;
     }
+
+    public int demoDisplay(StringBuilder s) {
+        System.out.println("StringBuilder Overloading");
+        return -1;
+    }
 }
+
+
