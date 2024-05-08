@@ -60,25 +60,22 @@ public class SearchInsertPosition {
             list.add(target);
             Collections.sort(list);
         }
-        Integer[] arr = new Integer[list.size()];
-        list.toArray(arr);
-
 
         int start = 0;
-        int end = arr.length - 1;
+        int end = list.size() - 1;
 
         while (start <= end) {
             int middle = (start + end) / 2;
 
-            if (target == arr[middle]) {
+            if (target == list.get(middle)) {
                 return middle;
             }
 
-            if (target > arr[middle]) {
+            if (target > list.get(middle)) {
                 start = middle + 1;
             }
 
-            if (target < arr[middle]) {
+            if (target < list.get(middle)) {
                 end = middle - 1;
             }
         }
