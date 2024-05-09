@@ -2,12 +2,12 @@
  * Given a string queryIP, return "IPv4" if IP is a valid IPv4 address, "IPv6" if IP is a valid IPv6 address or "Neither" if IP is not a correct IP of any type.
  * A valid IPv4 address is an IP in the form "x1.x2.x3.x4" where 0 <= xi <= 255 and xi cannot contain leading zeros. For example, "192.168.1.1" and "192.168.1.0" are valid IPv4 addresses while "192.168.01.1", "192.168.1.00", and "192.168@1.1" are invalid IPv4 addresses.
  * A valid IPv6 address is an IP in the form "x1:x2:x3:x4:x5:x6:x7:x8" where:
-
+ * <p>
  * 1 <= xi.length <= 4
  * xi is a hexadecimal string which may contain digits, lowercase English letter ('a' to 'f') and upper-case English letters ('A' to 'F').
  * Leading zeros are allowed in xi.
  * For example, "2001:0db8:85a3:0000:0000:8a2e:0370:7334" and "2001:db8:85a3:0:0:8A2E:0370:7334" are valid IPv6 addresses, while "2001:0db8:85a3::8A2E:037j:7334" and "02001:0db8:85a3:0000:0000:8a2e:0370:7334" are invalid IPv6 addresses.
-
+ * <p>
  * Example 1:
  * Input: queryIP = "172.16.254.1"
  * Output: "IPv4"
@@ -21,7 +21,7 @@
  * Output: "Neither"
  * Explanation: This is neither a IPv4 address nor a IPv6 address.
  * Constraints:
- *
+ * <p>
  * queryIP consists only of English letters, digits and the characters '.' and ':'.
  */
 
@@ -68,11 +68,11 @@ public class ValidateIpAddress {
         int countDot = 0;
         int countColon = 0;
 
-        if (queryIP.length() == 0) {
+        if ((queryIP.length() == 0) || (queryIP.contains(".") && queryIP.length() > 15) || (queryIP.contains(":") && queryIP.length() > 40)) {
             return NEITHER;
         }
 
-        for(int k=0; k < queryIP.length(); k++) {
+        for (int k = 0; k < queryIP.length(); k++) {
             Character c = queryIP.charAt(k);
             if (!Character.isDigit(c) && !Character.isLetter(c) && !c.equals('.') && !c.equals(':')) {
                 return NEITHER;
@@ -80,38 +80,28 @@ public class ValidateIpAddress {
 
             if (c.equals('.')) {
                 countDot++;
-            }
-
-            if (c.equals(':')) {
+            } else if (c.equals(':')) {
                 countColon++;
             }
         }
 
-        if(queryIP.contains(".")) {
-
-            if (queryIP.length() > 15) {
-                return NEITHER;
-            }
+        if (queryIP.contains(".")) {
 
             if (countDot != 3) {
                 return NEITHER;
             }
 
-            for(int k=0; k < queryIP.length(); k++) {
-                if(Character.isLetter(queryIP.charAt(k))) {
+            for (int k = 0; k < queryIP.length(); k++) {
+                if (Character.isLetter(queryIP.charAt(k))) {
                     return NEITHER;
                 }
             }
 
             String result = checkForIpV4(queryIP);
-            return  result;
+            return result;
         }
 
-        if(queryIP.contains(":")) {
-
-            if(queryIP.length() > 40) {
-                return NEITHER;
-            }
+        if (queryIP.contains(":")) {
 
             if (countColon != 7) {
                 return NEITHER;
@@ -119,8 +109,8 @@ public class ValidateIpAddress {
 
             queryIP = queryIP.toLowerCase();
 
-            for(int k=0 ; k < queryIP.length(); k++) {
-                if(queryIP.charAt(k) > 'f') {
+            for (int k = 0; k < queryIP.length(); k++) {
+                if (queryIP.charAt(k) > 'f') {
                     return NEITHER;
                 }
             }
@@ -135,23 +125,21 @@ public class ValidateIpAddress {
         int validNumber = 0;
         String[] arr = queryIP.split("\\.");
 
-        for(int k=0 ; k < arr.length;k++) {
-            if(!arr[k].isEmpty()) {
+        for (int k = 0; k < arr.length; k++) {
+            if (!arr[k].isEmpty()) {
 
-                if(arr[k].charAt(0) == '0' && arr[k]. length() > 1) {
+                if (arr[k].charAt(0) == '0' && arr[k].length() > 1) {
                     return NEITHER;
                 }
 
                 int number = Integer.parseInt(arr[k]);
-
-
                 if (number >= 0 && number <= 255) {
                     validNumber++;
                 }
             }
         }
 
-        if(validNumber == 4) {
+        if (validNumber == 4) {
             return IPV4;
         }
         return NEITHER;
@@ -159,18 +147,17 @@ public class ValidateIpAddress {
 
     private String checkForIpV6(String queryIP) {
         int validNumber = 0;
-
-
         String[] arr = queryIP.split("\\:");
 
-        for(int k=0; k < arr.length; k++) {
-            if(!arr[k].isEmpty()) {
-                if(arr[k].length() >= 1 && arr[k].length() <=4) {
+        for (int k = 0; k < arr.length; k++) {
+            if (!arr[k].isEmpty()) {
+                if (arr[k].length() >= 1 && arr[k].length() <= 4) {
                     validNumber++;
                 }
             }
         }
-        if(validNumber == 8) {
+
+        if (validNumber == 8) {
             return IPV6;
         }
         return NEITHER;
