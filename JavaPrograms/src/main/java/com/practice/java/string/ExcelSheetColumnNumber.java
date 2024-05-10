@@ -1,7 +1,7 @@
 /**
  * Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.
  * For example:
- *
+ * <p>
  * A -> 1
  * B -> 2
  * C -> 3
@@ -26,8 +26,6 @@
 
 package main.java.com.practice.java.string;
 
-import org.xml.sax.helpers.AttributesImpl;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,6 +41,11 @@ public class ExcelSheetColumnNumber {
         ExcelSheetColumnNumber columnNumber = new ExcelSheetColumnNumber();
         int columnTitleNumber = columnNumber.titleToNumber_Solution_1(columnTitle);
         System.out.println("ColumnTitle is : " + columnTitleNumber);
+
+        int columnTitle_Number = columnNumber.titleToNumber_Solution_2(columnTitle);
+        System.out.println("ColumnTitle is : " + columnTitle_Number);
+
+
     }
 
     public int titleToNumber_Solution_1(String columnTitle) {
@@ -79,14 +82,27 @@ public class ExcelSheetColumnNumber {
 
         int index = columnTitle.length() - 1;
         int number = 1;
-        for(int k=0; k < columnTitle.length() - 1; k++) {
+        for (int k = 0; k < columnTitle.length() - 1; k++) {
             String s = String.valueOf(columnTitle.charAt(k));
-            number =  (int) Math.pow(26, index);
-            titleNumber =  titleNumber + (number * map.get(s));
+            number = (int) Math.pow(26, index);
+            titleNumber = titleNumber + (number * map.get(s));
             index--;
         }
-        String s =  String.valueOf(columnTitle.charAt(columnTitle.length()-1));
+        String s = String.valueOf(columnTitle.charAt(columnTitle.length() - 1));
         titleNumber = titleNumber + map.get(s);
+        return titleNumber;
+    }
+
+    public int titleToNumber_Solution_2(String columnTitle) {
+        int titleNumber = 0;
+        int index = columnTitle.length() - 1;
+        int number = 1;
+        for (int k = 0; k < columnTitle.length() - 1; k++) {
+            number = (int) Math.pow(26, index);
+            titleNumber = titleNumber + (number * (columnTitle.charAt(k) - 'A' + 1));
+            index--;
+        }
+        titleNumber = titleNumber + columnTitle.charAt(columnTitle.length() - 1) - 'A' + 1;
         return titleNumber;
     }
 }
