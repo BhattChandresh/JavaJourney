@@ -22,19 +22,40 @@
  * words[i] consists only of lowercase English letters.
  */
 
-// HERE, OUT OF 168 , 162 Test cases gets Passed. Need to look into failed test cases on leetcode.
+
 package main.java.com.practice.java.string;
 
 public class MaximumProductOfWordLength {
     public static void main(String[] args) {
         //String[] strArr = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
-        String[] strArr = {"a", "ab", "abc", "d", "cd", "bcd", "abcd"};
+        //String[] strArr = {"a", "ab", "abc", "d", "cd", "bcd", "abcd"};
         //String[] strArr = {"a","aa","aaa","aaaa"};
+        String[] strArr = {"deadd", "ccabfecbcba", "cdbeeffafd", "fcafbfc", "befcf", "bc", "ff", "fa", "fbadfebccac", "be", "fbddbafacf", "abdcf", "dcae",
+                "efbacdcbbbc", "bcbfbf", "cad", "cedcfaaf", "bacfd", "ae", "bbfdbefb", "cabf", "bcc", "edbfbae", "eabfe", "decf", "ecceecdafdf", "dabfbbddbe",
+                "fbbdbfb", "bafebcddadc", "accdaaddefe", "daffbcbff", "dfecdbcefdf", "faabfef", "ffefaccbaee", "ed", "dbcfba", "abb", "be", "aacade", "dfeedddbbc",
+                "fefc", "abdcf", "dfeceefd", "bedfcf", "eceeaf", "cbdceccebd", "dafeb", "dfdabdebac", "fe", "fddbedb", "ffeaadb", "fddb", "fcaddeeb", "eaabfee",
+                "dedecbdbbb", "ffcbeffdd", "bacfeb", "dcfbfda", "aaaabdcae", "dbfffafceec", "dde", "dbcfffe", "fdfe", "eada", "beaecbbbc", "bcfecaaec", "ddabeaaeed",
+                "eb", "fbcafcbcb", "db", "cbdfeecfaa", "cdffb", "dbeadebbace", "ccfedaee", "ecc", "fefcebd", "eccccfd", "fddccbfb", "dfd", "eaac", "afa", "ecdbfaff", "dd", "bcebfbedbff",
+                "cdcdaaabe", "bdbdbfc", "adefbfeff", "baef", "edbbbca", "dec", "adbecacdaec", "cedcbecd", "fffbdbeaedc", "bdacfbbaabe", "dbcecacefb", "abdda", "af", "dbdeaaa",
+                "ebdfebc", "bafcdac", "dfcbbbcdac", "cfefeaa", "bdaedeafa", "cecbbfcdef", "ccedfcaeda", "baacdceec", "cb"};
+
+        //String[] strArr = {"aacade","dfeedddbbc","fefc","abdcf","dfeceefd","bedfcf"};
+
+
+        int maxLength = 0;
+
+
         MaximumProductOfWordLength productOfWordLength = new MaximumProductOfWordLength();
-        int maxLength = productOfWordLength.maxProduct(strArr);
+
+        maxLength = productOfWordLength.maxProduct(strArr);
         System.out.println("Max. Product of Word Length : " + maxLength);
+
+        System.out.println('c' - 'a');
+        System.out.println('c');
     }
 
+    // Every test case is getting pass but last test cases gives time limit exceed error in leetcode console.
+    //Out of 168, 167 test cases is passed but last test case gives time limit exceed.
     public int maxProduct(String[] words) {
         int maxProductLength = 0;
         int nextWord = 0;
@@ -51,23 +72,22 @@ public class MaximumProductOfWordLength {
                 String temp = String.valueOf(words[k].charAt(m));
                 if (!words[nextWord].contains(temp)) {
                     position++;
-                    if(position == words[k].length()) {
+                    if (position == words[k].length()) {
                         maxProductLength = Math.max(maxProductLength, words[nextWord].length() * words[k].length());
+                        m = -1;
+                        position = 0;
                         if (nextWord >= wordLength - 1) {
                             break;
                         }
                         nextWord++;
-                        m = -1;
-                        position = 0;
                     }
-
                 } else {
+                    m = -1;
+                    position = 0;
                     if (nextWord >= wordLength - 1) {
                         break;
                     }
                     nextWord++;
-                    m = -1;
-                    position = 0;
                 }
             }
         }
