@@ -5,12 +5,9 @@
     C = 'o'
     output = [4,3,2,1,0,1,0,1,2,3]
  */
-package com.practice.java.arrays;
+package main.java.com.practice.java.arrays;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ShortestDistanceToChar {
     public static void main(String[] args) {
@@ -28,9 +25,35 @@ public class ShortestDistanceToChar {
         }
         sc.close();
         char targetChar = targetString.charAt(0);
-        distanceToChar.getShortestDistanceFromTargetChar(input, targetChar);
-        distanceToChar.getShortestDistanceFromTargetCharOptimize(input, targetChar);
+//        distanceToChar.getShortestDistanceFromTargetChar(input, targetChar);
+//        distanceToChar.getShortestDistanceFromTargetCharOptimize(input, targetChar);
+
+        int[] distances = distanceToChar.shortestToChar(input, targetChar);
+        System.out.println("Shortest distance : " + Arrays.toString(distances));
     }
+
+    public int[] shortestToChar(String s, char c) {
+        int length = s.length();
+        int[] result = new int[length];
+        int char_position = -length;
+
+        for(int t=0; t< length; t++) {
+            if(s.charAt(t) == c) {
+                char_position = t;
+            }
+            result[t] = t - char_position;
+        }
+
+        for(int t= length-1; t >=0; t--) {
+            if(s.charAt(t) == c) {
+                char_position = t;
+            }
+            result[t] = Math.min(result[t], Math.abs(t - char_position));
+        }
+
+        return result;
+    }
+
 
     Object getShortestDistanceFromTargetChar(String input, char targetChar) {
         List<Integer> listOfTargetCharsIndexes = new ArrayList<>();
