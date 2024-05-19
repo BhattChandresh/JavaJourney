@@ -1,0 +1,24 @@
+/**
+ *  Couertsy : From Scaler Academy.
+ */
+WHAT IS FACTORY DESIGN PATTERN?
+
+Factory design pattern is a creational design pattern that separates the logic of creating objects from the client code.
+The factory class in the factory design pattern is responsible for creating objects based on the request from the client.
+
+The factory design pattern is used in cases when there are multiple subclasses of a parent class or superclass.
+Using the input provided and the factory design pattern, we can return one of the subclasses of the superclass.
+
+In a factory design pattern, we define an interface or abstract class and the subclasses decide which object to instantiate.
+The factory design pattern is also known as Factory Method Pattern or Virtual Constructor.
+
+Factory design pattern delegates the responsibility of creating objects to a factory class.
+
+Pros
+- Factory design pattern provides great extensibility that lets us add new classes without changing the application.
+- Factory design pattern leverages loose coupling and eliminates hard binding the application-specific login in the code.
+- The factory method returns the Product interface. So, it can work for any concrete product implementation.
+
+Cons
+- Creation of all the concrete product instances are tightly coupled with the factory class that involves code modification when a new concrete product is introduced.
+
