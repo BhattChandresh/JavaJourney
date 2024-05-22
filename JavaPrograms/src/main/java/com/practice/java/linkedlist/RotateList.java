@@ -35,7 +35,7 @@ class RotatedLinkedList {
 
     public void appendNode(int value) {
         Node newNode = new Node(value);
-        if(length == 0) {
+        if (length == 0) {
             head = newNode;
             tail = newNode;
         } else {
@@ -52,7 +52,7 @@ class RotatedLinkedList {
 
     public void traverseList() {
         Node current = head;
-        while(current != null) {
+        while (current != null) {
             System.out.print(current.value + " --> ");
             current = current.next;
         }
@@ -61,9 +61,7 @@ class RotatedLinkedList {
 
     public RotatedLinkedList rotateRightBruteForce(Node head, int k) {
 
-        //traverseList();
-        for(int r=0 ; r < k; r++) {
-
+        for (int r = 0; r < k; r++) {
             Node current = this.head;
             Node newHead = tail;
             int index = 0;
@@ -77,13 +75,11 @@ class RotatedLinkedList {
                 index++;
                 if (index == length - 2) {
                     newTail = current;
-                    //System.out.println("New Tail Value : " + newTail.value);
                     newTail.next = null;
                     tail = newTail;
                 }
             }
             this.head = newHead;
-            //traverseList();
         }
         return this;
     }
@@ -91,7 +87,7 @@ class RotatedLinkedList {
 
     class Node {
         private Node next;
-        private int value;
+        private final int value;
 
         public Node(int value) {
             this.next = null;
