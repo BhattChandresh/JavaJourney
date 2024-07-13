@@ -18,3 +18,11 @@ Builder Design Pattern
 
 - Builder design pattern eliminates the telescopic consturctor problem where we create several overloaded constructors with fewer arguments.
 
+Pros - Builder Design Pattern
+- Builder design pattern allows us to create objects only with the required values and eliminates passing null for missing values.
+- Builder design pattern eliminates the telescopic constructors -> creating overloaded constructors with various combinations of attributes.
+- Builder design pattern allows us to create immutable objects. The object's attributes can't be modified once built.
+
+Cons - Builder Design Pattern
+- Builder design pattern introduces additional builder code for every class and increase maintainance overhead.
+
