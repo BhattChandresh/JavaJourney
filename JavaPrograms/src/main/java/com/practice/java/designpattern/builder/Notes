@@ -1,0 +1,20 @@
+/**
+ *  Couertsy : From Scaler Academy.
+ */
+Builder Design Pattern
+
+- Builder design pattern is a creational design pattern that allows us to construct an object step-by-step.
+- It uses a builder class that contains the construction steps to create an object.
+
+- Imagine that we want to build software that accepts customer's details and stores them in a database.
+- Customers are shown a form that accepts the below mandatory and optional fields.
+
+- Mandatory Fields : First Name, Last Name, Primary Email and Primary Mobile Number.
+- Optional Fields: Middle Name, Secondary Email, and Secondary Mobile Number.
+
+- Ideally, we create a Customer class with the mandatory and optional attributes listed above.
+- We create a constructor that accepts the above attributes. Since some attributes are optional, we may need to pass NULL values to those attributes we don't want to use.
+- The builder design pattern lets us create an object step by step without passing all the values to the constructor.
+
+- Builder design pattern eliminates the telescopic consturctor problem where we create several overloaded constructors with fewer arguments.
+
